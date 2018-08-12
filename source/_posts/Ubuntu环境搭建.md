@@ -195,3 +195,15 @@ tags: ubuntu
   hexo generate
   hexo deploy
   ```
+
+## 6. 持续更新
+
+- ubuntu  gnome-terminal 选中即复制
+
+  安装clipit
+
+  ```shell
+  sudo apt-get install clipit
+  ```
+
+  配置：打开clipit，在任务栏cliplt图标 右键-->prefrences，勾选 User Primary(Selection) 和 Synchronize clipboards即可。
