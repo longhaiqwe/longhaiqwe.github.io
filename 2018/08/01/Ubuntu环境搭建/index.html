@@ -16,7 +16,7 @@
 <meta property="og:description" content="以下是我每次安装 ubuntu 都会搭建的开发/娱乐环境，请读者参考。下面的内容比较精简，我主要是点出有这个东西，并且是我自己必备的东西，肯定也是蛮好用的，具体是什么，怎么用，网上已经有很多比我写的很好的轮子了，我就不重造了。另外如果你有好的推荐，也请告知我，我是工具/效率控，也想继续提升。  1. 编辑器 neovim（更快的vim ?） 1234567891011sudo apt-get in">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://oi435vw1u.bkt.clouddn.com/ubuntu.png">
-<meta property="og:updated_time" content="2018-08-01T15:27:27.442Z">
+<meta property="og:updated_time" content="2018-08-11T12:39:49.394Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu 环境搭建">
 <meta name="twitter:description" content="以下是我每次安装 ubuntu 都会搭建的开发/娱乐环境，请读者参考。下面的内容比较精简，我主要是点出有这个东西，并且是我自己必备的东西，肯定也是蛮好用的，具体是什么，怎么用，网上已经有很多比我写的很好的轮子了，我就不重造了。另外如果你有好的推荐，也请告知我，我是工具/效率控，也想继续提升。  1. 编辑器 neovim（更快的vim ?） 1234567891011sudo apt-get in">
@@ -154,11 +154,18 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install npm</span><br><span class="line">sudo npm install hexo-cli -g</span><br><span class="line">sudo npm install hexo -g</span><br><span class="line"></span><br><span class="line"># github 上创建名为 username.github.io 的空库（username为github账户）</span><br><span class="line">git clone https://github.com/longhaiqwe/longhaiqwe.github.io.git</span><br><span class="line"></span><br><span class="line">mkdir -p ~/blog/hexo</span><br><span class="line">cd hexo</span><br><span class="line">hexo init</span><br><span class="line">npm install hexo-generator-index –save </span><br><span class="line">npm install hexo-generator-index --save </span><br><span class="line">npm install hexo-generator-archive --save</span><br><span class="line">npm install hexo-generator-category --save</span><br><span class="line">npm install hexo-generator-tag  --save</span><br><span class="line">npm install hexo-server --save</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-deployer-heroku --save</span><br><span class="line">npm install hexo-deployer-rsync --save</span><br><span class="line">npm install hexo-deployer-openshift --save</span><br><span class="line">npm install hexo-deployer-rsync --save</span><br><span class="line">npm install hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-stylus</span><br><span class="line">npm install hexo-renderer-stylus --save</span><br><span class="line">npm install hexo-generator-feed </span><br><span class="line">npm install hexo-generator-feed  --save</span><br><span class="line">npm install hexo-generator-sitemap  --save</span><br><span class="line"></span><br><span class="line">## 或者可以使用如下一条命令解决：</span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line">## 并且好像上面那一条语句也可以不用执行～</span><br><span class="line"></span><br><span class="line">## Quick Start</span><br><span class="line">hexo new &quot;My New Post&quot;</span><br><span class="line">hexo server</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<h2 id="6-持续更新"><a href="#6-持续更新" class="headerlink" title="6. 持续更新"></a>6. 持续更新</h2><ul>
+<li><p>ubuntu  gnome-terminal 选中即复制</p>
+<p>安装clipit</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install clipit</span><br></pre></td></tr></table></figure>
+<p>配置：打开clipit，在任务栏cliplt图标 右键–&gt;prefrences，勾选 User Primary(Selection) 和 Synchronize clipboards即可。</p>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/01/Ubuntu环境搭建/" data-id="cjkbahqdk00006wlp2oosuhig" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/01/Ubuntu环境搭建/" data-id="cjkq7du4i0000mklp5x8q0obv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
