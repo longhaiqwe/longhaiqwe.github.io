@@ -1,7 +1,7 @@
 ---
 title: SpaceVim使用
 date: 2018-08-08 23:39:28
-tags:vim,SpaceVim
+tags: vim
 ---
 
 # SpaceVim简介
@@ -113,20 +113,20 @@ merged = 0
 
   ![](https://camo.githubusercontent.com/bc2bf1746e30c72d7ff5b79331231e8c388d068a/68747470733a2f2f7261772e6769746875622e636f6d2f4d617474657347726f656765722f76696d2d626f6f6b6d61726b732f6d61737465722f707265766965772e676966)
 
-  | Action                                        | Shortcut     | Command                       |
-  | --------------------------------------------- | ------------ | ----------------------------- |
-  | Add/remove bookmark at current line           | `mm`         | `:BookmarkToggle`             |
-  | Add/edit/remove annotation at current line    | `mi`         | `:BookmarkAnnotate <TEXT>`    |
-  | Jump to next bookmark in buffer               | `mn`         | `:BookmarkNext`               |
-  | Jump to previous bookmark in buffer           | `mp`         | `:BookmarkPrev`               |
-  | Show all bookmarks (toggle)                   | `ma`         | `:BookmarkShowAll`            |
-  | Clear bookmarks in current buffer only        | `mc`         | `:BookmarkClear`              |
-  | Clear bookmarks in all buffers                | `mx`         | `:BookmarkClearAll`           |
-  | Move up bookmark at current line              | `[count]mkk` | `:BookmarkMoveUp [<COUNT>]`   |
-  | Move down bookmark at current line            | `[count]mjj` | `:BookmarkMoveDown [<COUNT>]` |
-  | Move bookmark at current line to another line | `[count]mg`  | `:BookmarkMoveToLine <LINE>`  |
-  | Save all bookmarks to a file                  |              | `:BookmarkSave <FILE_PATH>`   |
-  | Load bookmarks from a file                    |              | `:BookmarkLoad <FILE_PATH>`   |
+| Action        | Shortcut     | Command                       |
+| ------------- | ------------ | ----------------------------- |
+| Add/remove bookmark at current line| `mm` | `:BookmarkToggle`|
+| Add/edit/remove annotation at current line| `mi`| `:BookmarkAnnotate <TEXT>`|
+| Jump to next bookmark in buffer               | `mn`         | `:BookmarkNext`               |
+| Jump to previous bookmark in buffer           | `mp`         | `:BookmarkPrev`               |
+| Show all bookmarks (toggle)                   | `ma`         | `:BookmarkShowAll`            |
+| Clear bookmarks in current buffer only        | `mc`         | `:BookmarkClear`              |
+| Clear bookmarks in all buffers                | `mx`         | `:BookmarkClearAll`           |
+| Move up bookmark at current line              | `[count]mkk` | `:BookmarkMoveUp [<COUNT>]`   |
+| Move down bookmark at current line            | `[count]mjj` | `:BookmarkMoveDown [<COUNT>]` |
+| Move bookmark at current line to another line | `[count]mg`  | `:BookmarkMoveToLine <LINE>`  |
+| Save all bookmarks to a file                  |              | `:BookmarkSave <FILE_PATH>`   |
+| Load bookmarks from a file                    |              | `:BookmarkLoad <FILE_PATH>`   |
 
 ## cscope
 
@@ -195,6 +195,45 @@ GNU GLOBAL 作用官网摘抄如下：
 | `SPC m g f` | jump to a file in tag database |
 | `SPC m g d` | find definitions               |
 | `SPC m g r` | find references                |
+
+### autocomplete
+
+> https://spacevim.org/layers/autocomplete/
+
+自动补全，写代码肯定是需要的。
+
+示例配置如下：
+
+```toml
+# Enable autocomplete layer
+[[layers]]
+name = 'autocomplete'
+auto-completion-return-key-behavior = "complete"
+auto-completion-tab-key-behavior = "smart"
+```
+
+配置说明：
+
+- `auto-completion-return-key-behavior` -- 回车键触发会触发如下动作：
+  - `complete`: 使用当前选项补全
+  - `smart`: 使用当前选项补全，并展开代码段或者参数
+  - `nil`: 行为与enter键默认行为一致，会产生回车键的效果（换行）
+- `auto-completion-tab-key-behavior` -- tab 键触发如下动作：
+  - `smart` -- 自动循环补全列表、展开代码块以及跳至下一个代码块的锚点（固定结构需要修改的地方）
+  - `cycle` -- 自动循环补全列表
+  - `complete` -- 插入当前选中的列表选项
+  - `nil` -- 该行为和 Tab 的默认行为一致
+
+### leaderf
+
+> 搜索文件、函数列表、命令历史等
+
+```toml
+[[layers]]
+  name = "leaderf"
+```
+
+最有用的应该就是模糊查找项目文件了：`ctrl-p` / `<Leader> f`[ <Leader> 在 SpaceVim 中默认没有修改， 为 \ 键]
 
 # FAQ
 
