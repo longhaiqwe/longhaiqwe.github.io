@@ -117,14 +117,12 @@
 <meta property="og:description" content="SpaceVim简介 SpaceVim 是一个社区驱动的模块化 Vim IDE，以模块(layers)的方式组织管理插件以及相关配置， 为不同的语言开发量身定制了相关的开发模块，该模块提供代码自动补全， 语法检查、格式化、调试、REPL 等特性。用户仅需载入相关语言的模块即可得到一个开箱即用的Vim-IDE。 灵感来自于 Emacs 界首选配置 Spacemacs。  入门指南安装在安装 Spac">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://camo.githubusercontent.com/bc2bf1746e30c72d7ff5b79331231e8c388d068a/68747470733a2f2f7261772e6769746875622e636f6d2f4d617474657347726f656765722f76696d2d626f6f6b6d61726b732f6d61737465722f707265766965772e676966">
-<meta property="og:updated_time" content="2018-08-26T02:08:54.986Z">
+<meta property="og:updated_time" content="2018-08-26T03:43:20.206Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpaceVim使用">
 <meta name="twitter:description" content="SpaceVim简介 SpaceVim 是一个社区驱动的模块化 Vim IDE，以模块(layers)的方式组织管理插件以及相关配置， 为不同的语言开发量身定制了相关的开发模块，该模块提供代码自动补全， 语法检查、格式化、调试、REPL 等特性。用户仅需载入相关语言的模块即可得到一个开箱即用的Vim-IDE。 灵感来自于 Emacs 界首选配置 Spacemacs。  入门指南安装在安装 Spac">
 <meta name="twitter:image" content="https://camo.githubusercontent.com/bc2bf1746e30c72d7ff5b79331231e8c388d068a/68747470733a2f2f7261772e6769746875622e636f6d2f4d617474657347726f656765722f76696d2d626f6f6b6d61726b732f6d61737465722f707265766965772e676966">
 
-
-  
 
 
   <link rel="alternate" href="/atom.xml" title="longhai's Blog" type="application/atom+xml" />
@@ -346,7 +344,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-26 10:08:54" itemprop="dateModified" datetime="2018-08-26T10:08:54+08:00">2018-08-26</time>
+                <time title="修改时间：2018-08-26 11:43:20" itemprop="dateModified" datetime="2018-08-26T11:43:20+08:00">2018-08-26</time>
               
             
           </span>
@@ -598,6 +596,33 @@
 </tr>
 </tbody>
 </table>
+<h3 id="autocomplete"><a href="#autocomplete" class="headerlink" title="autocomplete"></a>autocomplete</h3><blockquote>
+<p><a href="https://spacevim.org/layers/autocomplete/" target="_blank" rel="noopener">https://spacevim.org/layers/autocomplete/</a></p>
+</blockquote>
+<p>自动补全，写代码肯定是需要的。</p>
+<p>示例配置如下：</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Enable autocomplete layer</span></span><br><span class="line"><span class="section">[[layers]]</span></span><br><span class="line"><span class="attr">name</span> = <span class="string">'autocomplete'</span></span><br><span class="line"><span class="attr">auto-completion-return-key-behavior</span> = <span class="string">"complete"</span></span><br><span class="line"><span class="attr">auto-completion-tab-key-behavior</span> = <span class="string">"smart"</span></span><br></pre></td></tr></table></figure>
+<p>配置说明：</p>
+<ul>
+<li><code>auto-completion-return-key-behavior</code> – 回车键触发会触发如下动作：<ul>
+<li><code>complete</code>: 使用当前选项补全</li>
+<li><code>smart</code>: 使用当前选项补全，并展开代码段或者参数</li>
+<li><code>nil</code>: 行为与enter键默认行为一致，会产生回车键的效果（换行）</li>
+</ul>
+</li>
+<li><code>auto-completion-tab-key-behavior</code> – tab 键触发如下动作：<ul>
+<li><code>smart</code> – 自动循环补全列表、展开代码块以及跳至下一个代码块的锚点（固定结构需要修改的地方）</li>
+<li><code>cycle</code> – 自动循环补全列表</li>
+<li><code>complete</code> – 插入当前选中的列表选项</li>
+<li><code>nil</code> – 该行为和 Tab 的默认行为一致</li>
+</ul>
+</li>
+</ul>
+<h3 id="leaderf"><a href="#leaderf" class="headerlink" title="leaderf"></a>leaderf</h3><blockquote>
+<p>搜索文件、函数列表、命令历史等</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[[layers]]</span></span><br><span class="line">  name = "leaderf"</span><br></pre></td></tr></table></figure>
+<p>最有用的应该就是模糊查找项目文件了：<code>ctrl-p</code> / <code>&lt;Leader&gt; f</code>[ <leader> 在 SpaceVim 中默认没有修改， 为 \ 键]</leader></p>
 <h1 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h1><blockquote>
 <p>下文摘自官方文档</p>
 </blockquote>
@@ -659,6 +684,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/26/每天5分钟学MySQL内核1/" rel="prev" title="每天5分钟学MySQL内核(1) -- ACID简介">
+                每天5分钟学MySQL内核(1) -- ACID简介 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -728,7 +757,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -747,7 +776,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -804,7 +835,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SpaceVim简介"><span class="nav-number">1.</span> <span class="nav-text">SpaceVim简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#入门指南"><span class="nav-number">2.</span> <span class="nav-text">入门指南</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">2.2.</span> <span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模块（layers）-快捷键"><span class="nav-number">3.</span> <span class="nav-text">模块（layers）/快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模块使用"><span class="nav-number">3.1.</span> <span class="nav-text">模块使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tools"><span class="nav-number">3.2.</span> <span class="nav-text">tools</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cscope"><span class="nav-number">3.3.</span> <span class="nav-text">cscope</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tags"><span class="nav-number">3.4.</span> <span class="nav-text">tags</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FAQ"><span class="nav-number">4.</span> <span class="nav-text">FAQ</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么选择-Toml-作为默认配置语言？"><span class="nav-number">4.1.</span> <span class="nav-text">为什么选择 Toml 作为默认配置语言？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么-SpaceVim-颜色主题和官网不一致？"><span class="nav-number">4.2.</span> <span class="nav-text">为什么 SpaceVim 颜色主题和官网不一致？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何增加自定义快捷键？"><span class="nav-number">4.3.</span> <span class="nav-text">如何增加自定义快捷键？</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SpaceVim简介"><span class="nav-number">1.</span> <span class="nav-text">SpaceVim简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#入门指南"><span class="nav-number">2.</span> <span class="nav-text">入门指南</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">2.2.</span> <span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模块（layers）-快捷键"><span class="nav-number">3.</span> <span class="nav-text">模块（layers）/快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模块使用"><span class="nav-number">3.1.</span> <span class="nav-text">模块使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tools"><span class="nav-number">3.2.</span> <span class="nav-text">tools</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cscope"><span class="nav-number">3.3.</span> <span class="nav-text">cscope</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tags"><span class="nav-number">3.4.</span> <span class="nav-text">tags</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#autocomplete"><span class="nav-number">3.4.1.</span> <span class="nav-text">autocomplete</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#leaderf"><span class="nav-number">3.4.2.</span> <span class="nav-text">leaderf</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FAQ"><span class="nav-number">4.</span> <span class="nav-text">FAQ</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么选择-Toml-作为默认配置语言？"><span class="nav-number">4.1.</span> <span class="nav-text">为什么选择 Toml 作为默认配置语言？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么-SpaceVim-颜色主题和官网不一致？"><span class="nav-number">4.2.</span> <span class="nav-text">为什么 SpaceVim 颜色主题和官网不一致？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何增加自定义快捷键？"><span class="nav-number">4.3.</span> <span class="nav-text">如何增加自定义快捷键？</span></a></li></ol></li></ol></div>
             
 
           </div>
