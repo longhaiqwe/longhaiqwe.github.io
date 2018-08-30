@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-29T15:35:03.387Z</updated>
+  <updated>2018-08-30T23:08:52.598Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,22 +17,46 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>每天5分钟学MySQL内核(1) -- ACID简介</title>
-    <link href="http://yoursite.com/2018/08/26/%E6%AF%8F%E5%A4%A95%E5%88%86%E9%92%9F%E5%AD%A6MySQL%E5%86%85%E6%A0%B81/"/>
-    <id>http://yoursite.com/2018/08/26/每天5分钟学MySQL内核1/</id>
-    <published>2018-08-26T14:49:31.000Z</published>
-    <updated>2018-08-29T15:35:03.387Z</updated>
+    <title>每天5分钟学MySQL内核2 -- undo log与AD</title>
+    <link href="http://yoursite.com/2018/08/31/%E6%AF%8F%E5%A4%A95%E5%88%86%E9%92%9F%E5%AD%A6MySQL%E5%86%85%E6%A0%B82/"/>
+    <id>http://yoursite.com/2018/08/31/每天5分钟学MySQL内核2/</id>
+    <published>2018-08-30T22:54:10.000Z</published>
+    <updated>2018-08-30T23:08:52.598Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>Innodb -&gt; redo log</p></blockquote><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>首先，我们从数据库的 ACID 说起。</p><ul><li><p>原子性(Atomicity)</p><p>一个事务（transaction）中的所有操作，要么全部完成，要么全部不完成，不会结束在中间某个环节。</p></li><li><p>一致性(Consistency)</p><p>一致性是指数据处于一种语义上的有意义且正确的状态。</p><p>一致性是对数据可见性的约束，保证在一个事务中的多次操作的数据中间状态对其他事务不可见的。</p><p>因为这些中间状态，是一个过渡状态，与事务的开始状态和事务的结束状态是不一致的。</p></li><li><p>隔离性(Isolation)</p><p>数据库允许多个并发事务同时对其数据进行读写和修改的能力，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。</p></li><li><p>持久性(Durability)</p><p>指的是只要事务成功结束，它对数据库所做的更新就必须永久保存下来。</p><p>即使发生系统崩溃，重新启动数据库系统后，数据库还能恢复到事务成功结束时的状态。</p></li></ul><p><strong>特性之间的关联</strong></p><ul><li>原子性关注状态，要么全部成功，要么全部失败，不存在部分成功的状态。</li><li>在未提交读的隔离级别下，会造成脏读，这就是因为一个事务读到了另一个事务操作内部的数据。ACID中是的一致性描述的是一个最理想的事务应该怎样的，是一个强一致性状态，如果要做到这点，需要使用排它锁把事务排成一队，即 Serializable 的隔离级别，这样性能就大大降低了。现实是骨感的，所以使用隔离性的不同隔离级别来破坏一致性，以获取更好的性能。</li><li>最终一致 ~= 读未提交</li></ul><blockquote><p>事务可以不同程度的一致性：</p><ul><li>强一致性：读操作可以立即读到提交的更新操作。</li><li>弱一致性：提交的更新操作，不一定立即会被读操作读到，此种情况会存在一个不一致窗口，指的是读操作可以读到最新值的一段时间。</li><li>最终一致性：是弱一致性的特例。事务更新一份数据，最终一致性保证在没有其他事务更新同样的值的话，最终所有的事务都会读到之前事务更新的最新值。如果没有错误发生，不一致窗口的大小依赖于：通信延迟，系统负载等。     </li></ul><p>其他一致性变体还有：</p><ul><li>单调一致性：如果一个进程已经读到一个值，那么后续不会读到更早的值。</li><li>会话一致性：保证客户端和服务器交互的会话过程中，读操作可以读到更新操作后的最新值。</li></ul></blockquote><p><a href="https://zh.wikipedia.org/zh-hans/ACID" target="_blank" rel="noopener">数据库ACID-维基</a></p><p><a href="http://geyifan.cn/2016/07/17/talk-about-transaction/" target="_blank" rel="noopener">一致性理解-博客</a></p><p><a href="https://www.zhihu.com/question/31346392" target="_blank" rel="noopener">一致性理解-知乎</a></p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>本文采用创作共用署名2.5中国大陆版许可证（Creative Commons Attribution 2.5 China Mainland License）授权。</p></blockquote><p><a href="https://blog.csdn.net/qiuyepiaoling/article/details/7838951" target="_blank" rel="noopener">[1] InnoDB存储引擎Log</a></p><h2 id="原子性与-undo-log"><a href="#原子性与-undo-log" class="headerlink" title="原子性与 undo log"></a>原子性与 undo log</h2><p>回顾事务的原子性：</p><blockquote><p> 事务中的所有操作，要么全部完成，要么不做任何操作。如果在执行的过程中出现了错误，要回滚（rollback）到事务开始前的状态，就像这个事务从来没有执行过。</p></blockquote><p>在 MySQL 中，使用 undo log 来实现事务的原子性（undo log 还用于实现多版本并发控制[ MVCC ]）。</p><h3 id="undo-简要原理"><a href="#undo-简要原理" class="headerlink" title="undo 简要原理"></a>undo 简要原理</h3><p>为了满足原子性，在操作任何数据之前，首先将数据备份到一个地方（即 undo log），然后进行数据的修改。如果出现了错误或者用户执行了 rollback 语句，数据库可以利用 undo log 中的备份数据恢复到事务开始之前的状态。</p><h2 id="一致性与-undo-log"><a href="#一致性与-undo-log" class="headerlink" title="一致性与 undo log"></a>一致性与 undo log</h2><p>undo log 可以用来辅助完成事务的一致性。</p><blockquote><p><strong>一致性：</strong>事务一旦完成，该事务对数据库所做的所有修改都会持久的保存到数据库中。为了保证持久性，数据库   系统会将修改后的数据完全的记录到持久的存储上。 </p></blockquote><p><strong>用 undo Log 实现原子性和持久化的事务的简化过程</strong></p><p>假设有A、B两个数据，值分别为1，2。</p><p><img src="http://oi435vw1u.bkt.clouddn.com/undo%E4%BF%9D%E8%AF%81%E5%8E%9F%E5%AD%90%E6%80%A7%E4%B8%8E%E6%8C%81%E4%B9%85%E6%80%A7%E7%A4%BA%E4%BE%8B.jpg" alt="undo保证原子性与持久性示例"></p><p>这里有一个隐含的前提条件：数据都是先读到内存中，然后修改内存中的数据，最后将数据写回磁盘。</p><p>之所以能同时保证原子性和持久化，是因为以下特点:</p><p>A. 更新数据前记录 undo log。</p><p>B. 为了保证持久性，必须将数据在事务提交前写到磁盘。只要事务成功提交，数据必然已经持久化。</p><p>C. Undo log 必须先于数据持久化到磁盘。如果在 G, H 之间系统崩溃，undo log 是完整的，可以用来回滚事务。</p><p>D. 如果在 A-F 之间系统崩溃，因为数据没有持久化到磁盘，所以磁盘上的数据还是保持在事务开始前的状态。</p><p><strong>缺陷：</strong> 每个事务提交前将数据和 undo Log 写入磁盘，这样会导致大量的磁盘 IO，因此性能很低。如果能够将数据缓存一段时间，就能减少 IO 提高性能，但是这样就会丧失事务的持久性。因此引入了另外一种机制来实现持久化，即 Redo Log。</p>]]></content>
     
     <summary type="html">
     
       
       
         &lt;blockquote&gt;
-&lt;p&gt;Innodb -&amp;gt; redo log&lt;/p&gt;
+&lt;p&gt;本文采用创作共用署名2.5中国大陆版许可证（Creative Commons Attribution 2.5 China Mainland License）授权。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;首先，我们从数据库的 ACI
+&lt;p&gt;&lt;a href=&quot;https://blog
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>每天5分钟学MySQL内核(1) -- ACID简介</title>
+    <link href="http://yoursite.com/2018/08/26/%E6%AF%8F%E5%A4%A95%E5%88%86%E9%92%9F%E5%AD%A6MySQL%E5%86%85%E6%A0%B81/"/>
+    <id>http://yoursite.com/2018/08/26/每天5分钟学MySQL内核1/</id>
+    <published>2018-08-26T14:49:31.000Z</published>
+    <updated>2018-08-30T23:04:33.110Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>本文采用创作共用署名2.5中国大陆版许可证（Creative Commons Attribution 2.5 China Mainland License）授权。</p></blockquote><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>首先，我们从数据库的 ACID 说起。</p><ul><li><p>原子性(Atomicity)</p><p>一个事务（transaction）中的所有操作，要么全部完成，要么全部不完成，不会结束在中间某个环节。</p></li><li><p>一致性(Consistency)</p><p>一致性是指数据处于一种语义上的有意义且正确的状态。</p><p>一致性是对数据可见性的约束，保证在一个事务中的多次操作的数据中间状态对其他事务不可见的。</p><p>因为这些中间状态，是一个过渡状态，与事务的开始状态和事务的结束状态是不一致的。</p></li><li><p>隔离性(Isolation)</p><p>数据库允许多个并发事务同时对其数据进行读写和修改的能力，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。</p></li><li><p>持久性(Durability)</p><p>指的是只要事务成功结束，它对数据库所做的更新就必须永久保存下来。</p><p>即使发生系统崩溃，重新启动数据库系统后，数据库还能恢复到事务成功结束时的状态。</p></li></ul><p><strong>特性之间的关联</strong></p><ul><li>原子性关注状态，要么全部成功，要么全部失败，不存在部分成功的状态。</li><li>在未提交读的隔离级别下，会造成脏读，这就是因为一个事务读到了另一个事务操作内部的数据。ACID中是的一致性描述的是一个最理想的事务应该怎样的，是一个强一致性状态，如果要做到这点，需要使用排它锁把事务排成一队，即 Serializable 的隔离级别，这样性能就大大降低了。现实是骨感的，所以使用隔离性的不同隔离级别来破坏一致性，以获取更好的性能。</li><li>最终一致 ~= 读未提交</li></ul><blockquote><p>事务可以不同程度的一致性：</p><ul><li>强一致性：读操作可以立即读到提交的更新操作。</li><li>弱一致性：提交的更新操作，不一定立即会被读操作读到，此种情况会存在一个不一致窗口，指的是读操作可以读到最新值的一段时间。</li><li>最终一致性：是弱一致性的特例。事务更新一份数据，最终一致性保证在没有其他事务更新同样的值的话，最终所有的事务都会读到之前事务更新的最新值。如果没有错误发生，不一致窗口的大小依赖于：通信延迟，系统负载等。     </li></ul><p>其他一致性变体还有：</p><ul><li>单调一致性：如果一个进程已经读到一个值，那么后续不会读到更早的值。</li><li>会话一致性：保证客户端和服务器交互的会话过程中，读操作可以读到更新操作后的最新值。</li></ul></blockquote><p><a href="https://zh.wikipedia.org/zh-hans/ACID" target="_blank" rel="noopener">数据库ACID-维基</a></p><p><a href="http://geyifan.cn/2016/07/17/talk-about-transaction/" target="_blank" rel="noopener">一致性理解-博客</a></p><p><a href="https://www.zhihu.com/question/31346392" target="_blank" rel="noopener">一致性理解-知乎</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;本文采用创作共用署名2.5中国大陆版许可证（Creative Commons Attribution 2.5 China Mainland License）授权。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言
       
     
     </summary>
