@@ -1,7 +1,7 @@
 ---
 title: 每天5分钟学MySQL内核2 -- undo log与AD
 date: 2018-08-31 06:54:10
-tags: MySQL
+tags: MySQL内核
 ---
 
 > 本文采用创作共用署名2.5中国大陆版许可证（Creative Commons Attribution 2.5 China Mainland License）授权。
