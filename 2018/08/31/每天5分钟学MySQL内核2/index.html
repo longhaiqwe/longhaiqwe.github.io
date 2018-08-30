@@ -109,17 +109,17 @@
 
 
   <meta name="description" content="本文采用创作共用署名2.5中国大陆版许可证（Creative Commons Attribution 2.5 China Mainland License）授权。  [1] InnoDB存储引擎Log 原子性与 undo log回顾事务的原子性：   事务中的所有操作，要么全部完成，要么不做任何操作。如果在执行的过程中出现了错误，要回滚（rollback）到事务开始前的状态，就像这个事务从来没有">
-<meta name="keywords" content="MySQL">
+<meta name="keywords" content="MySQL内核">
 <meta property="og:type" content="article">
-<meta property="og:title" content="每天5分钟学MySQL内核2 -- undo log与AD">
+<meta property="og:title" content="每天5分钟学MySQL内核(2) -- undo log与AD">
 <meta property="og:url" content="http://yoursite.com/2018/08/31/每天5分钟学MySQL内核2/index.html">
 <meta property="og:site_name" content="longhai&#39;s Blog">
 <meta property="og:description" content="本文采用创作共用署名2.5中国大陆版许可证（Creative Commons Attribution 2.5 China Mainland License）授权。  [1] InnoDB存储引擎Log 原子性与 undo log回顾事务的原子性：   事务中的所有操作，要么全部完成，要么不做任何操作。如果在执行的过程中出现了错误，要回滚（rollback）到事务开始前的状态，就像这个事务从来没有">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://oi435vw1u.bkt.clouddn.com/undo%E4%BF%9D%E8%AF%81%E5%8E%9F%E5%AD%90%E6%80%A7%E4%B8%8E%E6%8C%81%E4%B9%85%E6%80%A7%E7%A4%BA%E4%BE%8B.jpg">
-<meta property="og:updated_time" content="2018-08-30T23:09:41.086Z">
+<meta property="og:updated_time" content="2018-08-30T23:26:00.294Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="每天5分钟学MySQL内核2 -- undo log与AD">
+<meta name="twitter:title" content="每天5分钟学MySQL内核(2) -- undo log与AD">
 <meta name="twitter:description" content="本文采用创作共用署名2.5中国大陆版许可证（Creative Commons Attribution 2.5 China Mainland License）授权。  [1] InnoDB存储引擎Log 原子性与 undo log回顾事务的原子性：   事务中的所有操作，要么全部完成，要么不做任何操作。如果在执行的过程中出现了错误，要回滚（rollback）到事务开始前的状态，就像这个事务从来没有">
 <meta name="twitter:image" content="http://oi435vw1u.bkt.clouddn.com/undo%E4%BF%9D%E8%AF%81%E5%8E%9F%E5%AD%90%E6%80%A7%E4%B8%8E%E6%8C%81%E4%B9%85%E6%80%A7%E7%A4%BA%E4%BE%8B.jpg">
 
@@ -140,7 +140,7 @@
   };
 </script>
 
-  <title>每天5分钟学MySQL内核2 -- undo log与AD | longhai's Blog</title>
+  <title>每天5分钟学MySQL内核(2) -- undo log与AD | longhai's Blog</title>
   
 
 
@@ -310,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">每天5分钟学MySQL内核2 -- undo log与AD
+          <h1 class="post-title" itemprop="name headline">每天5分钟学MySQL内核(2) -- undo log与AD
               
             
           </h1>
@@ -335,7 +335,7 @@
                 
               
 
-              <time title="创建时间：2018-08-31 06:54:10 / 修改时间：07:09:41" itemprop="dateCreated datePublished" datetime="2018-08-31T06:54:10+08:00">2018-08-31</time>
+              <time title="创建时间：2018-08-31 06:54:10 / 修改时间：07:26:00" itemprop="dateCreated datePublished" datetime="2018-08-31T06:54:10+08:00">2018-08-31</time>
             
 
             
@@ -417,7 +417,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+            <a href="/tags/MySQL内核/" rel="tag"># MySQL内核</a>
           
         </div>
       
@@ -520,7 +520,7 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  
+                  <a href="/tags/index.html">
                     
                     
                       
@@ -529,11 +529,9 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">标签</span>
-                  
+                  </a>
                 </div>
               
             </nav>
