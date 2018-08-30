@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-30T23:08:52.598Z</updated>
+  <updated>2018-08-30T23:09:41.086Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2018/08/31/%E6%AF%8F%E5%A4%A95%E5%88%86%E9%92%9F%E5%AD%A6MySQL%E5%86%85%E6%A0%B82/"/>
     <id>http://yoursite.com/2018/08/31/每天5分钟学MySQL内核2/</id>
     <published>2018-08-30T22:54:10.000Z</published>
-    <updated>2018-08-30T23:08:52.598Z</updated>
+    <updated>2018-08-30T23:09:41.086Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>本文采用创作共用署名2.5中国大陆版许可证（Creative Commons Attribution 2.5 China Mainland License）授权。</p></blockquote><p><a href="https://blog.csdn.net/qiuyepiaoling/article/details/7838951" target="_blank" rel="noopener">[1] InnoDB存储引擎Log</a></p><h2 id="原子性与-undo-log"><a href="#原子性与-undo-log" class="headerlink" title="原子性与 undo log"></a>原子性与 undo log</h2><p>回顾事务的原子性：</p><blockquote><p> 事务中的所有操作，要么全部完成，要么不做任何操作。如果在执行的过程中出现了错误，要回滚（rollback）到事务开始前的状态，就像这个事务从来没有执行过。</p></blockquote><p>在 MySQL 中，使用 undo log 来实现事务的原子性（undo log 还用于实现多版本并发控制[ MVCC ]）。</p><h3 id="undo-简要原理"><a href="#undo-简要原理" class="headerlink" title="undo 简要原理"></a>undo 简要原理</h3><p>为了满足原子性，在操作任何数据之前，首先将数据备份到一个地方（即 undo log），然后进行数据的修改。如果出现了错误或者用户执行了 rollback 语句，数据库可以利用 undo log 中的备份数据恢复到事务开始之前的状态。</p><h2 id="一致性与-undo-log"><a href="#一致性与-undo-log" class="headerlink" title="一致性与 undo log"></a>一致性与 undo log</h2><p>undo log 可以用来辅助完成事务的一致性。</p><blockquote><p><strong>一致性：</strong>事务一旦完成，该事务对数据库所做的所有修改都会持久的保存到数据库中。为了保证持久性，数据库   系统会将修改后的数据完全的记录到持久的存储上。 </p></blockquote><p><strong>用 undo Log 实现原子性和持久化的事务的简化过程</strong></p><p>假设有A、B两个数据，值分别为1，2。</p><p><img src="http://oi435vw1u.bkt.clouddn.com/undo%E4%BF%9D%E8%AF%81%E5%8E%9F%E5%AD%90%E6%80%A7%E4%B8%8E%E6%8C%81%E4%B9%85%E6%80%A7%E7%A4%BA%E4%BE%8B.jpg" alt="undo保证原子性与持久性示例"></p><p>这里有一个隐含的前提条件：数据都是先读到内存中，然后修改内存中的数据，最后将数据写回磁盘。</p><p>之所以能同时保证原子性和持久化，是因为以下特点:</p><p>A. 更新数据前记录 undo log。</p><p>B. 为了保证持久性，必须将数据在事务提交前写到磁盘。只要事务成功提交，数据必然已经持久化。</p><p>C. Undo log 必须先于数据持久化到磁盘。如果在 G, H 之间系统崩溃，undo log 是完整的，可以用来回滚事务。</p><p>D. 如果在 A-F 之间系统崩溃，因为数据没有持久化到磁盘，所以磁盘上的数据还是保持在事务开始前的状态。</p><p><strong>缺陷：</strong> 每个事务提交前将数据和 undo Log 写入磁盘，这样会导致大量的磁盘 IO，因此性能很低。如果能够将数据缓存一段时间，就能减少 IO 提高性能，但是这样就会丧失事务的持久性。因此引入了另外一种机制来实现持久化，即 Redo Log。</p>]]></content>
     
@@ -37,6 +37,8 @@
     
     </summary>
     
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
     
   </entry>
   
