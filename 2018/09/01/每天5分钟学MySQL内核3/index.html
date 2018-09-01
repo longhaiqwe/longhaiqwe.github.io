@@ -108,20 +108,20 @@
 
 
 
-  <meta name="description" content="本文采用创作共用署名2.5中国大陆版许可证（Creative Commons Attribution 2.5 China Mainland License）授权。  [1] InnoDB存储引擎Log 原子性与 undo log回顾事务的原子性：   事务中的所有操作，要么全部完成，要么不做任何操作。如果在执行的过程中出现了错误，要回滚（rollback）到事务开始前的状态，就像这个事务从来没有">
+  <meta name="description" content="本文采用创作共用署名2.5中国大陆版许可证（Creative Commons Attribution 2.5 China Mainland License）授权。  [1] MySQL · 源码分析 · Innodb 引擎Redo日志存储格式简介 [2] InnoDB存储引擎Log 1. 概念任何对 Innodb 表的变动, redo log 都要记录对数据的修改，redo 日志就是记录要修改后">
 <meta name="keywords" content="MySQL内核">
 <meta property="og:type" content="article">
-<meta property="og:title" content="每天5分钟学MySQL内核(2) -- undo log与AD">
-<meta property="og:url" content="http://yoursite.com/2018/08/31/每天5分钟学MySQL内核2/index.html">
+<meta property="og:title" content="每天5分钟学MySQL内核(3) -- MySQL redo log 简介">
+<meta property="og:url" content="http://yoursite.com/2018/09/01/每天5分钟学MySQL内核3/index.html">
 <meta property="og:site_name" content="longhai&#39;s Blog">
-<meta property="og:description" content="本文采用创作共用署名2.5中国大陆版许可证（Creative Commons Attribution 2.5 China Mainland License）授权。  [1] InnoDB存储引擎Log 原子性与 undo log回顾事务的原子性：   事务中的所有操作，要么全部完成，要么不做任何操作。如果在执行的过程中出现了错误，要回滚（rollback）到事务开始前的状态，就像这个事务从来没有">
+<meta property="og:description" content="本文采用创作共用署名2.5中国大陆版许可证（Creative Commons Attribution 2.5 China Mainland License）授权。  [1] MySQL · 源码分析 · Innodb 引擎Redo日志存储格式简介 [2] InnoDB存储引擎Log 1. 概念任何对 Innodb 表的变动, redo log 都要记录对数据的修改，redo 日志就是记录要修改后">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://oi435vw1u.bkt.clouddn.com/undo%E4%BF%9D%E8%AF%81%E5%8E%9F%E5%AD%90%E6%80%A7%E4%B8%8E%E6%8C%81%E4%B9%85%E6%80%A7%E7%A4%BA%E4%BE%8B.jpg">
-<meta property="og:updated_time" content="2018-09-01T08:55:54.715Z">
+<meta property="og:image" content="http://oi435vw1u.bkt.clouddn.com/undo+redo%E4%BF%9D%E8%AF%81%E5%8E%9F%E5%AD%90%E6%80%A7%E4%B8%8E%E6%8C%81%E4%B9%85%E6%80%A7%E7%A4%BA%E4%BE%8B.jpg">
+<meta property="og:updated_time" content="2018-09-01T08:56:01.180Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="每天5分钟学MySQL内核(2) -- undo log与AD">
-<meta name="twitter:description" content="本文采用创作共用署名2.5中国大陆版许可证（Creative Commons Attribution 2.5 China Mainland License）授权。  [1] InnoDB存储引擎Log 原子性与 undo log回顾事务的原子性：   事务中的所有操作，要么全部完成，要么不做任何操作。如果在执行的过程中出现了错误，要回滚（rollback）到事务开始前的状态，就像这个事务从来没有">
-<meta name="twitter:image" content="http://oi435vw1u.bkt.clouddn.com/undo%E4%BF%9D%E8%AF%81%E5%8E%9F%E5%AD%90%E6%80%A7%E4%B8%8E%E6%8C%81%E4%B9%85%E6%80%A7%E7%A4%BA%E4%BE%8B.jpg">
+<meta name="twitter:title" content="每天5分钟学MySQL内核(3) -- MySQL redo log 简介">
+<meta name="twitter:description" content="本文采用创作共用署名2.5中国大陆版许可证（Creative Commons Attribution 2.5 China Mainland License）授权。  [1] MySQL · 源码分析 · Innodb 引擎Redo日志存储格式简介 [2] InnoDB存储引擎Log 1. 概念任何对 Innodb 表的变动, redo log 都要记录对数据的修改，redo 日志就是记录要修改后">
+<meta name="twitter:image" content="http://oi435vw1u.bkt.clouddn.com/undo+redo%E4%BF%9D%E8%AF%81%E5%8E%9F%E5%AD%90%E6%80%A7%E4%B8%8E%E6%8C%81%E4%B9%85%E6%80%A7%E7%A4%BA%E4%BE%8B.jpg">
 
 
 
@@ -130,7 +130,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/31/每天5分钟学MySQL内核2/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/01/每天5分钟学MySQL内核3/"/>
 
 
 
@@ -140,7 +140,7 @@
   };
 </script>
 
-  <title>每天5分钟学MySQL内核(2) -- undo log与AD | longhai's Blog</title>
+  <title>每天5分钟学MySQL内核(3) -- MySQL redo log 简介 | longhai's Blog</title>
   
 
 
@@ -293,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/31/每天5分钟学MySQL内核2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/01/每天5分钟学MySQL内核3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="龙海">
@@ -310,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">每天5分钟学MySQL内核(2) -- undo log与AD
+          <h1 class="post-title" itemprop="name headline">每天5分钟学MySQL内核(3) -- MySQL redo log 简介
               
             
           </h1>
@@ -335,24 +335,12 @@
                 
               
 
-              <time title="创建时间：2018-08-31 06:54:10" itemprop="dateCreated datePublished" datetime="2018-08-31T06:54:10+08:00">2018-08-31</time>
+              <time title="创建时间：2018-09-01 16:49:53 / 修改时间：16:56:01" itemprop="dateCreated datePublished" datetime="2018-09-01T16:49:53+08:00">2018-09-01</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-09-01 16:55:54" itemprop="dateModified" datetime="2018-09-01T16:55:54+08:00">2018-09-01</time>
               
             
           </span>
@@ -388,27 +376,44 @@
         <blockquote>
 <p>本文采用创作共用署名2.5中国大陆版许可证（Creative Commons Attribution 2.5 China Mainland License）授权。</p>
 </blockquote>
-<p><a href="https://blog.csdn.net/qiuyepiaoling/article/details/7838951" target="_blank" rel="noopener">[1] InnoDB存储引擎Log</a></p>
-<h2 id="原子性与-undo-log"><a href="#原子性与-undo-log" class="headerlink" title="原子性与 undo log"></a>原子性与 undo log</h2><p>回顾事务的原子性：</p>
-<blockquote>
-<p> 事务中的所有操作，要么全部完成，要么不做任何操作。如果在执行的过程中出现了错误，要回滚（rollback）到事务开始前的状态，就像这个事务从来没有执行过。</p>
+<p><a href="http://mysql.taobao.org/monthly/2017/09/07/" target="_blank" rel="noopener">[1] MySQL · 源码分析 · Innodb 引擎Redo日志存储格式简介</a></p>
+<p><a href="https://blog.csdn.net/qiuyepiaoling/article/details/7838951" target="_blank" rel="noopener">[2] InnoDB存储引擎Log</a></p>
+<h2 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h2><p>任何对 Innodb 表的变动, redo log 都要记录对数据的修改，redo 日志就是记录要修改后的数据。redo 日志是保证事务一致性非常重要的手段，同时也可以使在 bufferpool 修改的数据不需要在事务提交时立刻写到磁盘上减少数据的 IO 从而提高整个系统的性能。这样的技术推迟了 bufferpool 页面的刷新，从而提升了数据库的吞吐，有效的降低了访问时延。带来的问题是额外的写 redo log 操作的开销。而为了保证数据的一致性，都要求 WAL（Write Ahead Logging）。而 redo 日志也不是直接写入文件，而是先写入 redo log buffer，而是批量写入日志。当需要将日志刷新到磁盘时（如事务提交），将许多日志一起写入磁盘。</p>
+<h2 id="2-原理"><a href="#2-原理" class="headerlink" title="2. 原理"></a>2. 原理</h2><ul>
+<li>和 undo log 相反，redo log 记录的是<strong>新数据</strong>的备份。</li>
+<li>在事务提交前，只要将 redo log 持久化即可，不需要将数据持久化。</li>
+<li>当系统崩溃时，虽然数据没有持久化，但是 redo log 已经持久化。</li>
+<li>系统可以根据 redo log 的内容，将所有数据恢复到最新的状态。 </li>
+</ul>
+<h2 id="3-案例"><a href="#3-案例" class="headerlink" title="3. 案例"></a>3. 案例</h2><p><strong>undo + redo 事务的简化过程</strong></p>
+<p><img src="http://oi435vw1u.bkt.clouddn.com/undo+redo%E4%BF%9D%E8%AF%81%E5%8E%9F%E5%AD%90%E6%80%A7%E4%B8%8E%E6%8C%81%E4%B9%85%E6%80%A7%E7%A4%BA%E4%BE%8B.jpg" alt="undo+redo保证原子性与持久性示例"></p>
+<ul>
+<li>为了保证持久性，必须在事务提交前将 redo log 持久化</li>
+<li>数据不需要在事务提交前写入磁盘，而是缓存在内存中</li>
+<li>redo log 保证事务的持久性</li>
+<li>undo log 保证事务的原子性</li>
+<li>有一个隐含的特点，数据必须要晚于 redo log 写入持久存储</li>
+</ul>
+<h2 id="4-性能"><a href="#4-性能" class="headerlink" title="4. 性能"></a>4. 性能</h2><blockquote>
+<p>undo + redo 的设计主要考虑的是提升 IO 性能。</p>
+<p>虽说通过缓存数据，减少了写数据的 IO，但是却引入了新的IO，即写 redo log 的 IO。</p>
+<p>如果 redo log 的 IO 性能不好，就不能起到提高性能的目的。</p>
 </blockquote>
-<p>在 MySQL 中，使用 undo log 来实现事务的原子性（undo log 还用于实现多版本并发控制[ MVCC ]）。</p>
-<h3 id="undo-简要原理"><a href="#undo-简要原理" class="headerlink" title="undo 简要原理"></a>undo 简要原理</h3><p>为了满足原子性，在操作任何数据之前，首先将数据备份到一个地方（即 undo log），然后进行数据的修改。如果出现了错误或者用户执行了 rollback 语句，数据库可以利用 undo log 中的备份数据恢复到事务开始之前的状态。</p>
-<h2 id="一致性与-undo-log"><a href="#一致性与-undo-log" class="headerlink" title="一致性与 undo log"></a>一致性与 undo log</h2><p>undo log 可以用来辅助完成事务的一致性。</p>
-<blockquote>
-<p><strong>一致性：</strong>事务一旦完成，该事务对数据库所做的所有修改都会持久的保存到数据库中。为了保证持久性，数据库   系统会将修改后的数据完全的记录到持久的存储上。 </p>
-</blockquote>
-<p><strong>用 undo Log 实现原子性和持久化的事务的简化过程</strong></p>
-<p>假设有A、B两个数据，值分别为1，2。</p>
-<p><img src="http://oi435vw1u.bkt.clouddn.com/undo%E4%BF%9D%E8%AF%81%E5%8E%9F%E5%AD%90%E6%80%A7%E4%B8%8E%E6%8C%81%E4%B9%85%E6%80%A7%E7%A4%BA%E4%BE%8B.jpg" alt="undo保证原子性与持久性示例"></p>
-<p>这里有一个隐含的前提条件：数据都是先读到内存中，然后修改内存中的数据，最后将数据写回磁盘。</p>
-<p>之所以能同时保证原子性和持久化，是因为以下特点:</p>
-<p>A. 更新数据前记录 undo log。</p>
-<p>B. 为了保证持久性，必须将数据在事务提交前写到磁盘。只要事务成功提交，数据必然已经持久化。</p>
-<p>C. Undo log 必须先于数据持久化到磁盘。如果在 G, H 之间系统崩溃，undo log 是完整的，可以用来回滚事务。</p>
-<p>D. 如果在 A-F 之间系统崩溃，因为数据没有持久化到磁盘，所以磁盘上的数据还是保持在事务开始前的状态。</p>
-<p><strong>缺陷：</strong> 每个事务提交前将数据和 undo Log 写入磁盘，这样会导致大量的磁盘 IO，因此性能很低。如果能够将数据缓存一段时间，就能减少 IO 提高性能，但是这样就会丧失事务的持久性。因此引入了另外一种机制来实现持久化，即 Redo Log。</p>
+<p>为了保证 redo log 能够有比较好的 IO 性能，InnoDB 的 redo log 的设计有以下几个特点：</p>
+<ul>
+<li>尽量持 redo log 存储在一段连续的空间上。因此在系统第一次启动时就会将日志文件的空间完全分配，以顺序追加的方式记录 redo log，通过顺序 IO 来改善性能。</li>
+<li>批量写入日志。日志并不是直接写入文件，而是先写入 redo log buffer。当需要将日志刷新到磁盘时 （如事务提交），将许多日志一起写入磁盘。</li>
+<li>并发的事务共享 redo log 的存储空间，它们的 redo log 按语句的执行顺序，依次交替的记录在一起，以减少日志占用的空间。例如，redo log 中的记录内容可能是这样的：<ul>
+<li>记录1:  &lt;trx1, insert …&gt;</li>
+<li>记录2:  &lt;trx2, update …&gt;</li>
+<li>记录3:  &lt;trx1, delete …&gt;</li>
+<li>记录4:  &lt;trx3, update …&gt;</li>
+<li>记录5:  &lt;trx2, insert …&gt;</li>
+</ul>
+</li>
+<li>基于上一点，当一个事务将 redo log 写入磁盘时，也会将其他未提交的事务的日志写入磁盘。</li>
+<li>redo log 上只进行顺序追加的操作，当一个事务需要回滚时，它的 redo log 记录也不会从 redo log 中删除掉。</li>
+</ul>
 
       
     </div>
@@ -442,8 +447,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/26/每天5分钟学MySQL内核1/" rel="next" title="每天5分钟学MySQL内核(1) -- ACID简介">
-                <i class="fa fa-chevron-left"></i> 每天5分钟学MySQL内核(1) -- ACID简介
+              <a href="/2018/08/31/每天5分钟学MySQL内核2/" rel="next" title="每天5分钟学MySQL内核(2) -- undo log与AD">
+                <i class="fa fa-chevron-left"></i> 每天5分钟学MySQL内核(2) -- undo log与AD
               </a>
             
           </div>
@@ -451,10 +456,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/01/每天5分钟学MySQL内核3/" rel="prev" title="每天5分钟学MySQL内核(3) -- MySQL redo log 简介">
-                每天5分钟学MySQL内核(3) -- MySQL redo log 简介 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -602,7 +603,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原子性与-undo-log"><span class="nav-number">1.</span> <span class="nav-text">原子性与 undo log</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undo-简要原理"><span class="nav-number">1.1.</span> <span class="nav-text">undo 简要原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一致性与-undo-log"><span class="nav-number">2.</span> <span class="nav-text">一致性与 undo log</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-概念"><span class="nav-number">1.</span> <span class="nav-text">1. 概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-原理"><span class="nav-number">2.</span> <span class="nav-text">2. 原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-案例"><span class="nav-number">3.</span> <span class="nav-text">3. 案例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-性能"><span class="nav-number">4.</span> <span class="nav-text">4. 性能</span></a></li></ol></div>
             
 
           </div>
