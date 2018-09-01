@@ -1,5 +1,5 @@
 ---
-title: 每天5分钟学MySQL内核2 -- undo log与AD
+title: 每天5分钟学MySQL内核(2) -- undo log与AD
 date: 2018-08-31 06:54:10
 tags: MySQL内核
 ---
