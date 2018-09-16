@@ -53,4 +53,3 @@ tags: MySQL内核
   - 记录5:  <trx2, insert …>
 - 基于上一点，当一个事务将 redo log 写入磁盘时，也会将其他未提交的事务的日志写入磁盘。
 - redo log 上只进行顺序追加的操作，当一个事务需要回滚时，它的 redo log 记录也不会从 redo log 中删除掉。
-
