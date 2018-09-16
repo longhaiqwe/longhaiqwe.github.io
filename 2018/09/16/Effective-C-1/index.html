@@ -108,20 +108,18 @@
 
 
 
-  <meta name="description" content="本文采用创作共用署名2.5中国大陆版许可证（Creative Commons Attribution 2.5 China Mainland License）授权。  [1] MySQL · 源码分析 · Innodb 引擎Redo日志存储格式简介 [2] InnoDB存储引擎Log 1. 概念任何对 Innodb 表的变动, redo log 都要记录对数据的修改，redo 日志就是记录要修改后">
-<meta name="keywords" content="MySQL内核">
+  <meta name="description" content="本文基本摘抄自《Effective C++》 item1   将 C++ 视为一个由相关语言组成的联邦而非单一语言。在其某个次语言（sublanguage）中，各种守则与通例都倾向简单、直观易懂、并且容易记住。C++ 4个次语言：   C。说到底 C++ 还是以 C 为基础。许多时候 C++ 对于问题的解法其实不过就是较高级的 C 解法。 Object-Oriented C++。即C with">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="每天5分钟学MySQL内核(3) -- MySQL redo log 简介">
-<meta property="og:url" content="http://yoursite.com/2018/09/01/每天5分钟学MySQL内核3/index.html">
+<meta property="og:title" content="Effective C++(1)--视C++为一个语言联邦">
+<meta property="og:url" content="http://yoursite.com/2018/09/16/Effective-C-1/index.html">
 <meta property="og:site_name" content="longhai&#39;s Blog">
-<meta property="og:description" content="本文采用创作共用署名2.5中国大陆版许可证（Creative Commons Attribution 2.5 China Mainland License）授权。  [1] MySQL · 源码分析 · Innodb 引擎Redo日志存储格式简介 [2] InnoDB存储引擎Log 1. 概念任何对 Innodb 表的变动, redo log 都要记录对数据的修改，redo 日志就是记录要修改后">
+<meta property="og:description" content="本文基本摘抄自《Effective C++》 item1   将 C++ 视为一个由相关语言组成的联邦而非单一语言。在其某个次语言（sublanguage）中，各种守则与通例都倾向简单、直观易懂、并且容易记住。C++ 4个次语言：   C。说到底 C++ 还是以 C 为基础。许多时候 C++ 对于问题的解法其实不过就是较高级的 C 解法。 Object-Oriented C++。即C with">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://oi435vw1u.bkt.clouddn.com/undo+redo%E4%BF%9D%E8%AF%81%E5%8E%9F%E5%AD%90%E6%80%A7%E4%B8%8E%E6%8C%81%E4%B9%85%E6%80%A7%E7%A4%BA%E4%BE%8B.jpg">
-<meta property="og:updated_time" content="2018-09-01T09:12:22.248Z">
+<meta property="og:updated_time" content="2018-09-16T13:51:28.763Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="每天5分钟学MySQL内核(3) -- MySQL redo log 简介">
-<meta name="twitter:description" content="本文采用创作共用署名2.5中国大陆版许可证（Creative Commons Attribution 2.5 China Mainland License）授权。  [1] MySQL · 源码分析 · Innodb 引擎Redo日志存储格式简介 [2] InnoDB存储引擎Log 1. 概念任何对 Innodb 表的变动, redo log 都要记录对数据的修改，redo 日志就是记录要修改后">
-<meta name="twitter:image" content="http://oi435vw1u.bkt.clouddn.com/undo+redo%E4%BF%9D%E8%AF%81%E5%8E%9F%E5%AD%90%E6%80%A7%E4%B8%8E%E6%8C%81%E4%B9%85%E6%80%A7%E7%A4%BA%E4%BE%8B.jpg">
+<meta name="twitter:title" content="Effective C++(1)--视C++为一个语言联邦">
+<meta name="twitter:description" content="本文基本摘抄自《Effective C++》 item1   将 C++ 视为一个由相关语言组成的联邦而非单一语言。在其某个次语言（sublanguage）中，各种守则与通例都倾向简单、直观易懂、并且容易记住。C++ 4个次语言：   C。说到底 C++ 还是以 C 为基础。许多时候 C++ 对于问题的解法其实不过就是较高级的 C 解法。 Object-Oriented C++。即C with">
 
 
 
@@ -130,7 +128,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/01/每天5分钟学MySQL内核3/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/16/Effective-C-1/"/>
 
 
 
@@ -140,7 +138,7 @@
   };
 </script>
 
-  <title>每天5分钟学MySQL内核(3) -- MySQL redo log 简介 | longhai's Blog</title>
+  <title>Effective C++(1)--视C++为一个语言联邦 | longhai's Blog</title>
   
 
 
@@ -293,7 +291,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/01/每天5分钟学MySQL内核3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/16/Effective-C-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="龙海">
@@ -310,7 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">每天5分钟学MySQL内核(3) -- MySQL redo log 简介
+          <h1 class="post-title" itemprop="name headline">Effective C++(1)--视C++为一个语言联邦
               
             
           </h1>
@@ -335,7 +333,7 @@
                 
               
 
-              <time title="创建时间：2018-09-01 16:49:53 / 修改时间：17:12:22" itemprop="dateCreated datePublished" datetime="2018-09-01T16:49:53+08:00">2018-09-01</time>
+              <time title="创建时间：2018-09-16 19:36:29 / 修改时间：21:51:28" itemprop="dateCreated datePublished" datetime="2018-09-16T19:36:29+08:00">2018-09-16</time>
             
 
             
@@ -374,46 +372,29 @@
 
       
         <blockquote>
-<p>本文采用创作共用署名2.5中国大陆版许可证（Creative Commons Attribution 2.5 China Mainland License）授权。</p>
+<p>本文基本摘抄自《Effective C++》 item1</p>
 </blockquote>
-<p><a href="http://mysql.taobao.org/monthly/2017/09/07/" target="_blank" rel="noopener">[1] MySQL · 源码分析 · Innodb 引擎Redo日志存储格式简介</a></p>
-<p><a href="https://blog.csdn.net/qiuyepiaoling/article/details/7838951" target="_blank" rel="noopener">[2] InnoDB存储引擎Log</a></p>
-<h2 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h2><p>任何对 Innodb 表的变动, redo log 都要记录对数据的修改，redo 日志就是记录要修改后的数据。redo 日志是保证事务一致性非常重要的手段，同时也可以使在 bufferpool 修改的数据不需要在事务提交时立刻写到磁盘上减少数据的 IO 从而提高整个系统的性能。这样的技术推迟了 bufferpool 页面的刷新，从而提升了数据库的吞吐，有效的降低了访问时延。带来的问题是额外的写 redo log 操作的开销。而为了保证数据的一致性，都要求 WAL（Write Ahead Logging）。而 redo 日志也不是直接写入文件，而是先写入 redo log buffer，而是批量写入日志。当需要将日志刷新到磁盘时（如事务提交），将许多日志一起写入磁盘。</p>
-<h2 id="2-原理"><a href="#2-原理" class="headerlink" title="2. 原理"></a>2. 原理</h2><ul>
-<li>和 undo log 相反，redo log 记录的是<strong>新数据</strong>的备份。</li>
-<li>在事务提交前，只要将 redo log 持久化即可，不需要将数据持久化。</li>
-<li>当系统崩溃时，虽然数据没有持久化，但是 redo log 已经持久化。</li>
-<li>系统可以根据 redo log 的内容，将所有数据恢复到最新的状态。 </li>
-</ul>
-<h2 id="3-案例"><a href="#3-案例" class="headerlink" title="3. 案例"></a>3. 案例</h2><p><strong>undo + redo 事务的简化过程</strong></p>
-<p><img src="http://oi435vw1u.bkt.clouddn.com/undo+redo%E4%BF%9D%E8%AF%81%E5%8E%9F%E5%AD%90%E6%80%A7%E4%B8%8E%E6%8C%81%E4%B9%85%E6%80%A7%E7%A4%BA%E4%BE%8B.jpg" alt="undo+redo保证原子性与持久性示例"></p>
-<ul>
-<li>为了保证持久性，必须在事务提交前将 redo log 持久化</li>
-<li>数据不需要在事务提交前写入磁盘，而是缓存在内存中</li>
-<li>redo log 保证事务的持久性</li>
-<li>undo log 保证事务的原子性</li>
-<li>有一个隐含的特点，数据必须要晚于 redo log 写入持久存储</li>
-</ul>
-<h2 id="4-性能"><a href="#4-性能" class="headerlink" title="4. 性能"></a>4. 性能</h2><blockquote>
-<p>undo + redo 的设计主要考虑的是提升 IO 性能。</p>
-<p>虽说通过缓存数据，减少了写数据的 IO，但是却引入了新的IO，即写 redo log 的 IO。</p>
-<p>如果 redo log 的 IO 性能不好，就不能起到提高性能的目的。</p>
+<blockquote>
+<p>将 C++ 视为一个由相关语言组成的联邦而非单一语言。<br>在其某个次语言（sublanguage）中，各种守则与通例都倾向简单、直观易懂、并且容易记住。<br>C++ <strong>4</strong>个次语言：</p>
 </blockquote>
-<p>为了保证 redo log 能够有比较好的 IO 性能，InnoDB 的 redo log 的设计有以下几个特点：</p>
 <ul>
-<li>尽量持 redo log 存储在一段连续的空间上。因此在系统第一次启动时就会将日志文件的空间完全分配，以顺序追加的方式记录 redo log，通过顺序 IO 来改善性能。</li>
-<li>批量写入日志。日志并不是直接写入文件，而是先写入 redo log buffer。当需要将日志刷新到磁盘时 （如事务提交），将许多日志一起写入磁盘。</li>
-<li>并发的事务共享 redo log 的存储空间，它们的 redo log 按语句的执行顺序，依次交替的记录在一起，以减少日志占用的空间。例如，redo log 中的记录内容可能是这样的：<ul>
-<li>记录1:  &lt;trx1, insert …&gt;</li>
-<li>记录2:  &lt;trx2, update …&gt;</li>
-<li>记录3:  &lt;trx1, delete …&gt;</li>
-<li>记录4:  &lt;trx3, update …&gt;</li>
-<li>记录5:  &lt;trx2, insert …&gt;</li>
+<li><code>C</code>。说到底 C++ 还是以 C 为基础。许多时候 C++ 对于问题的解法其实不过就是较高级的 C 解法。</li>
+<li><code>Object-Oriented C++</code>。即<code>C with class</code>所诉求的，对象、封装、集成、多态、virtual 函数等。</li>
+<li><code>Template C++</code>。泛型编程部分（笔者注：这个就是自己不曾接触的部分）。</li>
+<li><code>STL</code>。标准模板库，包含 4 个组件：算法、容器、迭代器以及函数。</li>
 </ul>
-</li>
-<li>基于上一点，当一个事务将 redo log 写入磁盘时，也会将其他未提交的事务的日志写入磁盘。</li>
-<li>redo log 上只进行顺序追加的操作，当一个事务需要回滚时，它的 redo log 记录也不会从 redo log 中删除掉。</li>
+<blockquote>
+<p>从某个次语言切换到另一个，导致高效编程守则可能要求改变策略。<br>【例】<em>指针（值）还是引用传递问题？</em></p>
+</blockquote>
+<ul>
+<li>内置类型（C-like）：<code>pass-by-value</code>通常比<code>pass-by-reference</code>高效</li>
+<li>对象类型（<code>Object-Oriented C++</code>）：由于用户自定义构造函数和析构函数的存在，<code>pass-by-reference-to-const</code>往往更好</li>
+<li><code>Template C++</code>：用引用，因为这个时候可能都不知道所处理的对象的类型。</li>
+<li><code>STL</code>：迭代器和函数对象都是在 C 指针之上塑造出来的，所以对 STL 的迭代器和函数对象来说，旧式的 C <code>pass-by-value</code>守则再次适用。</li>
 </ul>
+<blockquote>
+<p>作为从 C 语言转到 C++ 来说，这个次语言的概念确实对于理解整个 C++ 有一定的指导作用。</p>
+</blockquote>
 
       
     </div>
@@ -434,7 +415,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/MySQL内核/" rel="tag"># MySQL内核</a>
+            <a href="/tags/C/" rel="tag"># C++</a>
           
         </div>
       
@@ -447,8 +428,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/31/每天5分钟学MySQL内核2/" rel="next" title="每天5分钟学MySQL内核(2) -- undo log与AD">
-                <i class="fa fa-chevron-left"></i> 每天5分钟学MySQL内核(2) -- undo log与AD
+              <a href="/2018/09/05/《参与感》小结/" rel="next" title="《参与感》小结">
+                <i class="fa fa-chevron-left"></i> 《参与感》小结
               </a>
             
           </div>
@@ -457,8 +438,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/05/《参与感》小结/" rel="prev" title="《参与感》小结">
-                《参与感》小结 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/16/Effective-C-2/" rel="prev" title="Effective C++(2)--尽量用编译器取代预处理器">
+                Effective C++(2)--尽量用编译器取代预处理器 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -504,17 +485,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -601,22 +573,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-概念"><span class="nav-number">1.</span> <span class="nav-text">1. 概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-原理"><span class="nav-number">2.</span> <span class="nav-text">2. 原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-案例"><span class="nav-number">3.</span> <span class="nav-text">3. 案例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-性能"><span class="nav-number">4.</span> <span class="nav-text">4. 性能</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
