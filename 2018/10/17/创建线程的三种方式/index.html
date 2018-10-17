@@ -116,13 +116,11 @@
 <meta property="og:site_name" content="longhai&#39;s Blog">
 <meta property="og:description" content="本文翻译自Three Different ways to Create Threads  本篇介绍如何在 C++11 中使用 std::thread 来创建线程。 C++11 线程库介绍传统的C++只支持单线程编程。新的 C++ 标准 (即 C++11 或 C++0x) 于 2011 年发布。 C++11 中引入了一个新的线程库。 编译器要求：   Linux: gcc 4.8.1 （完整的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-17T15:12:38.704Z">
+<meta property="og:updated_time" content="2018-10-17T15:33:28.483Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="创建线程的三种方式">
 <meta name="twitter:description" content="本文翻译自Three Different ways to Create Threads  本篇介绍如何在 C++11 中使用 std::thread 来创建线程。 C++11 线程库介绍传统的C++只支持单线程编程。新的 C++ 标准 (即 C++11 或 C++0x) 于 2011 年发布。 C++11 中引入了一个新的线程库。 编译器要求：   Linux: gcc 4.8.1 （完整的">
 
-
-  
 
 
   <link rel="alternate" href="/atom.xml" title="longhai's Blog" type="application/atom+xml" />
@@ -335,7 +333,7 @@
                 
               
 
-              <time title="创建时间：2018-10-17 23:01:00 / 修改时间：23:12:38" itemprop="dateCreated datePublished" datetime="2018-10-17T23:01:00+08:00">2018-10-17</time>
+              <time title="创建时间：2018-10-17 23:01:00 / 修改时间：23:33:28" itemprop="dateCreated datePublished" datetime="2018-10-17T23:01:00+08:00">2018-10-17</time>
             
 
             
@@ -387,8 +385,7 @@
 <p>每个 std::thread 对象都可以与一个线程相关联。 </p>
 <p>需要引用的头文件：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thread&gt;</span></span></span><br></pre></td></tr></table></figure>
-<h3 id="std-thread的构造函数中接受什么参数？"><a href="#std-thread的构造函数中接受什么参数？" class="headerlink" title="std::thread的构造函数中接受什么参数？"></a>std::thread的构造函数中接受什么参数？</h3><p>We can attach a callback with the std::thread object, that will be executed when this new thread starts. These callbacks can be,</p>
-<p>我们可以给 std::thread 对象添加函数，这个回调函数将在这个新线程启动时执行。这些回调可以是：</p>
+<h3 id="std-thread的构造函数中接受什么参数？"><a href="#std-thread的构造函数中接受什么参数？" class="headerlink" title="std::thread的构造函数中接受什么参数？"></a>std::thread的构造函数中接受什么参数？</h3><p>我们可以给 std::thread 对象添加函数，这个回调函数将在这个新线程启动时执行。这些回调可以是：</p>
 <p>1.) 函数指针<br>2.) 函数对象<br>3.) Lambda 函数</p>
 <p>创建 thread 对象：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="function">thread <span class="title">thObj</span><span class="params">(&lt;CALLBACK&gt;)</span></span>;</span><br></pre></td></tr></table></figure>
