@@ -108,19 +108,21 @@
 
 
 
-  <meta name="description" content="本篇介绍如何在 C++11 中使用 std::thread 来创建线程。 C++11 线程库介绍传统的C++只支持单线程编程。新的 C++ 标准 (即 C++11 或 C++0x) 于 2011 年发布。 C++11 中引入了一个新的线程库。 编译器要求：Linux: gcc 4.8.1 （完整的并发支持）Windows: Visual Studio 2012 and MingW Linux 下如">
-<meta name="keywords" content="c++">
+  <meta name="description" content="本文翻译自Three Different ways to Create Threads  本篇介绍如何在 C++11 中使用 std::thread 来创建线程。 C++11 线程库介绍传统的C++只支持单线程编程。新的 C++ 标准 (即 C++11 或 C++0x) 于 2011 年发布。 C++11 中引入了一个新的线程库。 编译器要求：   Linux: gcc 4.8.1 （完整的">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="创建线程的三种方式">
 <meta property="og:url" content="http://yoursite.com/2018/10/17/创建线程的三种方式/index.html">
 <meta property="og:site_name" content="longhai&#39;s Blog">
-<meta property="og:description" content="本篇介绍如何在 C++11 中使用 std::thread 来创建线程。 C++11 线程库介绍传统的C++只支持单线程编程。新的 C++ 标准 (即 C++11 或 C++0x) 于 2011 年发布。 C++11 中引入了一个新的线程库。 编译器要求：Linux: gcc 4.8.1 （完整的并发支持）Windows: Visual Studio 2012 and MingW Linux 下如">
+<meta property="og:description" content="本文翻译自Three Different ways to Create Threads  本篇介绍如何在 C++11 中使用 std::thread 来创建线程。 C++11 线程库介绍传统的C++只支持单线程编程。新的 C++ 标准 (即 C++11 或 C++0x) 于 2011 年发布。 C++11 中引入了一个新的线程库。 编译器要求：   Linux: gcc 4.8.1 （完整的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-17T15:02:21.289Z">
+<meta property="og:updated_time" content="2018-10-17T15:12:38.704Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="创建线程的三种方式">
-<meta name="twitter:description" content="本篇介绍如何在 C++11 中使用 std::thread 来创建线程。 C++11 线程库介绍传统的C++只支持单线程编程。新的 C++ 标准 (即 C++11 或 C++0x) 于 2011 年发布。 C++11 中引入了一个新的线程库。 编译器要求：Linux: gcc 4.8.1 （完整的并发支持）Windows: Visual Studio 2012 and MingW Linux 下如">
+<meta name="twitter:description" content="本文翻译自Three Different ways to Create Threads  本篇介绍如何在 C++11 中使用 std::thread 来创建线程。 C++11 线程库介绍传统的C++只支持单线程编程。新的 C++ 标准 (即 C++11 或 C++0x) 于 2011 年发布。 C++11 中引入了一个新的线程库。 编译器要求：   Linux: gcc 4.8.1 （完整的">
 
+
+  
 
 
   <link rel="alternate" href="/atom.xml" title="longhai's Blog" type="application/atom+xml" />
@@ -333,7 +335,7 @@
                 
               
 
-              <time title="创建时间：2018-10-17 23:01:00 / 修改时间：23:02:21" itemprop="dateCreated datePublished" datetime="2018-10-17T23:01:00+08:00">2018-10-17</time>
+              <time title="创建时间：2018-10-17 23:01:00 / 修改时间：23:12:38" itemprop="dateCreated datePublished" datetime="2018-10-17T23:01:00+08:00">2018-10-17</time>
             
 
             
@@ -371,10 +373,16 @@
       
 
       
-        <p>本篇介绍如何在 C++11 中使用 std::thread 来创建线程。</p>
+        <blockquote>
+</blockquote>
+<blockquote>
+<p>本文翻译自<a href="https://thispointer.com/c-11-multithreading-part-1-three-different-ways-to-create-threads/" target="_blank" rel="noopener">Three Different ways to Create Threads</a></p>
+</blockquote>
+<p>本篇介绍如何在 C++11 中使用 std::thread 来创建线程。</p>
 <h2 id="C-11-线程库介绍"><a href="#C-11-线程库介绍" class="headerlink" title="C++11 线程库介绍"></a>C++11 线程库介绍</h2><p>传统的C++只支持单线程编程。新的 C++ 标准 (即 C++11 或 C++0x) 于 2011 年发布。 C++11 中引入了一个新的线程库。</p>
-<p><strong>编译器要求：</strong><br><strong>Linux:</strong> gcc 4.8.1 （完整的并发支持）<br><strong>Windows:</strong> Visual Studio 2012 and MingW</p>
-<p><strong>Linux 下如何编译：</strong> g++ –std=c++11 sample.cpp -lpthread</p>
+<p><strong>编译器要求：</strong>  </p>
+<p><strong>Linux:</strong> gcc 4.8.1 （完整的并发支持）<br><strong>Windows:</strong> Visual Studio 2012 and MingW</p>
+<p><strong>Linux 下如何编译：</strong> <code>g++ –std=c++11 sample.cpp -lpthread</code></p>
 <h2 id="C-11-线程创建"><a href="#C-11-线程创建" class="headerlink" title="C++11 线程创建"></a>C++11 线程创建</h2><p>每一个 C++11 程序都包含一个主线程即 main() 函数。 在 C++11 中我们可以通过创建 std::thread 对象来创建新的线程。</p>
 <p>每个 std::thread 对象都可以与一个线程相关联。 </p>
 <p>需要引用的头文件：</p>
@@ -417,7 +425,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/c/" rel="tag"># c++</a>
+            <a href="/tags/C/" rel="tag"># C++</a>
           
         </div>
       
@@ -533,9 +541,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
