@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="longhai&#39;s Blog">
 <meta property="og:description" content="本文翻译自 C++11 Multithreading – Part 4: Data Sharing and Race Conditions  在多线程情况下要共享数据很简单，但是会导致程序出现问题，其中一个问题就是本文要讲到的竞争条件（或者叫共享竞争，英文原名race conditions）。 什么是竞争条件竞争条件是多线程程序中才会出现的问题。 考虑这种情况：两个或多个线程对同一块内存并行地执">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-22T00:19:32.180Z">
+<meta property="og:updated_time" content="2018-11-24T15:04:37.244Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++11多线程 -【4】数据共享与竞争条件">
 <meta name="twitter:description" content="本文翻译自 C++11 Multithreading – Part 4: Data Sharing and Race Conditions  在多线程情况下要共享数据很简单，但是会导致程序出现问题，其中一个问题就是本文要讲到的竞争条件（或者叫共享竞争，英文原名race conditions）。 什么是竞争条件竞争条件是多线程程序中才会出现的问题。 考虑这种情况：两个或多个线程对同一块内存并行地执">
@@ -333,12 +333,24 @@
                 
               
 
-              <time title="创建时间：2018-11-22 07:32:08 / 修改时间：08:19:32" itemprop="dateCreated datePublished" datetime="2018-11-22T07:32:08+08:00">2018-11-22</time>
+              <time title="创建时间：2018-11-22 07:32:08" itemprop="dateCreated datePublished" datetime="2018-11-22T07:32:08+08:00">2018-11-22</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-24 23:04:37" itemprop="dateModified" datetime="2018-11-24T23:04:37+08:00">2018-11-24</time>
               
             
           </span>
@@ -382,7 +394,7 @@
 <p>下面看一个示例。</p>
 <h2 id="竞争条件示例"><a href="#竞争条件示例" class="headerlink" title="竞争条件示例"></a>竞争条件示例</h2><p>看下面这个 Wallet 类，它包含 addMoney 和 getMoney 的成员函数。</p>
 <p>addMoney 函数增加指定数量的钱， getMoney 获取钱包里面钱的数量。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Wallet</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> mMoney;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Wallet() :mMoney(<span class="number">0</span>)&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getMoney</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> mMoney; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">addMoney</span><span class="params">(<span class="keyword">int</span> money)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; money; ++i)</span><br><span class="line">       &#123;</span><br><span class="line">          mMoney++;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Wallet</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="keyword">int</span> mMoney;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  Wallet() :mMoney(<span class="number">0</span>)&#123;&#125;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">getMoney</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> mMoney; &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">addMoney</span><span class="params">(<span class="keyword">int</span> money)</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; money; ++i)</span><br><span class="line">     &#123;</span><br><span class="line">        mMoney++;</span><br><span class="line">     &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>现在，我们创建 5 个线程，并行地调用 addMoney 给钱包增加 1000 块。</p>
 <p>假如钱包里一开始没有钱， 那么按理来说，执行完上面的操作之后，钱包里面应该有 5000 块。</p>
 <p>但是由于多个线程对共享数据进行修改，就很有可能导致最终钱的数量远小于 5000 块。</p>
@@ -470,7 +482,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/13/1/" rel="next" title="C++11多线程 -【3】传参给线程">
+              <a href="/2018/11/13/C++11多线程-【3】传参给线程/" rel="next" title="C++11多线程 -【3】传参给线程">
                 <i class="fa fa-chevron-left"></i> C++11多线程 -【3】传参给线程
               </a>
             
@@ -479,6 +491,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/24/C++11多线程-【5】使用mutex避免竞争条件/" rel="prev" title="C++11多线程 -【5】使用mutex避免竞争条件">
+                C++11多线程 -【5】使用mutex避免竞争条件 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -548,7 +564,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
