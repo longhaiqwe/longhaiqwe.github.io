@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="以下是我每次安装 ubuntu 都会搭建的开发/娱乐环境，请读者参考。下面的内容比较精简，我主要是点出有这个东西，并且是我自己必备的东西，肯定也是蛮好用的，具体是什么，怎么用，网上已经有很多比我写的很好的轮子了，我就不重造了。另外如果你有好的推荐，也请告知我，我是工具/效率控，也想继续提升。  1. 编辑器 neovim（更快的vim ?） 1234567891011sudo apt-get in">
+<meta name="keywords" content="ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu 环境搭建">
+<meta property="og:url" content="http://yoursite.com/2018/08/01/vim/Ubuntu环境搭建/index.html">
+<meta property="og:site_name" content="longhai&#39;s Blog">
+<meta property="og:description" content="以下是我每次安装 ubuntu 都会搭建的开发/娱乐环境，请读者参考。下面的内容比较精简，我主要是点出有这个东西，并且是我自己必备的东西，肯定也是蛮好用的，具体是什么，怎么用，网上已经有很多比我写的很好的轮子了，我就不重造了。另外如果你有好的推荐，也请告知我，我是工具/效率控，也想继续提升。  1. 编辑器 neovim（更快的vim ?） 1234567891011sudo apt-get in">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://oi435vw1u.bkt.clouddn.com/ubuntu.png">
+<meta property="og:updated_time" content="2018-08-11T12:39:49.394Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ubuntu 环境搭建">
+<meta name="twitter:description" content="以下是我每次安装 ubuntu 都会搭建的开发/娱乐环境，请读者参考。下面的内容比较精简，我主要是点出有这个东西，并且是我自己必备的东西，肯定也是蛮好用的，具体是什么，怎么用，网上已经有很多比我写的很好的轮子了，我就不重造了。另外如果你有好的推荐，也请告知我，我是工具/效率控，也想继续提升。  1. 编辑器 neovim（更快的vim ?） 1234567891011sudo apt-get in">
+<meta name="twitter:image" content="http://oi435vw1u.bkt.clouddn.com/ubuntu.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="longhai's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/01/vim/Ubuntu环境搭建/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>ubuntu 环境搭建 | longhai's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">longhai's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/01/vim/Ubuntu环境搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="龙海">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="longhai's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ubuntu 环境搭建
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-01 23:25:31" itemprop="dateCreated datePublished" datetime="2018-08-01T23:25:31+08:00">2018-08-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-11 20:39:49" itemprop="dateModified" datetime="2018-08-11T20:39:49+08:00">2018-08-11</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>以下是我每次安装 ubuntu 都会搭建的开发/娱乐环境，请读者参考。下面的内容比较精简，我主要是点出有这个东西，并且是我自己必备的东西，肯定也是蛮好用的，具体是什么，怎么用，网上已经有很多比我写的很好的轮子了，我就不重造了。另外如果你有好的推荐，也请告知我，我是工具/效率控，也想继续提升。</p>
+<p><img src="http://oi435vw1u.bkt.clouddn.com/ubuntu.png" alt="ubuntu环境搭建"></p>
+<h2 id="1-编辑器"><a href="#1-编辑器" class="headerlink" title="1. 编辑器"></a>1. 编辑器</h2><ul>
+<li><p>neovim（更快的vim ?）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip</span><br><span class="line">git clone https://github.com/neovim/neovim.git</span><br><span class="line">make -j8</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line">## 我最后使用的是 apt 安装，现在住的地方（颠沛流离啊）网络实在不行，会卡在某些下载处。</span><br><span class="line">sudo apt-get install neovim</span><br><span class="line">sudo apt-get install xclip</span><br><span class="line">sudo apt-get install xclip</span><br><span class="line">pip install neovim</span><br><span class="line">pip3 install neovim</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>SpaceVim（neovim / vim 强大配置）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sLf https://spacevim.org/install.sh | bash</span><br></pre></td></tr></table></figure>
+<p>关于 SpaceVim 要说的很多，后续专门成文说明。</p>
+</li>
+<li><p>tmux（分屏工具）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get -y install libevent-dev libncurses-dev</span><br><span class="line">git clone https://github.com/tmux/tmux.git</span><br><span class="line">cd tmux</span><br><span class="line">sh autogen.sh</span><br><span class="line">./configure &amp;&amp; make</span><br><span class="line"></span><br><span class="line"># 去除&lt;200b&gt;[我从《tmux 2 Productive Mouse-Free Development》这本书拷贝配置的时候遇到这个问题]</span><br><span class="line">sed -i &apos;s/\xe2\x80\x8b//g&apos; inputfile</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>typora</p>
+<p>markdown写作神器，跨各种平台，推荐！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># optional, but recommended</span><br><span class="line"># sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE</span><br><span class="line">sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv BA300B7755AFCFAE</span><br><span class="line"># add Typora&apos;s repository</span><br><span class="line">sudo add-apt-repository &apos;deb https://typora.io/linux ./&apos;</span><br><span class="line">sudo apt-get update</span><br><span class="line"># install typora</span><br><span class="line">sudo apt-get install typora</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="2-命令行"><a href="#2-命令行" class="headerlink" title="2. 命令行"></a>2. 命令行</h2><ul>
+<li><p>zsh + oh_my_zsh（zsh 及配置）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get -y install zsh</span><br><span class="line">sudo apt -y install curl</span><br><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>fzf（模糊搜索历史命令、文件等）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf</span><br><span class="line">~/.fzf/install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>z（快速跳转目录）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/rupa/z.git</span><br><span class="line">echo &quot;. ~/tools/z/z.sh&quot; &gt;&gt; ~/.zshrc</span><br><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ag（快速搜索）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y automake pkg-config libpcre3-dev zlib1g-dev liblzma-dev</span><br><span class="line">cd the_silver_searcher &amp;&amp; ./build.sh</span><br><span class="line">make -j8 &amp;&amp; sudo make install</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="3-工具"><a href="#3-工具" class="headerlink" title="3. 工具"></a><strong>3. 工具</strong></h2><ul>
+<li><p>搜狗输入法</p>
+</li>
+<li><p>VNote（笔记软件）</p>
+<p>本来有道云笔记很好用，可是就是没有 linux 版本…</p>
+<p>VNote 跨三种平台，并且支持 vi 模式。</p>
+<p>结合下面的坚果云，可以实现同步。</p>
+</li>
+<li><p>坚果云（同步文件）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.jianguoyun.com/static/exe/installer/ubuntu/nautilus_nutstore_amd64.deb</span><br><span class="line">sudo apt-get install gdebi</span><br><span class="line">sudo gdebi nautilus_nutstore_amd64.deb</span><br><span class="line"></span><br><span class="line"># SSL 连接错误解决方案</span><br><span class="line">sudo apt purge &apos;openjdk-*&apos;</span><br><span class="line">[ -d /usr/lib/jvm ] &amp;&amp; sudo mv /usr/lib/jvm /usr/lib/jvm-backup</span><br><span class="line">sudo apt install -y openjdk-8-jre</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Xmind-ZEN</p>
+<p>思维导图，免费版就够用了，不过导出图片就有水印，土豪请支持正版。</p>
+<p>效果请看本文第一图。</p>
+</li>
+</ul>
+<h2 id="4-科学上网"><a href="#4-科学上网" class="headerlink" title="4. 科学上网"></a>4. 科学上网</h2><ul>
+<li><p>vps</p>
+<p>科学上网可以选择购买市面上的 vpn，简单方便，不过随时面临倒闭的风险，毕竟是国家重点照顾的领域。我相信在看这篇文章的朋友大部分是程序员，至少应该是 IT 从业者，所以我觉得应该自己购买 vps 搭梯子，多折腾。弄好了</p>
+</li>
+<li><p>安装Shadowsocks-qt5</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/shadowsocks/shadowsocks-qt5/releases/download/v3.0.1/Shadowsocks-Qt5-3.0.1-x86_64.AppImage</span><br><span class="line">vpsIP</span><br><span class="line">ss端口</span><br><span class="line">ss密码</span><br><span class="line">aes-256-cfb（ss加密方式）</span><br><span class="line">1080</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>代理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-pip</span><br><span class="line">sudo pip install genpac</span><br><span class="line">genpac --pac-proxy &quot;127.0.0.1:1080&quot; --output=&quot;autoproxy.pac&quot;</span><br><span class="line">Network proxy 设置: file:///home/longhai/autoproxy.pac</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="5-博客"><a href="#5-博客" class="headerlink" title="5. 博客"></a>5. 博客</h2><ul>
+<li><p>hexo</p>
+<p>简单，可定制，需折腾</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install npm</span><br><span class="line">sudo npm install hexo-cli -g</span><br><span class="line">sudo npm install hexo -g</span><br><span class="line"></span><br><span class="line"># github 上创建名为 username.github.io 的空库（username为github账户）</span><br><span class="line">git clone https://github.com/longhaiqwe/longhaiqwe.github.io.git</span><br><span class="line"></span><br><span class="line">mkdir -p ~/blog/hexo</span><br><span class="line">cd hexo</span><br><span class="line">hexo init</span><br><span class="line">npm install hexo-generator-index –save </span><br><span class="line">npm install hexo-generator-index --save </span><br><span class="line">npm install hexo-generator-archive --save</span><br><span class="line">npm install hexo-generator-category --save</span><br><span class="line">npm install hexo-generator-tag  --save</span><br><span class="line">npm install hexo-server --save</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-deployer-heroku --save</span><br><span class="line">npm install hexo-deployer-rsync --save</span><br><span class="line">npm install hexo-deployer-openshift --save</span><br><span class="line">npm install hexo-deployer-rsync --save</span><br><span class="line">npm install hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-stylus</span><br><span class="line">npm install hexo-renderer-stylus --save</span><br><span class="line">npm install hexo-generator-feed </span><br><span class="line">npm install hexo-generator-feed  --save</span><br><span class="line">npm install hexo-generator-sitemap  --save</span><br><span class="line"></span><br><span class="line">## 或者可以使用如下一条命令解决：</span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line">## 并且好像上面那一条语句也可以不用执行～</span><br><span class="line"></span><br><span class="line">## Quick Start</span><br><span class="line">hexo new &quot;My New Post&quot;</span><br><span class="line">hexo server</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="6-持续更新"><a href="#6-持续更新" class="headerlink" title="6. 持续更新"></a>6. 持续更新</h2><ul>
+<li><p>ubuntu  gnome-terminal 选中即复制</p>
+<p>安装clipit</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install clipit</span><br></pre></td></tr></table></figure>
+<p>配置：打开clipit，在任务栏cliplt图标 右键–&gt;prefrences，勾选 User Primary(Selection) 和 Synchronize clipboards即可。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ubuntu/" rel="tag"># ubuntu</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/19/PostgreSQL/kernel/PostgreSQL中PGDLLIMPORT的使用/" rel="next" title="PostgreSQL中PGDLLIMPORT的使用">
+                <i class="fa fa-chevron-left"></i> PostgreSQL中PGDLLIMPORT的使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/08/vim/SpaceVim使用/" rel="prev" title="SpaceVim使用">
+                SpaceVim使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">龙海</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/longhaiqwe" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:longhaiqwe@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-编辑器"><span class="nav-number">1.</span> <span class="nav-text">1. 编辑器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-命令行"><span class="nav-number">2.</span> <span class="nav-text">2. 命令行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-工具"><span class="nav-number">3.</span> <span class="nav-text">3. 工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-科学上网"><span class="nav-number">4.</span> <span class="nav-text">4. 科学上网</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-博客"><span class="nav-number">5.</span> <span class="nav-text">5. 博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-持续更新"><span class="nav-number">6.</span> <span class="nav-text">6. 持续更新</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">龙海</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

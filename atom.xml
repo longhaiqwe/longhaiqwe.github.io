@@ -18,8 +18,8 @@
   
   <entry>
     <title>C++11多线程 -【5】使用mutex避免竞争条件</title>
-    <link href="http://yoursite.com/2018/11/24/C++11%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E3%80%905%E3%80%91%E4%BD%BF%E7%94%A8mutex%E9%81%BF%E5%85%8D%E7%AB%9E%E4%BA%89%E6%9D%A1%E4%BB%B6/"/>
-    <id>http://yoursite.com/2018/11/24/C++11多线程-【5】使用mutex避免竞争条件/</id>
+    <link href="http://yoursite.com/2018/11/24/C++/C++11%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E3%80%905%E3%80%91%E4%BD%BF%E7%94%A8mutex%E9%81%BF%E5%85%8D%E7%AB%9E%E4%BA%89%E6%9D%A1%E4%BB%B6/"/>
+    <id>http://yoursite.com/2018/11/24/C++/C++11多线程-【5】使用mutex避免竞争条件/</id>
     <published>2018-11-24T14:29:56.000Z</published>
     <updated>2018-11-25T14:32:30.438Z</updated>
     
@@ -42,8 +42,8 @@
   
   <entry>
     <title>C++11多线程 -【4】数据共享与竞争条件</title>
-    <link href="http://yoursite.com/2018/11/22/C++11%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E3%80%904%E3%80%91%E6%95%B0%E6%8D%AE%E5%85%B1%E4%BA%AB%E4%B8%8E%E7%AB%9E%E4%BA%89%E6%9D%A1%E4%BB%B6/"/>
-    <id>http://yoursite.com/2018/11/22/C++11多线程-【4】数据共享与竞争条件/</id>
+    <link href="http://yoursite.com/2018/11/22/C++/C++11%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E3%80%904%E3%80%91%E6%95%B0%E6%8D%AE%E5%85%B1%E4%BA%AB%E4%B8%8E%E7%AB%9E%E4%BA%89%E6%9D%A1%E4%BB%B6/"/>
+    <id>http://yoursite.com/2018/11/22/C++/C++11多线程-【4】数据共享与竞争条件/</id>
     <published>2018-11-21T23:32:08.000Z</published>
     <updated>2018-11-24T15:04:37.244Z</updated>
     
@@ -66,8 +66,8 @@
   
   <entry>
     <title>C++11多线程 -【3】传参给线程</title>
-    <link href="http://yoursite.com/2018/11/13/C++11%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E3%80%903%E3%80%91%E4%BC%A0%E5%8F%82%E7%BB%99%E7%BA%BF%E7%A8%8B/"/>
-    <id>http://yoursite.com/2018/11/13/C++11多线程-【3】传参给线程/</id>
+    <link href="http://yoursite.com/2018/11/13/C++/C++11%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E3%80%903%E3%80%91%E4%BC%A0%E5%8F%82%E7%BB%99%E7%BA%BF%E7%A8%8B/"/>
+    <id>http://yoursite.com/2018/11/13/C++/C++11多线程-【3】传参给线程/</id>
     <published>2018-11-13T15:01:49.000Z</published>
     <updated>2018-11-21T23:37:38.210Z</updated>
     
@@ -89,33 +89,9 @@
   </entry>
   
   <entry>
-    <title>C++11多线程 -【3】传参给线程</title>
-    <link href="http://yoursite.com/2018/11/13/1/"/>
-    <id>http://yoursite.com/2018/11/13/1/</id>
-    <published>2018-11-13T15:01:49.000Z</published>
-    <updated>2018-11-13T15:37:41.571Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>本文翻译自 <a href="https://thispointer.com/c11-multithreading-part-3-carefully-pass-arguments-to-threads/" target="_blank" rel="noopener">C++11 Multithreading – Part 3: Carefully Pass Arguments to Threads</a></p></blockquote><p>要将参数传递给线程关联的可调用对象或函数，只需将参数传递给 std::thread 构造函数。</p><p>默认情况下，所有参数都被复制到新线程的内部存储中。</p><h2 id="向-C-11-中的-std-thread-传递简单参数"><a href="#向-C-11-中的-std-thread-传递简单参数" class="headerlink" title="向 C++ 11 中的 std::thread 传递简单参数"></a>向 C++ 11 中的 std::thread 传递简单参数</h2><p>如下是一个简单示例：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thread&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">threadCallback</span><span class="params">(<span class="keyword">int</span> x, <span class="built_in">std</span>::<span class="built_in">string</span> str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Passed Number = "</span>&lt;&lt;x&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Passed String = "</span>&lt;&lt;str&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> str = <span class="string">"Sample String"</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="function">thread <span class="title">threadObj</span><span class="params">(threadCallback, x, str)</span></span>;</span><br><span class="line">    threadObj.join();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="如何不将参数传递给-C-11-中的线程"><a href="#如何不将参数传递给-C-11-中的线程" class="headerlink" title="如何不将参数传递给 C++ 11 中的线程"></a>如何不将参数传递给 C++ 11 中的线程</h2><blockquote><p>译者注：这里的标题感觉和下文的内容不是很符合，“什么情况不能将参数传递给线程”更为合适？</p></blockquote><p>不要将变量的地址从本地堆栈传递给线程的回调函数。因为线程 1 中的局部变量可能超出范围，但是线程 2 仍然试图通过其地址访问它。</p><p>在这种情况下，访问无效地址会导致意外行为。</p><p>请看如下示例：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thread&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">newThreadCallback</span><span class="params">(<span class="keyword">int</span> * p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Inside Thread :  "</span><span class="string">" : p = "</span>&lt;&lt;p&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">std</span>::chrono::<span class="function">milliseconds <span class="title">dura</span><span class="params">( <span class="number">1000</span> )</span></span>;</span><br><span class="line">    <span class="built_in">std</span>::this_thread::sleep_for( dura );</span><br><span class="line">    *p = <span class="number">19</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">startNewThread</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Inside Main Thread :  "</span><span class="string">" : i = "</span>&lt;&lt;i&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="function">thread <span class="title">t</span><span class="params">(newThreadCallback,&amp;i)</span></span>;</span><br><span class="line">    t.detach();</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Inside Main Thread :  "</span><span class="string">" : i = "</span>&lt;&lt;i&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    startNewThread();</span><br><span class="line">    <span class="built_in">std</span>::chrono::<span class="function">milliseconds <span class="title">dura</span><span class="params">( <span class="number">2000</span> )</span></span>;</span><br><span class="line">    <span class="built_in">std</span>::this_thread::sleep_for( dura );</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>同样，将指向堆上内存的指针传递给线程时也要小心。因为在新线程试图访问内存之前，一些线程可能会删除该内存。</p><p>在这种情况下，访问无效地址会导致意外行为。</p><p>请看如下示例：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thread&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">newThreadCallback</span><span class="params">(<span class="keyword">int</span> * p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Inside Thread :  "</span><span class="string">" : p = "</span>&lt;&lt;p&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">std</span>::chrono::<span class="function">milliseconds <span class="title">dura</span><span class="params">( <span class="number">1000</span> )</span></span>;</span><br><span class="line">    <span class="built_in">std</span>::this_thread::sleep_for( dura );</span><br><span class="line">    *p = <span class="number">19</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">startNewThread</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> * p = <span class="keyword">new</span> <span class="keyword">int</span>();</span><br><span class="line">    *p = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Inside Main Thread :  "</span><span class="string">" : *p = "</span>&lt;&lt;*p&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="function">thread <span class="title">t</span><span class="params">(newThreadCallback,p)</span></span>;</span><br><span class="line">    t.detach();</span><br><span class="line">    <span class="keyword">delete</span> p;</span><br><span class="line">    p = <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    startNewThread();</span><br><span class="line">    <span class="built_in">std</span>::chrono::<span class="function">milliseconds <span class="title">dura</span><span class="params">( <span class="number">2000</span> )</span></span>;</span><br><span class="line">    <span class="built_in">std</span>::this_thread::sleep_for( dura );</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="如何在-C-11-中将引用传递给-std-thread"><a href="#如何在-C-11-中将引用传递给-std-thread" class="headerlink" title="如何在 C++ 11 中将引用传递给 std::thread"></a>如何在 C++ 11 中将引用传递给 std::thread</h2><p>因为参数被复制到新线程堆栈，所以，如果你需要以普通方式传递引用，如下例：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thread&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">threadCallback</span><span class="params">(<span class="keyword">int</span> <span class="keyword">const</span> &amp; x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> &amp; y = <span class="keyword">const_cast</span>&lt;<span class="keyword">int</span> &amp;&gt;(x);</span><br><span class="line">    y++;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Inside Thread x = "</span>&lt;&lt;x&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">9</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"In Main Thread : Before Thread Start x = "</span>&lt;&lt;x&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="function">thread <span class="title">threadObj</span><span class="params">(threadCallback, x)</span></span>;</span><br><span class="line">    threadObj.join();</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"In Main Thread : After Thread Joins x = "</span>&lt;&lt;x&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>输出如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In Main Thread : Before Thread Start x = 9</span><br><span class="line">Inside Thread x = 10</span><br><span class="line">In Main Thread : After Thread Joins x = 9</span><br></pre></td></tr></table></figure><p>即使<code>threadCallback</code>接受引用作为参数，但进行了更改之后，在线程之外也不可见。</p><p>这是因为线程函数<code>threadCallback</code>中的 x 是在新线程堆栈中复制的临时值的引用。</p><p>怎样修复上面的问题？</p><p>使用<code>std::ref()</code>，如下：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thread&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">threadCallback</span><span class="params">(<span class="keyword">int</span> <span class="keyword">const</span> &amp; x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> &amp; y = <span class="keyword">const_cast</span>&lt;<span class="keyword">int</span> &amp;&gt;(x);</span><br><span class="line">    y++;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Inside Thread x = "</span>&lt;&lt;x&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">9</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"In Main Thread : Before Thread Start x = "</span>&lt;&lt;x&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    std::thread threadObj(threadCallback,std::ref(x));</span><br><span class="line">    threadObj.join();</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"In Main Thread : After Thread Joins x = "</span>&lt;&lt;x&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>输出如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In Main Thread : Before Thread Start x = 9</span><br><span class="line">Inside Thread x = 10</span><br><span class="line">In Main Thread : After Thread Joins x = 10</span><br></pre></td></tr></table></figure><h2 id="将指向类成员函数的指针作为线程函数"><a href="#将指向类成员函数的指针作为线程函数" class="headerlink" title="将指向类成员函数的指针作为线程函数"></a>将指向类成员函数的指针作为线程函数</h2><p>将指向成员函数的指针作为回调函数传递，将指向对象的指针作为第二个参数传递。</p><p>看下面的示例：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thread&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DummyClass</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    DummyClass()</span><br><span class="line">    &#123;&#125;</span><br><span class="line">    DummyClass(<span class="keyword">const</span> DummyClass &amp; obj)</span><br><span class="line">    &#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sampleMemberFunction</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Inside sampleMemberFunction "</span>&lt;&lt;x&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    DummyClass dummyObj;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="function">thread <span class="title">threadObj</span><span class="params">(&amp;DummyClass::sampleMemberFunction,&amp;dummyObj, x)</span></span>;</span><br><span class="line">    threadObj.join();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>输出如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Inside sampleMemberFunction 10</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;本文翻译自 &lt;a href=&quot;https://thispointer.com/c11-multithreading-part-3-carefully-pass-arguments-to-threads/&quot; target=&quot;_blank&quot; rel=&quot;
-      
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="http://yoursite.com/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
     <title>C++11多线程-【2】线程的join和detach</title>
-    <link href="http://yoursite.com/2018/10/28/C++11%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E3%80%902%E3%80%91%E7%BA%BF%E7%A8%8B%E7%9A%84join%E5%92%8Cdetach-md/"/>
-    <id>http://yoursite.com/2018/10/28/C++11多线程-【2】线程的join和detach-md/</id>
+    <link href="http://yoursite.com/2018/10/28/C++/C++11%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E3%80%902%E3%80%91%E7%BA%BF%E7%A8%8B%E7%9A%84join%E5%92%8Cdetach-md/"/>
+    <id>http://yoursite.com/2018/10/28/C++/C++11多线程-【2】线程的join和detach-md/</id>
     <published>2018-10-28T11:47:34.000Z</published>
     <updated>2018-10-28T13:40:47.565Z</updated>
     
@@ -138,8 +114,8 @@
   
   <entry>
     <title>C++11多线程-【1】创建线程的三种方式</title>
-    <link href="http://yoursite.com/2018/10/17/C++11%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E3%80%901%E3%80%91%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/"/>
-    <id>http://yoursite.com/2018/10/17/C++11多线程-【1】创建线程的三种方式/</id>
+    <link href="http://yoursite.com/2018/10/17/C++/C++11%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E3%80%901%E3%80%91%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/"/>
+    <id>http://yoursite.com/2018/10/17/C++/C++11多线程-【1】创建线程的三种方式/</id>
     <published>2018-10-17T15:01:00.000Z</published>
     <updated>2018-10-28T13:40:40.597Z</updated>
     
@@ -162,8 +138,8 @@
   
   <entry>
     <title>Effective C++(2)--尽量用编译器取代预处理器</title>
-    <link href="http://yoursite.com/2018/09/16/Effective-C-2/"/>
-    <id>http://yoursite.com/2018/09/16/Effective-C-2/</id>
+    <link href="http://yoursite.com/2018/09/16/C++/Effective-C-2/"/>
+    <id>http://yoursite.com/2018/09/16/C++/Effective-C-2/</id>
     <published>2018-09-16T13:37:36.000Z</published>
     <updated>2018-09-16T13:51:18.831Z</updated>
     
@@ -191,8 +167,8 @@
   
   <entry>
     <title>Effective C++(1)--视C++为一个语言联邦</title>
-    <link href="http://yoursite.com/2018/09/16/Effective-C-1/"/>
-    <id>http://yoursite.com/2018/09/16/Effective-C-1/</id>
+    <link href="http://yoursite.com/2018/09/16/C++/Effective-C-1/"/>
+    <id>http://yoursite.com/2018/09/16/C++/Effective-C-1/</id>
     <published>2018-09-16T11:36:29.000Z</published>
     <updated>2018-09-16T13:51:28.763Z</updated>
     
@@ -218,8 +194,8 @@
   
   <entry>
     <title>《参与感》小结</title>
-    <link href="http://yoursite.com/2018/09/05/%E3%80%8A%E5%8F%82%E4%B8%8E%E6%84%9F%E3%80%8B%E5%B0%8F%E7%BB%93/"/>
-    <id>http://yoursite.com/2018/09/05/《参与感》小结/</id>
+    <link href="http://yoursite.com/2018/09/05/%E8%AF%BB%E4%B9%A6/%E3%80%8A%E5%8F%82%E4%B8%8E%E6%84%9F%E3%80%8B%E5%B0%8F%E7%BB%93/"/>
+    <id>http://yoursite.com/2018/09/05/读书/《参与感》小结/</id>
     <published>2018-09-04T23:53:54.000Z</published>
     <updated>2018-09-05T15:57:19.594Z</updated>
     
@@ -242,8 +218,8 @@
   
   <entry>
     <title>每天5分钟学MySQL内核(3) -- MySQL redo log 简介</title>
-    <link href="http://yoursite.com/2018/09/01/%E6%AF%8F%E5%A4%A95%E5%88%86%E9%92%9F%E5%AD%A6MySQL%E5%86%85%E6%A0%B83/"/>
-    <id>http://yoursite.com/2018/09/01/每天5分钟学MySQL内核3/</id>
+    <link href="http://yoursite.com/2018/09/01/MySQL/%E6%AF%8F%E5%A4%A95%E5%88%86%E9%92%9F%E5%AD%A6MySQL%E5%86%85%E6%A0%B83/"/>
+    <id>http://yoursite.com/2018/09/01/MySQL/每天5分钟学MySQL内核3/</id>
     <published>2018-09-01T08:49:53.000Z</published>
     <updated>2018-09-01T09:12:22.248Z</updated>
     
@@ -268,12 +244,12 @@
   
   <entry>
     <title>每天5分钟学MySQL内核(2) -- undo log与AD</title>
-    <link href="http://yoursite.com/2018/08/31/%E6%AF%8F%E5%A4%A95%E5%88%86%E9%92%9F%E5%AD%A6MySQL%E5%86%85%E6%A0%B82/"/>
-    <id>http://yoursite.com/2018/08/31/每天5分钟学MySQL内核2/</id>
+    <link href="http://yoursite.com/2018/08/31/MySQL/%E6%AF%8F%E5%A4%A95%E5%88%86%E9%92%9F%E5%AD%A6MySQL%E5%86%85%E6%A0%B82/"/>
+    <id>http://yoursite.com/2018/08/31/MySQL/每天5分钟学MySQL内核2/</id>
     <published>2018-08-30T22:54:10.000Z</published>
-    <updated>2018-09-01T08:55:54.715Z</updated>
+    <updated>2018-12-18T00:01:25.236Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>本文采用创作共用署名2.5中国大陆版许可证（Creative Commons Attribution 2.5 China Mainland License）授权。</p></blockquote><p><a href="https://blog.csdn.net/qiuyepiaoling/article/details/7838951" target="_blank" rel="noopener">[1] InnoDB存储引擎Log</a></p><h2 id="原子性与-undo-log"><a href="#原子性与-undo-log" class="headerlink" title="原子性与 undo log"></a>原子性与 undo log</h2><p>回顾事务的原子性：</p><blockquote><p> 事务中的所有操作，要么全部完成，要么不做任何操作。如果在执行的过程中出现了错误，要回滚（rollback）到事务开始前的状态，就像这个事务从来没有执行过。</p></blockquote><p>在 MySQL 中，使用 undo log 来实现事务的原子性（undo log 还用于实现多版本并发控制[ MVCC ]）。</p><h3 id="undo-简要原理"><a href="#undo-简要原理" class="headerlink" title="undo 简要原理"></a>undo 简要原理</h3><p>为了满足原子性，在操作任何数据之前，首先将数据备份到一个地方（即 undo log），然后进行数据的修改。如果出现了错误或者用户执行了 rollback 语句，数据库可以利用 undo log 中的备份数据恢复到事务开始之前的状态。</p><h2 id="一致性与-undo-log"><a href="#一致性与-undo-log" class="headerlink" title="一致性与 undo log"></a>一致性与 undo log</h2><p>undo log 可以用来辅助完成事务的一致性。</p><blockquote><p><strong>一致性：</strong>事务一旦完成，该事务对数据库所做的所有修改都会持久的保存到数据库中。为了保证持久性，数据库   系统会将修改后的数据完全的记录到持久的存储上。 </p></blockquote><p><strong>用 undo Log 实现原子性和持久化的事务的简化过程</strong></p><p>假设有A、B两个数据，值分别为1，2。</p><p><img src="http://oi435vw1u.bkt.clouddn.com/undo%E4%BF%9D%E8%AF%81%E5%8E%9F%E5%AD%90%E6%80%A7%E4%B8%8E%E6%8C%81%E4%B9%85%E6%80%A7%E7%A4%BA%E4%BE%8B.jpg" alt="undo保证原子性与持久性示例"></p><p>这里有一个隐含的前提条件：数据都是先读到内存中，然后修改内存中的数据，最后将数据写回磁盘。</p><p>之所以能同时保证原子性和持久化，是因为以下特点:</p><p>A. 更新数据前记录 undo log。</p><p>B. 为了保证持久性，必须将数据在事务提交前写到磁盘。只要事务成功提交，数据必然已经持久化。</p><p>C. Undo log 必须先于数据持久化到磁盘。如果在 G, H 之间系统崩溃，undo log 是完整的，可以用来回滚事务。</p><p>D. 如果在 A-F 之间系统崩溃，因为数据没有持久化到磁盘，所以磁盘上的数据还是保持在事务开始前的状态。</p><p><strong>缺陷：</strong> 每个事务提交前将数据和 undo Log 写入磁盘，这样会导致大量的磁盘 IO，因此性能很低。如果能够将数据缓存一段时间，就能减少 IO 提高性能，但是这样就会丧失事务的持久性。因此引入了另外一种机制来实现持久化，即 Redo Log。</p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>本文采用创作共用署名2.5中国大陆版许可证（Creative Commons Attribution 2.5 China Mainland License）授权。</p></blockquote><p><a href="https://blog.csdn.net/qiuyepiaoling/article/details/7838951" target="_blank" rel="noopener">[1] InnoDB存储引擎Log</a></p><h2 id="原子性与-undo-log"><a href="#原子性与-undo-log" class="headerlink" title="原子性与 undo log"></a>原子性与 undo log</h2><p>回顾事务的原子性：</p><blockquote><p> 事务中的所有操作，要么全部完成，要么不做任何操作。如果在执行的过程中出现了错误，要回滚（rollback）到事务开始前的状态，就像这个事务从来没有执行过。</p></blockquote><p>在 MySQL 中，使用 undo log 来实现事务的原子性（undo log 还用于实现多版本并发控制[ MVCC ]）。</p><h3 id="undo-简要原理"><a href="#undo-简要原理" class="headerlink" title="undo 简要原理"></a>undo 简要原理</h3><p>为了满足原子性，在操作任何数据之前，首先将数据备份到一个地方（即 undo log），然后进行数据的修改。如果出现了错误或者用户执行了 rollback 语句，数据库可以利用 undo log 中的备份数据恢复到事务开始之前的状态。</p><h2 id="持久性与-undo-log"><a href="#持久性与-undo-log" class="headerlink" title="持久性与 undo log"></a>持久性与 undo log</h2><p>undo log 可以用来辅助完成事务的持久性。</p><blockquote><p><strong>持久性：</strong>事务一旦完成，该事务对数据库所做的所有修改都会持久的保存到数据库中。为了保证持久性，数据库系统会将修改后的数据完全的记录到持久的存储上。 </p></blockquote><p><strong>用 undo Log 实现原子性和持久化的事务的简化过程</strong></p><p>假设有A、B两个数据，值分别为1，2。</p><p><img src="http://oi435vw1u.bkt.clouddn.com/undo%E4%BF%9D%E8%AF%81%E5%8E%9F%E5%AD%90%E6%80%A7%E4%B8%8E%E6%8C%81%E4%B9%85%E6%80%A7%E7%A4%BA%E4%BE%8B.jpg" alt="undo保证原子性与持久性示例"></p><p>这里有一个隐含的前提条件：数据都是先读到内存中，然后修改内存中的数据，最后将数据写回磁盘。</p><p>之所以能同时保证原子性和持久性，是因为以下特点:</p><p>A. 更新数据前记录 undo log。</p><p>B. 为了保证持久性，必须将数据在事务提交前写到磁盘。只要事务成功提交，数据必然已经持久化。</p><p>C. Undo log 必须先于数据持久化到磁盘。如果在 G, H 之间系统崩溃，undo log 是完整的，可以用来回滚事务。</p><p>D. 如果在 A-F 之间系统崩溃，因为数据没有持久化到磁盘，所以磁盘上的数据还是保持在事务开始前的状态。</p><p><strong>缺陷：</strong> 每个事务提交前将数据和 undo Log 写入磁盘，这样会导致大量的磁盘 IO，因此性能很低。如果能够将数据缓存一段时间，就能减少 IO 提高性能，但是这样就会丧失事务的持久性。因此引入了另外一种机制来实现持久化，即 Redo Log。</p>]]></content>
     
     <summary type="html">
     
@@ -294,8 +270,8 @@
   
   <entry>
     <title>每天5分钟学MySQL内核(1) -- ACID简介</title>
-    <link href="http://yoursite.com/2018/08/26/%E6%AF%8F%E5%A4%A95%E5%88%86%E9%92%9F%E5%AD%A6MySQL%E5%86%85%E6%A0%B81/"/>
-    <id>http://yoursite.com/2018/08/26/每天5分钟学MySQL内核1/</id>
+    <link href="http://yoursite.com/2018/08/26/MySQL/%E6%AF%8F%E5%A4%A95%E5%88%86%E9%92%9F%E5%AD%A6MySQL%E5%86%85%E6%A0%B81/"/>
+    <id>http://yoursite.com/2018/08/26/MySQL/每天5分钟学MySQL内核1/</id>
     <published>2018-08-26T14:49:31.000Z</published>
     <updated>2018-08-30T23:04:33.110Z</updated>
     
@@ -320,8 +296,8 @@
   
   <entry>
     <title>SpaceVim使用</title>
-    <link href="http://yoursite.com/2018/08/08/SpaceVim%E4%BD%BF%E7%94%A8/"/>
-    <id>http://yoursite.com/2018/08/08/SpaceVim使用/</id>
+    <link href="http://yoursite.com/2018/08/08/vim/SpaceVim%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2018/08/08/vim/SpaceVim使用/</id>
     <published>2018-08-08T15:39:28.000Z</published>
     <updated>2018-08-26T03:43:20.206Z</updated>
     
@@ -344,8 +320,8 @@
   
   <entry>
     <title>ubuntu 环境搭建</title>
-    <link href="http://yoursite.com/2018/08/01/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    <id>http://yoursite.com/2018/08/01/Ubuntu环境搭建/</id>
+    <link href="http://yoursite.com/2018/08/01/vim/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>http://yoursite.com/2018/08/01/vim/Ubuntu环境搭建/</id>
     <published>2018-08-01T15:25:31.000Z</published>
     <updated>2018-08-11T12:39:49.394Z</updated>
     
@@ -362,6 +338,160 @@
     
     
       <category term="ubuntu" scheme="http://yoursite.com/tags/ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PostgreSQL中PGDLLIMPORT的使用</title>
+    <link href="http://yoursite.com/2017/05/19/PostgreSQL/kernel/PostgreSQL%E4%B8%ADPGDLLIMPORT%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2017/05/19/PostgreSQL/kernel/PostgreSQL中PGDLLIMPORT的使用/</id>
+    <published>2017-05-19T08:38:15.000Z</published>
+    <updated>2018-12-19T23:16:28.882Z</updated>
+    
+    <content type="html"><![CDATA[<p>在PostgreSQL源码中，随处可见PGDLLIMPORT的使用，笔者曾经使用过，当时对其含义是<br>没有太多认知的。经过一番研究，多少有点了解，本着分享原则，本文尝试解释其含义。</p><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote><p>src/include/port/win32.h</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#ifdef BUILDING_DLL</span><br><span class="line">#define PGDLLIMPORT __declspec (dllexport)</span><br><span class="line">#else                           /* not BUILDING_DLL */</span><br><span class="line">#define PGDLLIMPORT __declspec (dllimport)</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure><h2 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h2><p>首先，PGDLLIMPORT在非windows平台，是不做任何事情的。</p><p>在Windows平台, PGDLLIMPORT的含义根据在编译PostgreSQL主程序还是扩展插件，有不同的含义：</p><ul><li><p>假设BUILDING_DLL被定义，PGDLLIMPORT被定义为__declspec(dllexport)，即会从 PostgreSQL的server二进制文件中导出符号（变量、函数）</p></li><li><p>假如BUILDING_DLL未被定义，PGDLLIMPORT被定义为__declspec(dllimport)，表明 此符号是被导入的，即引用自PostgreSQL。</p></li></ul><p>需要注意的是，仅仅在编译posres.exe的时候才会定义BUILDING_DLL。</p><p>所以在postgres主程序中使用，代表输出符号；在插件代码中使用，代表导入符号。</p><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>结合PostgreSQL中的hook使用给出举例说明。</p><p><a href="http://www.longhaiqwe.com/2016/06/24/src/PostgreSQL%E4%B8%ADhook%E4%BD%BF%E7%94%A8/" target="_blank" rel="noopener">PostgreSQL中hook使用</a></p><p>在上面这篇文章中，在src/include/libpq/auth.h中对ClientAuthentication_hook的定义使用了PGDLLIMPORT, 代表导出此hook；</p><p>在我新增的插件中（my_client_auth.c）使用：#include “libpq/auth.h”，说明此hook定义是从其他地方导入。</p><p>之所以需要使用PGDLLIMPORT，涉及到windows中动态库的链接个工作机制（<a href="https://msdn.microsoft.com/en-us/library/a90k134d.aspx" target="_blank" rel="noopener">how DLL linkage works on win32/PE</a>）。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>在windows下，假如在extension中需要用到postgres主程序中的变量或函数，必须使用PGDLLIMPORT声明，并且在扩展中也用PGDLLIMPORT声明。</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在PostgreSQL源码中，随处可见PGDLLIMPORT的使用，笔者曾经使用过，当时对其含义是&lt;br&gt;没有太多认知的。经过一番研究，多少有点了解，本着分享原则，本文尝试解释其含义。&lt;/p&gt;
+&lt;h2 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerl
+      
+    
+    </summary>
+    
+    
+      <category term="PostgreSQL" scheme="http://yoursite.com/tags/PostgreSQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>详解offsetof与container_of宏.md</title>
+    <link href="http://yoursite.com/2017/05/16/C/%E8%AF%A6%E8%A7%A3offsetof%E4%B8%8Econtainer-of%E5%AE%8F/"/>
+    <id>http://yoursite.com/2017/05/16/C/详解offsetof与container-of宏/</id>
+    <published>2017-05-16T01:51:42.000Z</published>
+    <updated>2018-12-19T23:11:56.485Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关于offsetof与container_of宏,以前见过,同事也分享过,但是一直没有太过深究.</p><p>这次面试,被问到之后并没有很好的对答如流,回来也好好总结了一下,也试着分享一下.</p><h2 id="offsetof宏"><a href="#offsetof宏" class="headerlink" title="offsetof宏"></a>offsetof宏</h2><p>定义:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define offsetof(TYPE, MEMBER) (size_t)&amp;(((TYPE*)0)-&gt;MEMBER)</span><br></pre></td></tr></table></figure><p>抽丝剥茧:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(TYPE *)0 //将地址0强转为TYPE类型的指针</span><br><span class="line">((TYPE *)0)-&gt;MEMBER //引用TYPE类型的MEMBER成员</span><br><span class="line">&amp;(((TYPE *)0)-&gt;MEMBER) //获取MEMBER成员你的地址</span><br><span class="line">(size_t)&amp;(((TYPE *)0)-&gt;MEMBER) //上述地址转化为size_t类型</span><br></pre></td></tr></table></figure></p><p>总结:</p><blockquote><p>获取MEMBER变量相对于结构体TYPE的偏移量</p></blockquote><h2 id="container-of宏"><a href="#container-of宏" class="headerlink" title="container_of宏"></a>container_of宏</h2><p>定义:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#define container_of(ptr, TYPE, MEMBER) (&#123;\</span><br><span class="line">    const typeof(((TYPE *)0)-&gt;MEMBER) *__ptr = (ptr);\</span><br><span class="line">    (TYPE *)((char *)__ptr - offsetof(TYPE, MEMBER));&#125;)</span><br></pre></td></tr></table></figure></p><p>抽丝剥茧:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">((TYPE *)0)-&gt;MEMBER //引用TYPE类型的MEMBER成员</span><br><span class="line">typeof(((TYPE *)0)-&gt;MEMBER) //获取MENBER的类型</span><br><span class="line">const typeof(((TYPE *)0)-&gt;MEMBER) *__ptr = (ptr) //ptr保存到上述类型的指针__ptr中</span><br><span class="line">(TYPE *)((char *)__ptr - offsetof(TYPE, MEMBER)) //通过上述地址减去偏移量得到type的起始地址</span><br></pre></td></tr></table></figure></p><p>总结:</p><blockquote><p>通过结构体某个成员的地址得到整个结构体的起始地址</p></blockquote><p>说明:</p><blockquote><p>使用__ptr的目的是在编译期间进行类型检测(第一句，赋值时如果类型不匹配会报告警)，<br>保证传入的成员地址与成员类型是匹配的，而在运行期间则和忽略中间变量__ptr是一样的。</p></blockquote><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> offsetof(TYPE, MEMBER) ((size_t) &amp;((TYPE *)0)-&gt;MEMBER)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> container_of(ptr, type, member) (&#123; \</span></span><br><span class="line">    const typeof( ((type *)0)-&gt;member ) *__mptr = (ptr); \</span><br><span class="line">    (type *)( (<span class="keyword">char</span> *)__mptr - offsetof(type,member) );&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* The sutdent structure definition */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">student</span> &#123;</span></span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">16</span>];</span><br><span class="line">    <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">char</span> addr[<span class="number">64</span>];</span><br><span class="line">    <span class="keyword">char</span> phone_num[<span class="number">16</span>];</span><br><span class="line">&#125; STUDENT, *STUDENT_PTR;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_id</span><span class="params">(<span class="keyword">char</span> *phone_numP)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    STUDENT_PTR stdP = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Get the structure pointer by giving the mmeber </span></span><br><span class="line"><span class="comment">     * address of 'phone_numP'.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    stdP = container_of(phone_numP, STUDENT, phone_num);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Student: %s, His ID: %d\n"</span>, stdP-&gt;name, stdP-&gt;id);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    STUDENT_PTR stdP = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((stdP = (STUDENT_PTR)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(STUDENT))) == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        perror(<span class="string">"malloc error"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* assign the value for each member */</span></span><br><span class="line">    <span class="built_in">strncpy</span>(stdP-&gt;name, <span class="string">"Longhai"</span>, <span class="keyword">sizeof</span>(stdP-&gt;name));</span><br><span class="line">    stdP-&gt;id = <span class="number">123456</span>;</span><br><span class="line">    <span class="built_in">strncpy</span>(stdP-&gt;addr, <span class="string">"Road 1"</span>, <span class="keyword">sizeof</span>(stdP-&gt;addr));</span><br><span class="line">    <span class="built_in">strncpy</span>(stdP-&gt;phone_num, <span class="string">"11111111"</span>, <span class="keyword">sizeof</span>(stdP-&gt;phone_num));</span><br><span class="line"></span><br><span class="line">    print_id(stdP-&gt;phone_num);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关于offsetof与container_of宏,以前见过,同事也分享过,但是一直没有太过深究.&lt;/p&gt;
+&lt;p&gt;这次面试,被问到之后并没有很
+      
+    
+    </summary>
+    
+    
+      <category term="C" scheme="http://yoursite.com/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>001_vim源码安装.md</title>
+    <link href="http://yoursite.com/2017/05/04/vim/001_%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85/"/>
+    <id>http://yoursite.com/2017/05/04/vim/001_源码安装/</id>
+    <published>2017-05-04T01:43:03.000Z</published>
+    <updated>2018-12-19T22:43:53.100Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="下载Vim源码"><a href="#下载Vim源码" class="headerlink" title="下载Vim源码"></a>下载Vim源码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/vim/vim.git</span><br><span class="line">或</span><br><span class="line">git clone git@github.com:vim/vim.git</span><br></pre></td></tr></table></figure><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd vim/src</span><br><span class="line"></span><br><span class="line">./configure  --with-compiledby=&quot;longhai&quot; --with-features=huge --enable-pythoninterp=yes </span><br><span class="line">--with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu  --enable-cscope </span><br><span class="line">--enable-perlinterp=yes --enable-rubyinterp=yes --with-luajit --enable-luainterp=yes </span><br><span class="line">--with-lua-prefix=/usr/include/lua5.1 --enable-multibyte --with-x --enable-fail-if-missing</span><br></pre></td></tr></table></figure><p>上面的参数使用 ./configure –help 都可以看到对应用途. 上面使用的参数是增加了对<br>Python, Ruby, Perl, 以及X window的支持.</p><p>建议加上 –enable-fail-if-missing 参数, 以方便定位到哪里依赖缺失.</p><h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><p>这里检查可能通不过, 首先是 lua 和 luajit. 需要执行</p><pre><code>sudo apt-get install lua5.1 liblua5.1-0 liblua5.1-0-dev  luajit libluajit-5.1-dev ruby ruby-dev</code></pre><p>其次注意 Python 的 config 位置.</p><p>最后就是 Perl</p><pre><code>sudo apt-get install libperl-dev.</code></pre><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code>make &amp;&amp; sudo make install</code></pre><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>1：编译的时候找不到python.h ??</p><blockquote><p>编译的vim的时候需要python 支持，有两种一种python2, python3, 若出现此错误都需要安装python2.7-dev<br>或者python3.5-dev，然后重新执行configure ,make ，解决</p></blockquote><p>2: 编译出来的vim 不支持clipboard?</p><blockquote><p>configure 在配置的时候会出现一堆的”checking …”, 会出现”checking if X11 header files can be found…no”.<br>安装libgtk2.0-dev,libgnome2-dev,仍然不行，最后安装libxt-dev， 然后执行:./configure –with-feature=huge<br>–with-x , 然后查看上面的checking if x11 , 尾部是yes， 就可以咯</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;下载Vim源码&quot;&gt;&lt;a href=&quot;#下载Vim源码&quot; class=&quot;headerlink&quot; title=&quot;下载Vim源码&quot;&gt;&lt;/a&gt;下载Vim源码&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=
+      
+    
+    </summary>
+    
+    
+      <category term="vim" scheme="http://yoursite.com/tags/vim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>gdblive脚本</title>
+    <link href="http://yoursite.com/2017/04/03/PostgreSQL/debug/gdblive%E8%84%9A%E6%9C%AC/"/>
+    <id>http://yoursite.com/2017/04/03/PostgreSQL/debug/gdblive脚本/</id>
+    <published>2017-04-02T16:00:00.000Z</published>
+    <updated>2018-12-19T23:24:01.737Z</updated>
+    
+    <content type="html"><![CDATA[<p>大神Bruce Momjian的原脚本：<a href="https://wiki.postgresql.org/wiki/Gdblive_script" target="_blank" rel="noopener">gdblive</a></p><a id="more"></a><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Usage: gdblive [ arguments to grep output of ps ]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$HOME</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># tee /dev/tty is for user to see the set of procs considered</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> -eq 0 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    PROCS=`ps auxww | \</span><br><span class="line">        grep postgres: | \</span><br><span class="line">        grep -v -e <span class="string">'grep'</span> \</span><br><span class="line">        -e <span class="string">'postgres: stats'</span> \</span><br><span class="line">        -e <span class="string">'postgres: writer'</span> \</span><br><span class="line">        -e <span class="string">'postgres: wal writer'</span> \</span><br><span class="line">        -e <span class="string">'postgres: checkpointer'</span> \</span><br><span class="line">        -e <span class="string">'postgres: archiver'</span> \</span><br><span class="line">        -e <span class="string">'postgres: logger'</span> </span><br><span class="line">        -e <span class="string">'postgres: autovacuum'</span> \</span><br><span class="line">        -e <span class="string">'postgres: bgworker'</span> | \</span><br><span class="line">        tee /dev/tty | \</span><br><span class="line">        awk <span class="string">'&#123;if($1=="'</span><span class="variable">$USER</span><span class="string">'") &#123;print $2&#125;&#125;'</span>`</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    PROCS=`ps auxww | \</span><br><span class="line">        grep postgres: | \</span><br><span class="line">        grep -v -e <span class="string">'grep postgres:'</span> \</span><br><span class="line">        -e <span class="string">'postgres: stats'</span> \</span><br><span class="line">        -e <span class="string">'postgres: writer'</span> \</span><br><span class="line">        -e <span class="string">'postgres: wal writer'</span> </span><br><span class="line">        -e <span class="string">'postgres: checkpointer'</span> </span><br><span class="line">        -e <span class="string">'postgres: archiver'</span> </span><br><span class="line">        -e <span class="string">'postgres: logger'</span> </span><br><span class="line">        -e <span class="string">'postgres: autovacuum'</span> \</span><br><span class="line">        -e <span class="string">'postgres: bgworker'</span> | \</span><br><span class="line">        grep <span class="variable">$@</span> | \</span><br><span class="line">        tee /dev/tty | \</span><br><span class="line">        awk <span class="string">'&#123;if($1=="'</span><span class="variable">$USER</span><span class="string">'") &#123;print $2&#125;&#125;'</span>`</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ `<span class="built_in">echo</span> <span class="string">"<span class="variable">$PROCS</span>"</span> | wc -w` -eq 1 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    <span class="built_in">exec</span> gdb <span class="variable">$PGINSTROOT</span>/bin/postgres -silent <span class="string">"<span class="variable">$PROCS</span>"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">exec</span> gdb <span class="variable">$PGINSTROOT</span>/bin/postgres -silent</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure><p>做了两点修改：</p><ul><li>grep -v -e ‘grep postgres:’改成了 grep -v -e ‘grep’，因为有的环境grep是有–color选项的（应该可以设置为无）：grep –color=auto postgres:</li><li>awk ‘{print $2}’改成了 awk ‘{if($1==”‘$USER’”) {print $2}}’，因为同一台机器上可能有许多用户都开启了pg并且有客户端连接，不根据用户排除的话，可能有多个选项导致出错</li></ul><p>其他说明：<br>只适用于当前用户仅开启一个客户端情况，有多个客户端连接调试不适用</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;大神Bruce Momjian的原脚本：&lt;a href=&quot;https://wiki.postgresql.org/wiki/Gdblive_script&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;gdblive&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="PostgreSQL" scheme="http://yoursite.com/tags/PostgreSQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>gdbpsql脚本</title>
+    <link href="http://yoursite.com/2017/04/03/PostgreSQL/debug/psql%E8%B0%83%E8%AF%95%E8%84%9A%E6%9C%AC/"/>
+    <id>http://yoursite.com/2017/04/03/PostgreSQL/debug/psql调试脚本/</id>
+    <published>2017-04-02T16:00:00.000Z</published>
+    <updated>2018-12-19T23:29:20.624Z</updated>
+    
+    <content type="html"><![CDATA[<p>前面对大神的gdblive进行了一点修改，以适应自己的开发环境和需求。</p><p>进一步的，有时候有调试psql的需要，所以也写了一个简单脚本进行psql的调试。</p><a id="more"></a><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Usage: gdbpsql</span></span><br><span class="line">GDB=gdb</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> `<span class="built_in">pwd</span>`</span><br><span class="line"></span><br><span class="line"><span class="comment"># tee /dev/tty is for user to see the set of procs considered</span></span><br><span class="line">PROCS=`ps auxww | grep psql | grep -v grep | grep -v defunct| grep -v <span class="variable">$0</span> |\</span><br><span class="line">        tee /dev/tty | awk <span class="string">'&#123;print $2&#125;'</span>`</span><br><span class="line"><span class="keyword">if</span> [ -z <span class="variable">$PROCS</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'please startup a psql first'</span></span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">exec</span> <span class="variable">$GDB</span> -silent -p <span class="string">"<span class="variable">$PROCS</span>"</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前面对大神的gdblive进行了一点修改，以适应自己的开发环境和需求。&lt;/p&gt;
+&lt;p&gt;进一步的，有时候有调试psql的需要，所以也写了一个简单脚本进行psql的调试。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="PostgreSQL" scheme="http://yoursite.com/tags/PostgreSQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用GDB调试PostgreSQL源码</title>
+    <link href="http://yoursite.com/2017/04/03/PostgreSQL/debug/%E4%BD%BF%E7%94%A8GDB%E8%B0%83%E8%AF%95postgresql%E6%BA%90%E7%A0%81/"/>
+    <id>http://yoursite.com/2017/04/03/PostgreSQL/debug/使用GDB调试postgresql源码/</id>
+    <published>2017-04-02T16:00:00.000Z</published>
+    <updated>2018-12-19T23:31:01.487Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="编译阶段"><a href="#编译阶段" class="headerlink" title="编译阶段"></a>编译阶段</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=$HOME/install_srdb --enable-cassert --enable-debug CFLAGS=&quot;-ggdb -Og -g3 -fno-omit-frame-pointer&quot;</span><br><span class="line">./configure --prefix=$HOME/pgsql --enable-cassert --enable-debug CFLAGS=-O0</span><br></pre></td></tr></table></figure><ul><li>允许断言将打开许多完整性检查选项</li><li>允许调试符号将支持使用调试器（例如gdb）来跟踪行为异常的代码</li><li>-ggdb -Og -g3在提供更多的调试信息的同时还有优化作用</li><li>fno-omit-frame-pointer在使用tracing和profiling工具，譬如perf时有用（暂时没用到过）</li></ul><h2 id="运行阶段"><a href="#运行阶段" class="headerlink" title="运行阶段"></a>运行阶段</h2><p>postgres服务器有一个-d选项，其使得详细的信息被日志记录起来（elog或ereport的输出）。-d选项使用一个数，其指定了调试等级。需要注意的是，高调试等级会产生很大的日志文件。当使用pg_ctl启动服务器时，这个选项是不可用的，但是你可以使用-o log_min_messages=debug4或类似的选项来代替。 </p><h2 id="使用gdb调试"><a href="#使用gdb调试" class="headerlink" title="使用gdb调试"></a>使用gdb调试</h2><p>如果postmaster正在运行，并且在一个窗口中启动了psql，那么可以使用</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT pg_backend_pid();</span><br></pre></td></tr></table></figure><p>找出psql所用的postgres进程的PID。使用一个调试器连接至postgres的PID——</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb -p 1234</span><br></pre></td></tr></table></figure><p>或者对于一个正在运行的gdb，用</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">attach 1234</span><br></pre></td></tr></table></figure><p>这样的方法。</p><p>也可查看<a href="https://wiki.postgresql.org/wiki/Gdblive_script" target="_blank" rel="noopener">gdblive</a>脚本。</p><p>你可以在调试器里设置断点，并在此之后在psql会话中发起一个查询。<br>寻找产生错误或日志消息的位置，在errfinish处设置一个断点。这将会进入所有对所开启日志等级的elog和ereport调用，因此它将会被触发很多次。如果你只对ERROR/FATAL/PANIC感兴趣，那么请对errordata[errordata_stack_depth].elevel &gt;= 20的使用一个<a href="http://blog.vinceliu.com/2009/07/gdbs-conditional-breakpoints.html" target="_blank" rel="noopener">gdb条件断点</a>，或者用errfinish对PANIC、FATAL和ERROR的情况设置一个source-line断点。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">b errfinish</span><br><span class="line">cond 2  errordata[errordata_stack_depth].elevel &gt;= 20</span><br><span class="line">info b</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2       breakpoint     keep y   0x00000000007ddd7d in errfinish at elog.c:408</span><br><span class="line">stop only if errordata[errordata_stack_depth].elevel &gt;= 20</span><br></pre></td></tr></table></figure><p>请注意，不是所有的错误都通过errfinish；特别地，权限检查的异常是单独抛出的。如果你的断点没有被触发，使用git grep获取你的错误文本，并查看它是从哪里产生的。 </p><p>如果你正在调试某些在会话启动时的发生的事情，你可以设置PGOPTIONS=”-W n”，之后启动psql。这会导致启动延迟n秒，因此你可以用的调试器连接至该进程，设置相应的断点，之后再继续启动过程。</p>]]></content>
+    
+    <summary type="html">
+    
+      本文介绍如何使用GDB调试PostgreSQL源码
+    
+    </summary>
+    
+    
+      <category term="PostgreSQL" scheme="http://yoursite.com/tags/PostgreSQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Next主题显示问题</title>
+    <link href="http://yoursite.com/2016/11/08/hexo/Next%E4%B8%BB%E9%A2%98%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2016/11/08/hexo/Next主题显示问题/</id>
+    <published>2016-11-08T12:06:34.000Z</published>
+    <updated>2018-12-19T22:57:56.187Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天重新部署，本地显示正确，但是部署到服务器却显示不正常。</p><p>通过寻找资料，找到症结。</p><p>原因是 GitHub Pages 过滤掉了 source/vendors 目录的访问。</p><a id="more"></a><p>解决方案：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">首先修改source/vendors为source/lib，然后修改_config.yml,</span><br><span class="line">将 _internal: vendors修改为_internal:lib。</span><br><span class="line">然后修改next底下所有引用source/vendors路径为source/lib。</span><br><span class="line">这些地方可以通过文件查找找出来。</span><br><span class="line">主要集中在这几个文件中。</span><br><span class="line">1. Hexo\themes\next\.bowerrc </span><br><span class="line">2. Hexo\themes\next\.gitignore </span><br><span class="line">3. Hexo\themes\next\.javascript_ignore </span><br><span class="line">4. Hexo\themes\next\bower.json 。</span><br><span class="line">修改完毕后，刷新重新g一遍就ok啦。</span><br></pre></td></tr></table></figure><p>有人在github里面提了issue</p><p>link在这里：<a href="https://github.com/iissnan/hexo-theme-next/issues/1214" target="_blank" rel="noopener">Hexo Issue</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天重新部署，本地显示正确，但是部署到服务器却显示不正常。&lt;/p&gt;
+&lt;p&gt;通过寻找资料，找到症结。&lt;/p&gt;
+&lt;p&gt;原因是 GitHub Pages 过滤掉了 source/vendors 目录的访问。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
     
   </entry>
   

@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="摘要  pg内核增加一个系统用户  src/include/catalog/pg_authid.h增加一行代码：12DATA(insert OID = 10 ( &quot;POSTGRES&quot; t t t t t t t -1 _null_ _null_));DATA(insert OID = 9000 ( &quot;LONGHAI&quot; t t f t t f t -1 _null_ _null_)); /* 增加">
+<meta name="keywords" content="PostgreSQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PG增加一个系统用户">
+<meta property="og:url" content="http://yoursite.com/2016/06/23/PostgreSQL/kernel/PG增加一个系统用户/index.html">
+<meta property="og:site_name" content="longhai&#39;s Blog">
+<meta property="og:description" content="摘要  pg内核增加一个系统用户  src/include/catalog/pg_authid.h增加一行代码：12DATA(insert OID = 10 ( &quot;POSTGRES&quot; t t t t t t t -1 _null_ _null_));DATA(insert OID = 9000 ( &quot;LONGHAI&quot; t t f t t f t -1 _null_ _null_)); /* 增加">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2016/06/23/PostgreSQL/kernel/PG增加一个系统用户/add_user.png">
+<meta property="og:updated_time" content="2018-12-20T23:54:53.295Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PG增加一个系统用户">
+<meta name="twitter:description" content="摘要  pg内核增加一个系统用户  src/include/catalog/pg_authid.h增加一行代码：12DATA(insert OID = 10 ( &quot;POSTGRES&quot; t t t t t t t -1 _null_ _null_));DATA(insert OID = 9000 ( &quot;LONGHAI&quot; t t f t t f t -1 _null_ _null_)); /* 增加">
+<meta name="twitter:image" content="http://yoursite.com/2016/06/23/PostgreSQL/kernel/PG增加一个系统用户/add_user.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="longhai's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/06/23/PostgreSQL/kernel/PG增加一个系统用户/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>PG增加一个系统用户 | longhai's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">longhai's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/23/PostgreSQL/kernel/PG增加一个系统用户/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="龙海">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="longhai's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">PG增加一个系统用户
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-06-23 09:50:47" itemprop="dateCreated datePublished" datetime="2016-06-23T09:50:47+08:00">2016-06-23</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-21 07:54:53" itemprop="dateModified" datetime="2018-12-21T07:54:53+08:00">2018-12-21</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>摘要</p>
+<blockquote>
+<p>pg内核增加一个系统用户</p>
+</blockquote>
+<p>src/include/catalog/pg_authid.h增加一行代码：<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DATA(insert OID = <span class="number">10</span> ( <span class="string">"POSTGRES"</span> t t t t t t t -<span class="number">1</span> _null_ _null_));</span><br><span class="line">DATA(insert OID = <span class="number">9000</span> ( <span class="string">"LONGHAI"</span> t t f t t f t -<span class="number">1</span> _null_ _null_)); /* 增加 */</span><br></pre></td></tr></table></figure></p>
+<p>重新编译安装之后效果：<br><img src="/2016/06/23/PostgreSQL/kernel/PG增加一个系统用户/add_user.png"></p>
+<a id="more"></a>
+<p>其中权限对应宏定义：<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#define Natts_pg_authid                         11</span></span><br><span class="line"><span class="meta">#define Anum_pg_authid_rolname                  1</span></span><br><span class="line"><span class="meta">#define Anum_pg_authid_rolsuper                 2</span></span><br><span class="line"><span class="meta">#define Anum_pg_authid_rolinherit               3</span></span><br><span class="line"><span class="meta">#define Anum_pg_authid_rolcreaterole            4</span></span><br><span class="line"><span class="meta">#define Anum_pg_authid_rolcreatedb              5</span></span><br><span class="line"><span class="meta">#define Anum_pg_authid_rolcanlogin              6</span></span><br><span class="line"><span class="meta">#define Anum_pg_authid_rolreplication           7</span></span><br><span class="line"><span class="meta">#define Anum_pg_authid_rolbypassrls             8</span></span><br><span class="line"><span class="meta">#define Anum_pg_authid_rolconnlimit             9</span></span><br><span class="line"><span class="meta">#define Anum_pg_authid_rolpassword              10</span></span><br><span class="line"><span class="meta">#define Anum_pg_authid_rolvaliduntil            11</span></span><br></pre></td></tr></table></figure></p>
+<p>对应系统表pg_authid 字段</p>
+<table>
+<thead>
+<tr>
+<th>名字</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>oid</td>
+<td>oid</td>
+<td>行标识符(隐藏属性; 必须明确选择, 如何选择请查看) </td>
+</tr>
+<tr>
+<td>rolname</td>
+<td>name</td>
+<td>角色名称 </td>
+</tr>
+<tr>
+<td>rolsuper</td>
+<td>bool</td>
+<td>角色拥有超级用户权限 </td>
+</tr>
+<tr>
+<td>rolinherit</td>
+<td>bool</td>
+<td>角色自动继承其所属角色的权限 </td>
+</tr>
+<tr>
+<td>rolcreaterole</td>
+<td>bool</td>
+<td>角色可以创建更多角色 </td>
+</tr>
+<tr>
+<td>rolcreatedb</td>
+<td>bool</td>
+<td>角色可以创建数据库 </td>
+</tr>
+<tr>
+<td>rolcatupdate</td>
+<td>bool</td>
+<td>角色可以直接更新系统表。如果没有设置这个字段为真，即使超级用户也不能这么做。  </td>
+</tr>
+<tr>
+<td>rolcanlogin</td>
+<td>bool</td>
+<td>角色可以登录，也就是说，这个角色可以给予会话认证标识符。  </td>
+</tr>
+<tr>
+<td>rolreplication</td>
+<td>bool</td>
+<td>角色是一个复制的角色。也就是说，这个角色可以发起流复制 （参阅第 25.2.5 节）和使用 pg_start_backup和pg_stop_backup 设置/取消设置系统备份模式。  </td>
+</tr>
+<tr>
+<td>rolconnlimit</td>
+<td>int4</td>
+<td>对于可以登录的角色，限制其最大并发连接数量。-1 表示没有限制。  </td>
+</tr>
+<tr>
+<td>rolpassword</td>
+<td>text</td>
+<td>口令(可能是加密的)；如果没有则为 NULL。如果密码是加密的，该字段将以md5 字符串开始，后面跟着一个32字符的十六进制MD5哈希值。该MD5哈希将是用户的口令加上用户名。 例如，如果用户joe的口令为xyzzy，PostgreSQL 将存储MD5哈希为xyzzyjoe。不遵从这个格式的密码被假设为未加密的。  </td>
+</tr>
+<tr>
+<td>rolvaliduntil</td>
+<td>timestamptz</td>
+<td>口令失效时间(只用于口令认证)；如果没有失效期，则为 null </td>
+</tr>
+</tbody>
+</table>
+<p>仅仅增加用户，还是比较简单！</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PostgreSQL/" rel="tag"># PostgreSQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/24/PostgreSQL/tools/unused-oids/" rel="prev" title="unused_oids">
+                unused_oids <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">龙海</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/longhaiqwe" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:longhaiqwe@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">龙海</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

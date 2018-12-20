@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="摘要对于windows用户来说（linux用户也可以，毕竟vs是个好工具，毕竟很多人的工作环境都是win+linux虚拟机），要研究pg内核，首先必须掌握windows编译吧，所以提供给初学者，至于大牛们，请绕道而行，或者不吝赐教！  1、flex&amp;amp;bison安装本着我自己去找官网什么的老是打不开啊神马的，然后下源码什么的安装还是linux玩的溜，所以直接把我的打包放上来，解压就能用（如">
+<meta name="keywords" content="PostgreSQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="win7_64下postgresql编译">
+<meta property="og:url" content="http://yoursite.com/2016/06/24/PostgreSQL/kernel/win7-64下postgresql编译/index.html">
+<meta property="og:site_name" content="longhai&#39;s Blog">
+<meta property="og:description" content="摘要对于windows用户来说（linux用户也可以，毕竟vs是个好工具，毕竟很多人的工作环境都是win+linux虚拟机），要研究pg内核，首先必须掌握windows编译吧，所以提供给初学者，至于大牛们，请绕道而行，或者不吝赐教！  1、flex&amp;amp;bison安装本着我自己去找官网什么的老是打不开啊神马的，然后下源码什么的安装还是linux玩的溜，所以直接把我的打包放上来，解压就能用（如">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/flex_bison_version.jpg">
+<meta property="og:image" content="http://yoursite.com/images/vs_compile.jpg">
+<meta property="og:image" content="http://yoursite.com/images/find_vs_version1.jpg">
+<meta property="og:image" content="http://yoursite.com/images/find_vs_version2.jpg">
+<meta property="og:image" content="http://yoursite.com/images/compile_success.jpg">
+<meta property="og:image" content="http://yoursite.com/images/win_install_pg.jpg">
+<meta property="og:updated_time" content="2018-12-19T23:16:37.051Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="win7_64下postgresql编译">
+<meta name="twitter:description" content="摘要对于windows用户来说（linux用户也可以，毕竟vs是个好工具，毕竟很多人的工作环境都是win+linux虚拟机），要研究pg内核，首先必须掌握windows编译吧，所以提供给初学者，至于大牛们，请绕道而行，或者不吝赐教！  1、flex&amp;amp;bison安装本着我自己去找官网什么的老是打不开啊神马的，然后下源码什么的安装还是linux玩的溜，所以直接把我的打包放上来，解压就能用（如">
+<meta name="twitter:image" content="http://yoursite.com/images/flex_bison_version.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="longhai's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/06/24/PostgreSQL/kernel/win7-64下postgresql编译/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>win7_64下postgresql编译 | longhai's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">longhai's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/24/PostgreSQL/kernel/win7-64下postgresql编译/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="龙海">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="longhai's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">win7_64下postgresql编译
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-06-24 14:44:45" itemprop="dateCreated datePublished" datetime="2016-06-24T14:44:45+08:00">2016-06-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-20 07:16:37" itemprop="dateModified" datetime="2018-12-20T07:16:37+08:00">2018-12-20</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>摘要<br>对于windows用户来说（linux用户也可以，毕竟vs是个好工具，毕竟很多人的工作环境都是win+linux虚拟机），要研究pg内核，首先必须掌握windows编译吧，所以提供给初学者，至于大牛们，请绕道而行，或者不吝赐教！</p>
+</blockquote>
+<p>1、flex&amp;bison安装<br>本着我自己去找官网什么的老是打不开啊神马的，然后下源码什么的安装还是linux玩的溜，所以直接把我的打包放上来，解压就能用（如果自己去找找网站研究一下其实收获会更大），不要放到Program Files或者Program Files (x86)路径下啊，有空格的话会有各种问题。参考路径：D:\GnuWin32，然后把环境变量加上（这个不知道的就百度一下咯）。<br>检验方式直接上图算了：<br><img src="/images/flex_bison_version.jpg" alt="flex_bison_version.jpg"><br><a href="http://pan.baidu.com/s/1wUfTW" target="_blank" rel="noopener">http://pan.baidu.com/s/1wUfTW</a></p>
+<a id="more"></a>
+<p>2、perl安装<br>perl的官网还是很好找的，百度就能找到。但是经过我的试验哈，我现在写这篇文章的时候5.22版本貌似不好使，编译的时候会出现很多的宏未找到的错误，所以推荐5.20的版本，但是我在写这篇文章的时候呢5.20版本的win64位官网是不能下载的（点背），所以其他地方找了一个，网盘也奉上算了。<br><a href="http://pan.baidu.com/s/1dDdlhXR" target="_blank" rel="noopener">http://pan.baidu.com/s/1dDdlhXR</a><br>打开cmd，然后perl –version可以查看安装是否正确。</p>
+<p>干货：假如安装的第一个perl版本编译的时候出现那个很多宏找不到的错误，好，更换perl版本，这时候记得在编译之前使用clean.bat把原来编译出来的一些东西清除掉，免得下次还是会报错。（本人也一度没有注意这个问题东东，perl版本从5.22-5.18-5.20，我估计5.18也好使，留给有心人去验证了哈。）</p>
+<p>3、vs2008安装<br>本人绝对是个好人，直接安装包再来，免去您老到处寻找的痛苦：<br><a href="http://pan.baidu.com/s/1c0sgqPi" target="_blank" rel="noopener">http://pan.baidu.com/s/1c0sgqPi</a><br>安装时选择“完全”吧，作为一个开发人员，电脑至少得说的过去吧，资源浪费在学习工具上是值得的。电脑实在带不起的话，果断砸了，换新的！</p>
+<p>4、编译<br><img src="/images/vs_compile.jpg" alt="vs_compile.jpg"><br>打开如图命令提示，cd /d E:\postgresql-9.4.4\src\tools\msvc进入目录，perl build.pl DEBUG进行编译</p>
+<p>1.Unable to determine Visual Studio version: The nmake version could not be determined. at src/tools/msvc/Mkvcbuild.pm line 63.<br>提示找不到vs版本，解决方案：<br>E:\postgresql-9.4.4\src\tools\msvc\VSObjectFactory.pm中CreateSolution函数第二行直接添加return new VS2008Solution(@_);【其中的2008根据具体情况而定，你要是安装的vs2010，这个填写2010】<br><img src="/images/find_vs_version1.jpg" alt="find_vs_version1.jpg"><br>E:\postgresql-9.4.4\src\tools\msvc\Mkvcbuild.pm修改如下：<br><img src="/images/find_vs_version2.jpg" alt="find_vs_version2.jpg"></p>
+<p>2.忘了截图了，真是个悲剧，偷个懒就不恢复错误环境截出现问题的图了，反正就是很多的宏找不到的问题。譬如这样的，出现50多个这个的错误吧：TRACE_POSTGRESQL_MULTIXACT_CHECKPOINT_DONE<br>这个问题呢，就是perl版本问题，更换perl版本，记得clean.bat一下先！（上面已经说过了，重要的事情说了第二遍！）<br>请耐心等待。。。<br>好了，成功一般都是报11个警告（pg944，等亲爱的你看到这篇文章的时候可能版本又不一样了，警告个数不同了也不一定，可以不管），这时候所有的vs工程也都编译出来啦，熟悉了吧。看见sln应该安心了呀~<br><img src="/images/compile_success.jpg" alt="compile_success.jpg"></p>
+<p>5、安装<br>简单：<br>install.bat 目的地<br>例如<br><img src="/images/win_install_pg.jpg" alt="win_install_pg.jpg"><br>最后再说一遍，clean.bat这个还是可以经常试试的，在编译过程中假如出错了的话（重要的事情说三遍！这是写这篇文章时下比较流行的网络语，有可能你看的时候早就没人记得这句话了，时光荏苒啊）。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PostgreSQL/" rel="tag"># PostgreSQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/24/PostgreSQL/kernel/PG增加一个系统表/" rel="next" title="PG增加一个系统表">
+                <i class="fa fa-chevron-left"></i> PG增加一个系统表
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/24/PostgreSQL/kernel/PostgreSQL中hook使用/" rel="prev" title="PostgreSQL中hook使用">
+                PostgreSQL中hook使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">龙海</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/longhaiqwe" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:longhaiqwe@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">龙海</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
