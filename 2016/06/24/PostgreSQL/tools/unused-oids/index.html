@@ -116,12 +116,10 @@
 <meta property="og:site_name" content="longhai&#39;s Blog">
 <meta property="og:description" content="src/include/catalog下unused_oids，可以显示未使用的oid  首先上运行效果，有个直观认识：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://static.oschina.net/uploads/space/2015/1214/174118_VxvM_2505138.png">
-<meta property="og:updated_time" content="2018-12-19T23:17:14.445Z">
+<meta property="og:updated_time" content="2018-12-21T00:09:49.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="unused_oids">
 <meta name="twitter:description" content="src/include/catalog下unused_oids，可以显示未使用的oid  首先上运行效果，有个直观认识：">
-<meta name="twitter:image" content="http://static.oschina.net/uploads/space/2015/1214/174118_VxvM_2505138.png">
 
 
 
@@ -352,7 +350,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-20 07:17:14" itemprop="dateModified" datetime="2018-12-20T07:17:14+08:00">2018-12-20</time>
+                <time title="修改时间：2018-12-21 08:09:49" itemprop="dateModified" datetime="2018-12-21T08:09:49+08:00">2018-12-21</time>
               
             
           </span>
@@ -389,7 +387,7 @@
 <p>src/include/catalog下unused_oids，可以显示未使用的oid</p>
 </blockquote>
 <p>首先上运行效果，有个直观认识：</p>
-<p><img src="http://static.oschina.net/uploads/space/2015/1214/174118_VxvM_2505138.png" alt=""></p>
+
 <a id="more"></a>
 <blockquote>
 <p>简要说明：从src/include/catalog目录下的pg_*.h toasting.h indexing.h中获取所有已经使用的oid，最后将2–FistBootstrapObjectId-1（即10000-1）之间的未使用的id打印出来。其中涉及管道符使用，正则表达式，更有许多有用的linux小命令，譬如grep（egrep），sed，tr，sort，uniq，awk，都是一些常用的命令（所以对于初学者这个shell学习价值还蛮高）。</p>
