@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-25T14:32:30.438Z</updated>
+  <updated>2019-01-06T15:03:04.711Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图解《番茄工作法图解》</title>
+    <link href="http://yoursite.com/2019/01/06/%E8%AF%BB%E4%B9%A6/%E5%9B%BE%E8%A7%A3%E3%80%8A%E7%95%AA%E8%8C%84%E5%B7%A5%E4%BD%9C%E6%B3%95%E5%9B%BE%E8%A7%A3%E3%80%8B/"/>
+    <id>http://yoursite.com/2019/01/06/读书/图解《番茄工作法图解》/</id>
+    <published>2019-01-06T13:44:23.000Z</published>
+    <updated>2019-01-06T15:03:04.711Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="什么是番茄工作法"><a href="#什么是番茄工作法" class="headerlink" title="什么是番茄工作法?"></a>什么是番茄工作法?</h2><img src="/2019/01/06/读书/图解《番茄工作法图解》/何为番茄工作法.png"><ol><li>从“活动清单”挑选待完成的任务</li><li>开启 25 分钟的番茄，开始工作</li><li>休息 5 分钟（每 4 个番茄时间休息 20 min），重复2</li><li>总结反思</li></ol><a id="more"></a><h2 id="番茄工作法的要点"><a href="#番茄工作法的要点" class="headerlink" title="番茄工作法的要点"></a>番茄工作法的要点</h2><img src="/2019/01/06/读书/图解《番茄工作法图解》/番茄工作法核心要点.png"><p>很早之前就接触了番茄工作法，不过认真实践是在差不多最近一年的时间。我认为番茄工作法只有两点最核心的内容：</p><ol><li><p><strong>一次只做一件事。</strong>在一个番茄内，只做一个你自己规划的最小单位的工作。</p><p>这里会遇到 3 种情况：</p><ul><li><p>这个工作刚好在这个番茄内完成。皆大欢喜，赶紧给自己放 5 min中的小假。</p></li><li><p>这项工作在一个番茄内没有做完。你可以安排接下来的番茄继续，或者有更高优先级的待办事项插队，你可以记录一下，完成更高优先级的事情后，接着来做这个工作。</p></li><li>一个番茄还没结束，这项工作就已经做完了。这个时候尝试“过度学习”一下，可以理一下这个番茄的工作思路，反思一下有没有更好的解决办法，或者重复一遍加深印象，都是不错的选择。</li></ul></li><li><p><strong>立即去做。</strong></p></li></ol><hr><p>未完待续。。。</p><h2 id="如何挑选任务？"><a href="#如何挑选任务？" class="headerlink" title="如何挑选任务？"></a>如何挑选任务？</h2><h3 id="从活动清单说起"><a href="#从活动清单说起" class="headerlink" title="从活动清单说起"></a>从活动清单说起</h3><h3 id="今日代办VS活动清单"><a href="#今日代办VS活动清单" class="headerlink" title="今日代办VS活动清单"></a>今日代办VS活动清单</h3><h2 id="怎么对待中断？"><a href="#怎么对待中断？" class="headerlink" title="怎么对待中断？"></a>怎么对待中断？</h2><h2 id="怎样预估每项任务需要的番茄数？"><a href="#怎样预估每项任务需要的番茄数？" class="headerlink" title="怎样预估每项任务需要的番茄数？"></a>怎样预估每项任务需要的番茄数？</h2><h2 id="我们应该总结什么，反思什么？"><a href="#我们应该总结什么，反思什么？" class="headerlink" title="我们应该总结什么，反思什么？"></a>我们应该总结什么，反思什么？</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;什么是番茄工作法&quot;&gt;&lt;a href=&quot;#什么是番茄工作法&quot; class=&quot;headerlink&quot; title=&quot;什么是番茄工作法?&quot;&gt;&lt;/a&gt;什么是番茄工作法?&lt;/h2&gt;&lt;img src=&quot;/2019/01/06/读书/图解《番茄工作法图解》/何为番茄工作法.png&quot;&gt;
+&lt;ol&gt;
+&lt;li&gt;从“活动清单”挑选待完成的任务&lt;/li&gt;
+&lt;li&gt;开启 25 分钟的番茄，开始工作&lt;/li&gt;
+&lt;li&gt;休息 5 分钟（每 4 个番茄时间休息 20 min），重复2&lt;/li&gt;
+&lt;li&gt;总结反思&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+    
+      <category term="读书" scheme="http://yoursite.com/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>gdb攻略</title>
+    <link href="http://yoursite.com/2018/12/24/gdb/gitchat-gdb-course/"/>
+    <id>http://yoursite.com/2018/12/24/gdb/gitchat-gdb-course/</id>
+    <published>2018-12-23T23:42:18.000Z</published>
+    <updated>2019-01-06T14:49:34.476Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><code>strip</code>命令可以移除可执行程序的调试信息</li><li>gdb 调试方式<ol><li>直接调试目标程序</li><li>附加进程<ul><li>当调试完程序想结束此次调试时，而且不对当前进程有任何影响，也就是说想让这个程序继续运行，可以在 GDB 的命令行界面输入 <strong>detach</strong> 命令让程序与 GDB 调试器分离，这样被调试程序就可以继续运行了</li></ul></li><li>调试 core 文件<ul><li>使用 <code>ulimit -c unlimited</code>（<strong>unlimited</strong> 是 <strong>-c</strong> 选项值）直接修改成不限制大小（生成 core 文件）</li><li>加入到<code>/etc/profile</code>永久生效</li></ul></li></ol></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;code&gt;strip&lt;/code&gt;命令可以移除可执行程序的调试信息&lt;/li&gt;
+&lt;li&gt;gdb 调试方式&lt;ol&gt;
+&lt;li&gt;直接调试目标程序&lt;/li&gt;
+&lt;li&gt;附加进程&lt;ul&gt;
+&lt;li&gt;当调试完程序想结束此次调试时，而且不对当前进程有任何影响，也就是说想让这个程序
+      
+    
+    </summary>
+    
+    
+      <category term="gdb" scheme="http://yoursite.com/tags/gdb/"/>
+    
+  </entry>
   
   <entry>
     <title>C++11多线程 -【5】使用mutex避免竞争条件</title>
@@ -217,6 +271,52 @@
   </entry>
   
   <entry>
+    <title>MySQL 8.0：新的无锁、可扩展的WAL设计</title>
+    <link href="http://yoursite.com/2018/09/01/MySQL/%E6%96%B0%E7%9A%84%E6%97%A0%E9%94%81%E3%80%81%E5%8F%AF%E6%89%A9%E5%B1%95%E7%9A%84WAL%E8%AE%BE%E8%AE%A1/"/>
+    <id>http://yoursite.com/2018/09/01/MySQL/新的无锁、可扩展的WAL设计/</id>
+    <published>2018-09-01T09:13:29.000Z</published>
+    <updated>2019-01-06T14:36:09.377Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>Write Ahead Log (WAL) 是数据库的重要组成部分之一。对数据文件的所有改动都被记录在 WAL (在 Innodb 中称为 redo log，即重做日志)。这样就允许将被修改的页刷新到磁盘的操作延时进行，并且能防止丢失数据。</p><p>在写入重做日志时，涉及许多用户线程的写入密集型工作负载的性能受到同步的限制。在具有多个CPU核心和快速存储设备(如现代SSD磁盘)的服务器上测试性能时，这一点尤为明显。</p><p><img src="/home/longhai/Nutstore/blog/redolog-old-1.png" alt="redolog-old-1"></p><p>我们需要一种新的设计来解决我们的客户和用户现在和将来可能面临的问题。调整旧设计以实现可扩展性不再是一种选择。新设计还必须灵活，以便我们将来可以扩展它来进行分片和并行写入。对于新的设计，我们希望确保它能与现有的 API 一起工作，最重要的是不要违反 InnoDB 的其他部分所依赖的 contract？？。在这些限制下，这是一项具有挑战性的任务。</p><p><img src="https://mysqlserverteam.com/wp-content/uploads/2018/05/redolog-new-2.png" alt="redolog-new-2"></p><p>重做日志可以被视为生产者/消费者持久队列。执行更新的用户线程可以被视为生产者，当 InnoDB 必须执行崩溃恢复时，恢复线程就是消费者。当服务器运行时，InnoDB 不会从重做日志中读取任何数据。</p><p><img src="/home/longhai/Nutstore/blog/redo-bufferpool-1.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1. 前言&quot;&gt;&lt;/a&gt;1. 前言&lt;/h2&gt;&lt;p&gt;Write Ahead Log (WAL) 是数据库的重要组成部分之一。对数据文件的所有改动都被记录在 WAL (在 I
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL内核" scheme="http://yoursite.com/tags/MySQL%E5%86%85%E6%A0%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux源码编译MySQL</title>
+    <link href="http://yoursite.com/2018/09/01/MySQL/mysql_src_build/"/>
+    <id>http://yoursite.com/2018/09/01/MySQL/mysql_src_build/</id>
+    <published>2018-09-01T09:13:29.000Z</published>
+    <updated>2019-01-06T14:52:32.110Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake -DCMAKE_INSTALL_PREFIX=/home/longhai/install/mysql5.7 -DDOWNLOAD_BOOST=1 -DWITH_BOOST=/home/longhai/tools ..</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span cla
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL内核" scheme="http://yoursite.com/tags/MySQL%E5%86%85%E6%A0%B8/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每天5分钟学MySQL内核(3) -- MySQL redo log 简介</title>
     <link href="http://yoursite.com/2018/09/01/MySQL/%E6%AF%8F%E5%A4%A95%E5%88%86%E9%92%9F%E5%AD%A6MySQL%E5%86%85%E6%A0%B83/"/>
     <id>http://yoursite.com/2018/09/01/MySQL/每天5分钟学MySQL内核3/</id>
@@ -409,89 +509,6 @@
     
     
       <category term="vim" scheme="http://yoursite.com/tags/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>gdbpsql脚本</title>
-    <link href="http://yoursite.com/2017/04/03/PostgreSQL/debug/psql%E8%B0%83%E8%AF%95%E8%84%9A%E6%9C%AC/"/>
-    <id>http://yoursite.com/2017/04/03/PostgreSQL/debug/psql调试脚本/</id>
-    <published>2017-04-02T16:00:00.000Z</published>
-    <updated>2018-12-19T23:29:20.624Z</updated>
-    
-    <content type="html"><![CDATA[<p>前面对大神的gdblive进行了一点修改，以适应自己的开发环境和需求。</p><p>进一步的，有时候有调试psql的需要，所以也写了一个简单脚本进行psql的调试。</p><a id="more"></a><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Usage: gdbpsql</span></span><br><span class="line">GDB=gdb</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> `<span class="built_in">pwd</span>`</span><br><span class="line"></span><br><span class="line"><span class="comment"># tee /dev/tty is for user to see the set of procs considered</span></span><br><span class="line">PROCS=`ps auxww | grep psql | grep -v grep | grep -v defunct| grep -v <span class="variable">$0</span> |\</span><br><span class="line">        tee /dev/tty | awk <span class="string">'&#123;print $2&#125;'</span>`</span><br><span class="line"><span class="keyword">if</span> [ -z <span class="variable">$PROCS</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'please startup a psql first'</span></span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">exec</span> <span class="variable">$GDB</span> -silent -p <span class="string">"<span class="variable">$PROCS</span>"</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;前面对大神的gdblive进行了一点修改，以适应自己的开发环境和需求。&lt;/p&gt;
-&lt;p&gt;进一步的，有时候有调试psql的需要，所以也写了一个简单脚本进行psql的调试。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="PostgreSQL" scheme="http://yoursite.com/tags/PostgreSQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用GDB调试PostgreSQL源码</title>
-    <link href="http://yoursite.com/2017/04/03/PostgreSQL/debug/%E4%BD%BF%E7%94%A8GDB%E8%B0%83%E8%AF%95postgresql%E6%BA%90%E7%A0%81/"/>
-    <id>http://yoursite.com/2017/04/03/PostgreSQL/debug/使用GDB调试postgresql源码/</id>
-    <published>2017-04-02T16:00:00.000Z</published>
-    <updated>2018-12-19T23:31:01.487Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="编译阶段"><a href="#编译阶段" class="headerlink" title="编译阶段"></a>编译阶段</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=$HOME/install_srdb --enable-cassert --enable-debug CFLAGS=&quot;-ggdb -Og -g3 -fno-omit-frame-pointer&quot;</span><br><span class="line">./configure --prefix=$HOME/pgsql --enable-cassert --enable-debug CFLAGS=-O0</span><br></pre></td></tr></table></figure><ul><li>允许断言将打开许多完整性检查选项</li><li>允许调试符号将支持使用调试器（例如gdb）来跟踪行为异常的代码</li><li>-ggdb -Og -g3在提供更多的调试信息的同时还有优化作用</li><li>fno-omit-frame-pointer在使用tracing和profiling工具，譬如perf时有用（暂时没用到过）</li></ul><h2 id="运行阶段"><a href="#运行阶段" class="headerlink" title="运行阶段"></a>运行阶段</h2><p>postgres服务器有一个-d选项，其使得详细的信息被日志记录起来（elog或ereport的输出）。-d选项使用一个数，其指定了调试等级。需要注意的是，高调试等级会产生很大的日志文件。当使用pg_ctl启动服务器时，这个选项是不可用的，但是你可以使用-o log_min_messages=debug4或类似的选项来代替。 </p><h2 id="使用gdb调试"><a href="#使用gdb调试" class="headerlink" title="使用gdb调试"></a>使用gdb调试</h2><p>如果postmaster正在运行，并且在一个窗口中启动了psql，那么可以使用</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT pg_backend_pid();</span><br></pre></td></tr></table></figure><p>找出psql所用的postgres进程的PID。使用一个调试器连接至postgres的PID——</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb -p 1234</span><br></pre></td></tr></table></figure><p>或者对于一个正在运行的gdb，用</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">attach 1234</span><br></pre></td></tr></table></figure><p>这样的方法。</p><p>也可查看<a href="https://wiki.postgresql.org/wiki/Gdblive_script" target="_blank" rel="noopener">gdblive</a>脚本。</p><p>你可以在调试器里设置断点，并在此之后在psql会话中发起一个查询。<br>寻找产生错误或日志消息的位置，在errfinish处设置一个断点。这将会进入所有对所开启日志等级的elog和ereport调用，因此它将会被触发很多次。如果你只对ERROR/FATAL/PANIC感兴趣，那么请对errordata[errordata_stack_depth].elevel &gt;= 20的使用一个<a href="http://blog.vinceliu.com/2009/07/gdbs-conditional-breakpoints.html" target="_blank" rel="noopener">gdb条件断点</a>，或者用errfinish对PANIC、FATAL和ERROR的情况设置一个source-line断点。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">b errfinish</span><br><span class="line">cond 2  errordata[errordata_stack_depth].elevel &gt;= 20</span><br><span class="line">info b</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2       breakpoint     keep y   0x00000000007ddd7d in errfinish at elog.c:408</span><br><span class="line">stop only if errordata[errordata_stack_depth].elevel &gt;= 20</span><br></pre></td></tr></table></figure><p>请注意，不是所有的错误都通过errfinish；特别地，权限检查的异常是单独抛出的。如果你的断点没有被触发，使用git grep获取你的错误文本，并查看它是从哪里产生的。 </p><p>如果你正在调试某些在会话启动时的发生的事情，你可以设置PGOPTIONS=”-W n”，之后启动psql。这会导致启动延迟n秒，因此你可以用的调试器连接至该进程，设置相应的断点，之后再继续启动过程。</p>]]></content>
-    
-    <summary type="html">
-    
-      本文介绍如何使用GDB调试PostgreSQL源码
-    
-    </summary>
-    
-    
-      <category term="PostgreSQL" scheme="http://yoursite.com/tags/PostgreSQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>gdblive脚本</title>
-    <link href="http://yoursite.com/2017/04/03/PostgreSQL/debug/gdblive%E8%84%9A%E6%9C%AC/"/>
-    <id>http://yoursite.com/2017/04/03/PostgreSQL/debug/gdblive脚本/</id>
-    <published>2017-04-02T16:00:00.000Z</published>
-    <updated>2018-12-19T23:24:01.737Z</updated>
-    
-    <content type="html"><![CDATA[<p>大神Bruce Momjian的原脚本：<a href="https://wiki.postgresql.org/wiki/Gdblive_script" target="_blank" rel="noopener">gdblive</a></p><a id="more"></a><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Usage: gdblive [ arguments to grep output of ps ]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$HOME</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># tee /dev/tty is for user to see the set of procs considered</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> -eq 0 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    PROCS=`ps auxww | \</span><br><span class="line">        grep postgres: | \</span><br><span class="line">        grep -v -e <span class="string">'grep'</span> \</span><br><span class="line">        -e <span class="string">'postgres: stats'</span> \</span><br><span class="line">        -e <span class="string">'postgres: writer'</span> \</span><br><span class="line">        -e <span class="string">'postgres: wal writer'</span> \</span><br><span class="line">        -e <span class="string">'postgres: checkpointer'</span> \</span><br><span class="line">        -e <span class="string">'postgres: archiver'</span> \</span><br><span class="line">        -e <span class="string">'postgres: logger'</span> </span><br><span class="line">        -e <span class="string">'postgres: autovacuum'</span> \</span><br><span class="line">        -e <span class="string">'postgres: bgworker'</span> | \</span><br><span class="line">        tee /dev/tty | \</span><br><span class="line">        awk <span class="string">'&#123;if($1=="'</span><span class="variable">$USER</span><span class="string">'") &#123;print $2&#125;&#125;'</span>`</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    PROCS=`ps auxww | \</span><br><span class="line">        grep postgres: | \</span><br><span class="line">        grep -v -e <span class="string">'grep postgres:'</span> \</span><br><span class="line">        -e <span class="string">'postgres: stats'</span> \</span><br><span class="line">        -e <span class="string">'postgres: writer'</span> \</span><br><span class="line">        -e <span class="string">'postgres: wal writer'</span> </span><br><span class="line">        -e <span class="string">'postgres: checkpointer'</span> </span><br><span class="line">        -e <span class="string">'postgres: archiver'</span> </span><br><span class="line">        -e <span class="string">'postgres: logger'</span> </span><br><span class="line">        -e <span class="string">'postgres: autovacuum'</span> \</span><br><span class="line">        -e <span class="string">'postgres: bgworker'</span> | \</span><br><span class="line">        grep <span class="variable">$@</span> | \</span><br><span class="line">        tee /dev/tty | \</span><br><span class="line">        awk <span class="string">'&#123;if($1=="'</span><span class="variable">$USER</span><span class="string">'") &#123;print $2&#125;&#125;'</span>`</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ `<span class="built_in">echo</span> <span class="string">"<span class="variable">$PROCS</span>"</span> | wc -w` -eq 1 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    <span class="built_in">exec</span> gdb <span class="variable">$PGINSTROOT</span>/bin/postgres -silent <span class="string">"<span class="variable">$PROCS</span>"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">exec</span> gdb <span class="variable">$PGINSTROOT</span>/bin/postgres -silent</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure><p>做了两点修改：</p><ul><li>grep -v -e ‘grep postgres:’改成了 grep -v -e ‘grep’，因为有的环境grep是有–color选项的（应该可以设置为无）：grep –color=auto postgres:</li><li>awk ‘{print $2}’改成了 awk ‘{if($1==”‘$USER’”) {print $2}}’，因为同一台机器上可能有许多用户都开启了pg并且有客户端连接，不根据用户排除的话，可能有多个选项导致出错</li></ul><p>其他说明：<br>只适用于当前用户仅开启一个客户端情况，有多个客户端连接调试不适用</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;大神Bruce Momjian的原脚本：&lt;a href=&quot;https://wiki.postgresql.org/wiki/Gdblive_script&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;gdblive&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="PostgreSQL" scheme="http://yoursite.com/tags/PostgreSQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Next主题显示问题</title>
-    <link href="http://yoursite.com/2016/11/08/hexo/Next%E4%B8%BB%E9%A2%98%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2016/11/08/hexo/Next主题显示问题/</id>
-    <published>2016-11-08T12:06:34.000Z</published>
-    <updated>2018-12-19T22:57:56.187Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天重新部署，本地显示正确，但是部署到服务器却显示不正常。</p><p>通过寻找资料，找到症结。</p><p>原因是 GitHub Pages 过滤掉了 source/vendors 目录的访问。</p><a id="more"></a><p>解决方案：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">首先修改source/vendors为source/lib，然后修改_config.yml,</span><br><span class="line">将 _internal: vendors修改为_internal:lib。</span><br><span class="line">然后修改next底下所有引用source/vendors路径为source/lib。</span><br><span class="line">这些地方可以通过文件查找找出来。</span><br><span class="line">主要集中在这几个文件中。</span><br><span class="line">1. Hexo\themes\next\.bowerrc </span><br><span class="line">2. Hexo\themes\next\.gitignore </span><br><span class="line">3. Hexo\themes\next\.javascript_ignore </span><br><span class="line">4. Hexo\themes\next\bower.json 。</span><br><span class="line">修改完毕后，刷新重新g一遍就ok啦。</span><br></pre></td></tr></table></figure><p>有人在github里面提了issue</p><p>link在这里：<a href="https://github.com/iissnan/hexo-theme-next/issues/1214" target="_blank" rel="noopener">Hexo Issue</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;今天重新部署，本地显示正确，但是部署到服务器却显示不正常。&lt;/p&gt;
-&lt;p&gt;通过寻找资料，找到症结。&lt;/p&gt;
-&lt;p&gt;原因是 GitHub Pages 过滤掉了 source/vendors 目录的访问。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
     
   </entry>
   
