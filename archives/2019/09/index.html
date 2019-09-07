@@ -108,18 +108,13 @@
 
 
 
-  <meta name="description" content="在PostgreSQL源码中，随处可见PGDLLIMPORT的使用，笔者曾经使用过，当时对其含义是没有太多认知的。经过一番研究，多少有点了解，本着分享原则，本文尝试解释其含义。 定义 src/include/port/win32.h  12345#ifdef BUILDING_DLL#define PGDLLIMPORT __declspec (dllexport)#else">
-<meta name="keywords" content="PostgreSQL">
-<meta property="og:type" content="article">
-<meta property="og:title" content="PostgreSQL中PGDLLIMPORT的使用">
-<meta property="og:url" content="http://yoursite.com/2017/05/19/PostgreSQL/kernel/PostgreSQL中PGDLLIMPORT的使用/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="longhai&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/archives/2019/09/index.html">
 <meta property="og:site_name" content="longhai&#39;s Blog">
-<meta property="og:description" content="在PostgreSQL源码中，随处可见PGDLLIMPORT的使用，笔者曾经使用过，当时对其含义是没有太多认知的。经过一番研究，多少有点了解，本着分享原则，本文尝试解释其含义。 定义 src/include/port/win32.h  12345#ifdef BUILDING_DLL#define PGDLLIMPORT __declspec (dllexport)#else">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-19T23:16:28.882Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PostgreSQL中PGDLLIMPORT的使用">
-<meta name="twitter:description" content="在PostgreSQL源码中，随处可见PGDLLIMPORT的使用，笔者曾经使用过，当时对其含义是没有太多认知的。经过一番研究，多少有点了解，本着分享原则，本文尝试解释其含义。 定义 src/include/port/win32.h  12345#ifdef BUILDING_DLL#define PGDLLIMPORT __declspec (dllexport)#else">
+<meta name="twitter:title" content="longhai&#39;s Blog">
 
 
 
@@ -128,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/19/PostgreSQL/kernel/PostgreSQL中PGDLLIMPORT的使用/"/>
+  <link rel="canonical" href="http://yoursite.com/archives/2019/09/"/>
 
 
 
@@ -138,7 +133,7 @@
   };
 </script>
 
-  <title>PostgreSQL中PGDLLIMPORT的使用 | longhai's Blog</title>
+  <title>归档 | longhai's Blog</title>
   
 
 
@@ -185,7 +180,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left page-archive">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -238,7 +233,7 @@
         
         
           
-          <li class="menu-item menu-item-archives">
+          <li class="menu-item menu-item-archives menu-item-active">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
@@ -271,209 +266,99 @@
           
             
 
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
           
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block archive">
+    <div id="posts" class="posts-collapse">
+      <span class="archive-move-on"></span>
 
-  
+      
+      <span class="archive-page-counter">
+        
+        
+         
+        
+        还行! 目前共计 34 篇日志。 继续努力。
+      </span>
+      
 
-  
-  
-  
+      
 
-  
+        
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h1 class="archive-year" id="archive-year-2019">2019</h1>
+          </div>
+        
+        
+
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/19/PostgreSQL/kernel/PostgreSQL中PGDLLIMPORT的使用/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="龙海">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="longhai's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/2019/09/07/VSCode/VSCode中C-插件推荐/" itemprop="url">
+              
+                <span itemprop="name">VSCode中C++插件推荐</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">PostgreSQL中PGDLLIMPORT的使用
-              
-            
-          </h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-09-07T23:17:56+08:00"
+              content="2019-09-07" >
+          09-07
+        </time>
+      </div>
 
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-05-19 16:38:15" itemprop="dateCreated datePublished" datetime="2017-05-19T16:38:15+08:00">2017-05-19</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-12-20 07:16:28" itemprop="dateModified" datetime="2018-12-20T07:16:28+08:00">2018-12-20</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>在PostgreSQL源码中，随处可见PGDLLIMPORT的使用，笔者曾经使用过，当时对其含义是<br>没有太多认知的。经过一番研究，多少有点了解，本着分享原则，本文尝试解释其含义。</p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
-<p>src/include/port/win32.h</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#ifdef BUILDING_DLL</span><br><span class="line">#define PGDLLIMPORT __declspec (dllexport)</span><br><span class="line">#else                           /* not BUILDING_DLL */</span><br><span class="line">#define PGDLLIMPORT __declspec (dllimport)</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
-<h2 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h2><p>首先，PGDLLIMPORT在非windows平台，是不做任何事情的。</p>
-<p>在Windows平台, PGDLLIMPORT的含义根据在编译PostgreSQL主程序还是扩展插件，有不同的含义：</p>
-<ul>
-<li><p>假设BUILDING_DLL被定义，PGDLLIMPORT被定义为__declspec(dllexport)，即会从 PostgreSQL的server二进制文件中导出符号（变量、函数）</p>
-</li>
-<li><p>假如BUILDING_DLL未被定义，PGDLLIMPORT被定义为__declspec(dllimport)，表明 此符号是被导入的，即引用自PostgreSQL。</p>
-</li>
-</ul>
-<p>需要注意的是，仅仅在编译posres.exe的时候才会定义BUILDING_DLL。</p>
-<p>所以在postgres主程序中使用，代表输出符号；在插件代码中使用，代表导入符号。</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>结合PostgreSQL中的hook使用给出举例说明。</p>
-<p><a href="http://www.longhaiqwe.com/2016/06/24/src/PostgreSQL%E4%B8%ADhook%E4%BD%BF%E7%94%A8/" target="_blank" rel="noopener">PostgreSQL中hook使用</a></p>
-<p>在上面这篇文章中，在src/include/libpq/auth.h中对ClientAuthentication_hook的定义使用了PGDLLIMPORT, 代表导出此hook；</p>
-<p>在我新增的插件中（my_client_auth.c）使用：#include “libpq/auth.h”，说明此hook定义是从其他地方导入。</p>
-<p>之所以需要使用PGDLLIMPORT，涉及到windows中动态库的链接个工作机制（<a href="https://msdn.microsoft.com/en-us/library/a90k134d.aspx" target="_blank" rel="noopener">how DLL linkage works on win32/PE</a>）。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>在windows下，假如在extension中需要用到postgres主程序中的变量或函数，必须使用PGDLLIMPORT声明，并且在扩展中也用PGDLLIMPORT声明。</strong></p>
-
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/PostgreSQL/" rel="tag"># PostgreSQL</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/05/16/C/详解offsetof与container-of宏/" rel="next" title="详解offsetof与container_of宏.md">
-                <i class="fa fa-chevron-left"></i> 详解offsetof与container_of宏.md
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/01/vim/Ubuntu环境搭建/" rel="prev" title="ubuntu 环境搭建">
-                ubuntu 环境搭建 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
+
+      
+
+    </div>
   </div>
-
-
-          </div>
-          
+  
+  
+  
 
   
 
 
+
+          </div>
+          
 
         </div>
         
@@ -494,17 +379,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -601,22 +477,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#含义"><span class="nav-number">2.</span> <span class="nav-text">含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">3.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -754,10 +614,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
-
-
 
   
 

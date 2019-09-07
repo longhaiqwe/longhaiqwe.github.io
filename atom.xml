@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-06T15:03:04.711Z</updated>
+  <updated>2019-09-07T15:21:19.354Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,21 +17,54 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>VSCode中C++插件推荐</title>
+    <link href="http://yoursite.com/2019/09/07/VSCode/VSCode%E4%B8%ADC-%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/"/>
+    <id>http://yoursite.com/2019/09/07/VSCode/VSCode中C-插件推荐/</id>
+    <published>2019-09-07T15:17:56.000Z</published>
+    <updated>2019-09-07T15:21:19.354Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>前言</strong></p><ul><li><p>最近从 <code>vim</code> 转到 <code>VSCode</code>，在 google 搜索了 <strong>VSCode 中 C++ 插件推荐</strong> 这样的字眼，结果不尽如人意，是本文成文初衷。</p></li><li><p>本文只针对 C/C++ 开发，其他语言也有很多 niubility 的插件，本文不述。</p></li><li><p>本文不会从 VSCode 的安装开始讲起，所以需要你至少知道 VSCode 的安装、如何安装插件等基础知识（其实相当于不需要基础了）。</p></li><li><p>如下文，我将我认为必备的 C/C++ 插件分为了 <strong>3</strong> 个阶梯，重要性依次递减，同一阶梯内排名不分先后，因人而异。当然这 3 个阶梯呢，也是我拍脑袋想的。</p></li><li><p>所有插件只做简单描述，点到为止，具体如何使用、如何熟练使用，请自行研究，也可联系作者，非常乐意和您交流。</p></li></ul><p><strong>第一阶梯</strong></p><ul><li><p><strong>C/C++</strong> – 相信这是使用 VSCode 打开 C/C++ 文件第一时间会推荐的插件，也是必不可少的插件。</p></li><li><p><strong>VSCodeVim</strong> – 对于 vimer 来说，唯一转到 VSCode 的原因。</p></li><li><p><strong>ccls</strong> – 对于忍受不了 <code>ctags</code>、<code>gtags</code> 等基于静态符号索引的人来说，基于 <code>LSP</code> 的语义级别的符号检索才是首选。关于两者的区别，可以另外长篇大论了，这里不再赘述，可以参考文后链接博文。不过可以给出的结论是，基于语义的符号检索使用体验大大<strong>优于</strong>基于静态符号的检索。<strong>ccls 的学习需要一点成本，不过绝对是值得的。</strong></p></li></ul><p><strong>第二阶梯</strong></p><ul><li><p><strong>GitLens</strong> – 对于 <code>git</code> 的集成，这一个就够了。</p></li><li><p><strong>Bookmarks</strong> – 配合 <code>Vim</code> 插件，进行部分配置快捷键，达到极流畅的基于标签的快速跳转。</p></li><li><p><strong>Clang-Format</strong> – 可以设定格式器 <code>clang-format</code> 的位置（假如你的项目有自己的格式器，否则用默认即可），并且设置为保存文件是自动格式化。</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">"editor.formatOnSave": true,</span><br><span class="line">"clang-format.executable": "/path/to/clang-format"</span><br></pre></td></tr></table></figure></li></ul><p><strong>第三阶梯</strong></p><ul><li><p><strong>Bracket Pair Colorizer</strong> – 对各种括号加上不同的颜色，对于阅读 C++ 之类的以括号标识作用域的代码，有一定帮助（有彩蛋）。另外还有一个类似的 <strong>Rainbow Brackets</strong> 可以达到这个效果，不过这个<strong>下载量</strong>明显不如 Bracket Pair Colorizer，我认为下载量可以作为插件质量的很重要的衡量标准。</p></li><li><p><strong>TODO Highlight</strong> – 高亮代码中的 <code>TODO</code>, <code>FIXME</code> 等关键字。</p></li><li><p><strong>vscode-icons</strong> – 与 C++ 关系不大，不过能让你的 VSCode 的图标更加丰富，整个 UI 看起来逼格更高。</p></li><li><p><strong>One Monokai Theme</strong> – 我个人认为比较漂亮的主题。</p></li></ul><p>本文没有附带插件的链接，也确实没有必要，VSCode 的插件安装是如此方便。</p><p>大家在使用中有什么好用的插件，也欢迎推荐。</p><p><strong>参考</strong></p><p><a href="https://zhuanlan.zhihu.com/p/31672451" target="_blank" rel="noopener">使用ccls：C++ language server</a></p><p><a href="https://zhuanlan.zhihu.com/p/37290578" target="_blank" rel="noopener">Vim 8 中 C/C++ 符号索引：LSP 篇</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;前言&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;最近从 &lt;code&gt;vim&lt;/code&gt; 转到 &lt;code&gt;VSCode&lt;/code&gt;，在 google 搜索了 &lt;strong&gt;VSCode 中 C++ 插件推荐&lt;/strong&gt; 这样的字眼，结果不
+      
+    
+    </summary>
+    
+    
+      <category term="VSCode" scheme="http://yoursite.com/tags/VSCode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>图解《番茄工作法图解》</title>
     <link href="http://yoursite.com/2019/01/06/%E8%AF%BB%E4%B9%A6/%E5%9B%BE%E8%A7%A3%E3%80%8A%E7%95%AA%E8%8C%84%E5%B7%A5%E4%BD%9C%E6%B3%95%E5%9B%BE%E8%A7%A3%E3%80%8B/"/>
     <id>http://yoursite.com/2019/01/06/读书/图解《番茄工作法图解》/</id>
     <published>2019-01-06T13:44:23.000Z</published>
-    <updated>2019-01-06T15:03:04.711Z</updated>
+    <updated>2019-01-09T00:13:40.523Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="什么是番茄工作法"><a href="#什么是番茄工作法" class="headerlink" title="什么是番茄工作法?"></a>什么是番茄工作法?</h2><img src="/2019/01/06/读书/图解《番茄工作法图解》/何为番茄工作法.png"><ol><li>从“活动清单”挑选待完成的任务</li><li>开启 25 分钟的番茄，开始工作</li><li>休息 5 分钟（每 4 个番茄时间休息 20 min），重复2</li><li>总结反思</li></ol><a id="more"></a><h2 id="番茄工作法的要点"><a href="#番茄工作法的要点" class="headerlink" title="番茄工作法的要点"></a>番茄工作法的要点</h2><img src="/2019/01/06/读书/图解《番茄工作法图解》/番茄工作法核心要点.png"><p>很早之前就接触了番茄工作法，不过认真实践是在差不多最近一年的时间。我认为番茄工作法只有两点最核心的内容：</p><ol><li><p><strong>一次只做一件事。</strong>在一个番茄内，只做一个你自己规划的最小单位的工作。</p><p>这里会遇到 3 种情况：</p><ul><li><p>这个工作刚好在这个番茄内完成。皆大欢喜，赶紧给自己放 5 min中的小假。</p></li><li><p>这项工作在一个番茄内没有做完。你可以安排接下来的番茄继续，或者有更高优先级的待办事项插队，你可以记录一下，完成更高优先级的事情后，接着来做这个工作。</p></li><li>一个番茄还没结束，这项工作就已经做完了。这个时候尝试“过度学习”一下，可以理一下这个番茄的工作思路，反思一下有没有更好的解决办法，或者重复一遍加深印象，都是不错的选择。</li></ul></li><li><p><strong>立即去做。</strong></p></li></ol><hr><p>未完待续。。。</p><h2 id="如何挑选任务？"><a href="#如何挑选任务？" class="headerlink" title="如何挑选任务？"></a>如何挑选任务？</h2><h3 id="从活动清单说起"><a href="#从活动清单说起" class="headerlink" title="从活动清单说起"></a>从活动清单说起</h3><h3 id="今日代办VS活动清单"><a href="#今日代办VS活动清单" class="headerlink" title="今日代办VS活动清单"></a>今日代办VS活动清单</h3><h2 id="怎么对待中断？"><a href="#怎么对待中断？" class="headerlink" title="怎么对待中断？"></a>怎么对待中断？</h2><h2 id="怎样预估每项任务需要的番茄数？"><a href="#怎样预估每项任务需要的番茄数？" class="headerlink" title="怎样预估每项任务需要的番茄数？"></a>怎样预估每项任务需要的番茄数？</h2><h2 id="我们应该总结什么，反思什么？"><a href="#我们应该总结什么，反思什么？" class="headerlink" title="我们应该总结什么，反思什么？"></a>我们应该总结什么，反思什么？</h2>]]></content>
+    <content type="html"><![CDATA[<p>我经历过比较极端的两个职业阶段：</p><ul><li><strong>工作很清闲。</strong>那段时间，公司的主营业务变动，上层领导也是经常变换，导致我们下面干活的人，找不到一个清晰的目标。而我自己，也是整个公司所有员工的状态，就是准点上下班，甚至于上班时间也经常不知道该干什么。在这样的境况下，免不了的就是经常刷手机，明明处于一个“领着工资还可以学习充实自己”的位置，却浪费青春。</li><li><strong>工作极度饱和。</strong>现在的工作状态就是，一天忙得晕头转向，经常迷失于各种需求、功能开发，还有一堆堆的电话会议。虽然看起来非常充实，但是却经常找不到方向，一天下来，总是有一种啥事都没干成的感觉。</li></ul><p>也许你的工作也处于上面状态中的一种，那么番茄工作法是一个具体、切实可行的应对方法。</p><p>很早之前就接触了番茄工作法，也实践了差不多两年的时间。这里将番茄工作法稍微进行总结，主要目标是将知识梳理一下，同时内化为自己知识的一部分。</p><h2 id="什么是番茄工作法"><a href="#什么是番茄工作法" class="headerlink" title="什么是番茄工作法?"></a>什么是番茄工作法?</h2><img src="/2019/01/06/读书/图解《番茄工作法图解》/何为番茄工作法.png"><ol><li>从“活动清单”挑选待完成的任务</li><li>开启 25 分钟的番茄，开始工作</li><li>休息 5 分钟（每 4 个番茄时间休息 20 min），重复2</li><li>2 如果被打断，记录中断原因，视情况是否休息后重新开始 2</li><li>总结反思</li></ol><a id="more"></a><h2 id="番茄工作法的要点"><a href="#番茄工作法的要点" class="headerlink" title="番茄工作法的要点"></a>番茄工作法的要点</h2><img src="/2019/01/06/读书/图解《番茄工作法图解》/番茄工作法核心要点.png"><p>我认为番茄工作法只有两点最核心的内容：</p><ol><li><p><strong>一次只做一件事。</strong>在一个番茄内，只做一个你自己规划的最小单位的工作。</p><p>这里会遇到 3 种情况：</p><ul><li><p>这个工作刚好在这个番茄内完成。皆大欢喜，赶紧给自己放 5 min中的小假。</p></li><li><p>这项工作在一个番茄内没有做完。你可以安排接下来的番茄继续，或者有更高优先级的待办事项插队，你可以记录一下，完成更高优先级的事情后，接着来做这个工作。</p></li><li>一个番茄还没结束，这项工作就已经做完了。这个时候尝试“过度学习”，可以回顾这个番茄的工作思路，反思有没有更好的解决办法，或者重复做一遍加深印象，都是不错的选择。</li></ul></li><li><p><strong>立即去做。</strong>没其他的，就是干。 </p></li></ol><h2 id="如何挑选任务？"><a href="#如何挑选任务？" class="headerlink" title="如何挑选任务？"></a>如何挑选任务？</h2><p>下图是我写这篇文章的一个活动清单和今日待办的小例子。</p><img src="/2019/01/06/读书/图解《番茄工作法图解》/活动清单+今日待办.png"><h3 id="从活动清单说起"><a href="#从活动清单说起" class="headerlink" title="从活动清单说起"></a>从活动清单说起</h3><p>活动清单，指的就是你自己规划的需要做的所有事项。全部罗列出来，可以不用考虑重要程度和优先级，仅仅只是言简意赅的写下来即可。</p><p>所以活动清单应该是一个无限容量（假如你永远不去完成清单上的事情，同时又一直往清单上添加事项）的列表。</p><h3 id="今日待办VS活动清单"><a href="#今日待办VS活动清单" class="headerlink" title="今日待办VS活动清单"></a>今日待办VS活动清单</h3><p>活动清单列完之后，一天的工作开始就是从活动清单中找出最重要的活动，填到今日待办中。</p><p>我们经常听到时间管理的概念，这个挑选活动的过程，其实就是良好的时间管理的基础。</p><p>当我们决定今天要完成哪些事情的时候，就应当用全局的眼光去判断，避免陷入一些琐事当中。</p><h2 id="怎么对待中断？"><a href="#怎么对待中断？" class="headerlink" title="怎么对待中断？"></a>怎么对待中断？</h2><h2 id="怎样预估每项任务需要的番茄数？"><a href="#怎样预估每项任务需要的番茄数？" class="headerlink" title="怎样预估每项任务需要的番茄数？"></a>怎样预估每项任务需要的番茄数？</h2><h2 id="我们应该总结什么，反思什么？"><a href="#我们应该总结什么，反思什么？" class="headerlink" title="我们应该总结什么，反思什么？"></a>我们应该总结什么，反思什么？</h2><h2 id="推荐工具"><a href="#推荐工具" class="headerlink" title="推荐工具"></a>推荐工具</h2><ul><li>活动清单+今日待办：Todoist</li><li>番茄时钟：Pomotodo</li></ul>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;什么是番茄工作法&quot;&gt;&lt;a href=&quot;#什么是番茄工作法&quot; class=&quot;headerlink&quot; title=&quot;什么是番茄工作法?&quot;&gt;&lt;/a&gt;什么是番茄工作法?&lt;/h2&gt;&lt;img src=&quot;/2019/01/06/读书/图解《番茄工作法图解》/何为番茄工作法.png&quot;&gt;
+      &lt;p&gt;我经历过比较极端的两个职业阶段：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;工作很清闲。&lt;/strong&gt;那段时间，公司的主营业务变动，上层领导也是经常变换，导致我们下面干活的人，找不到一个清晰的目标。而我自己，也是整个公司所有员工的状态，就是准点上下班，甚至于上班时间也经常不知道该干什么。在这样的境况下，免不了的就是经常刷手机，明明处于一个“领着工资还可以学习充实自己”的位置，却浪费青春。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工作极度饱和。&lt;/strong&gt;现在的工作状态就是，一天忙得晕头转向，经常迷失于各种需求、功能开发，还有一堆堆的电话会议。虽然看起来非常充实，但是却经常找不到方向，一天下来，总是有一种啥事都没干成的感觉。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;也许你的工作也处于上面状态中的一种，那么番茄工作法是一个具体、切实可行的应对方法。&lt;/p&gt;
+&lt;p&gt;很早之前就接触了番茄工作法，也实践了差不多两年的时间。这里将番茄工作法稍微进行总结，主要目标是将知识梳理一下，同时内化为自己知识的一部分。&lt;/p&gt;
+&lt;h2 id=&quot;什么是番茄工作法&quot;&gt;&lt;a href=&quot;#什么是番茄工作法&quot; class=&quot;headerlink&quot; title=&quot;什么是番茄工作法?&quot;&gt;&lt;/a&gt;什么是番茄工作法?&lt;/h2&gt;&lt;img src=&quot;/2019/01/06/读书/图解《番茄工作法图解》/何为番茄工作法.png&quot;&gt;
 &lt;ol&gt;
 &lt;li&gt;从“活动清单”挑选待完成的任务&lt;/li&gt;
 &lt;li&gt;开启 25 分钟的番茄，开始工作&lt;/li&gt;
 &lt;li&gt;休息 5 分钟（每 4 个番茄时间休息 20 min），重复2&lt;/li&gt;
+&lt;li&gt;2 如果被打断，记录中断原因，视情况是否休息后重新开始 2&lt;/li&gt;
 &lt;li&gt;总结反思&lt;/li&gt;
 &lt;/ol&gt;
     
@@ -486,29 +519,6 @@
     
     
       <category term="C" scheme="http://yoursite.com/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>001_vim源码安装.md</title>
-    <link href="http://yoursite.com/2017/05/04/vim/001_%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85/"/>
-    <id>http://yoursite.com/2017/05/04/vim/001_源码安装/</id>
-    <published>2017-05-04T01:43:03.000Z</published>
-    <updated>2018-12-19T22:43:53.100Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="下载Vim源码"><a href="#下载Vim源码" class="headerlink" title="下载Vim源码"></a>下载Vim源码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/vim/vim.git</span><br><span class="line">或</span><br><span class="line">git clone git@github.com:vim/vim.git</span><br></pre></td></tr></table></figure><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd vim/src</span><br><span class="line"></span><br><span class="line">./configure  --with-compiledby=&quot;longhai&quot; --with-features=huge --enable-pythoninterp=yes </span><br><span class="line">--with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu  --enable-cscope </span><br><span class="line">--enable-perlinterp=yes --enable-rubyinterp=yes --with-luajit --enable-luainterp=yes </span><br><span class="line">--with-lua-prefix=/usr/include/lua5.1 --enable-multibyte --with-x --enable-fail-if-missing</span><br></pre></td></tr></table></figure><p>上面的参数使用 ./configure –help 都可以看到对应用途. 上面使用的参数是增加了对<br>Python, Ruby, Perl, 以及X window的支持.</p><p>建议加上 –enable-fail-if-missing 参数, 以方便定位到哪里依赖缺失.</p><h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><p>这里检查可能通不过, 首先是 lua 和 luajit. 需要执行</p><pre><code>sudo apt-get install lua5.1 liblua5.1-0 liblua5.1-0-dev  luajit libluajit-5.1-dev ruby ruby-dev</code></pre><p>其次注意 Python 的 config 位置.</p><p>最后就是 Perl</p><pre><code>sudo apt-get install libperl-dev.</code></pre><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code>make &amp;&amp; sudo make install</code></pre><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>1：编译的时候找不到python.h ??</p><blockquote><p>编译的vim的时候需要python 支持，有两种一种python2, python3, 若出现此错误都需要安装python2.7-dev<br>或者python3.5-dev，然后重新执行configure ,make ，解决</p></blockquote><p>2: 编译出来的vim 不支持clipboard?</p><blockquote><p>configure 在配置的时候会出现一堆的”checking …”, 会出现”checking if X11 header files can be found…no”.<br>安装libgtk2.0-dev,libgnome2-dev,仍然不行，最后安装libxt-dev， 然后执行:./configure –with-feature=huge<br>–with-x , 然后查看上面的checking if x11 , 尾部是yes， 就可以咯</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;下载Vim源码&quot;&gt;&lt;a href=&quot;#下载Vim源码&quot; class=&quot;headerlink&quot; title=&quot;下载Vim源码&quot;&gt;&lt;/a&gt;下载Vim源码&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=
-      
-    
-    </summary>
-    
-    
-      <category term="vim" scheme="http://yoursite.com/tags/vim/"/>
     
   </entry>
   
