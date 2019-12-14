@@ -287,6 +287,167 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/24/PostgreSQL/kernel/PG增加一个系统表/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="龙海">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="longhai's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/06/24/PostgreSQL/kernel/PG增加一个系统表/" itemprop="url">
+                  PG增加一个系统表
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-06-24 14:28:47" itemprop="dateCreated datePublished" datetime="2016-06-24T14:28:47+08:00">2016-06-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-20 07:16:12" itemprop="dateModified" datetime="2018-12-20T07:16:12+08:00">2018-12-20</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>摘要</p>
+<blockquote>
+<p>pg内核增加一个系统表</p>
+</blockquote>
+<p>1、新增：src/include/catalog/pg_demo_lh.h</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">/*-------------------------------------------------------------------------</span><br><span class="line"> *</span><br><span class="line"> * pg_demo_lh.h</span><br><span class="line"> *</span><br><span class="line"> * add a catalog table.</span><br><span class="line"> *</span><br><span class="line"> * src/include/catalog/pg_demo_lh.h</span><br><span class="line"> *</span><br><span class="line"> *-------------------------------------------------------------------------</span><br><span class="line"> */</span><br><span class="line"><span class="meta">#ifndef PG_DEMO_LH_H</span></span><br><span class="line"><span class="meta">#define PG_DEMO_LH_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#include "catalog/genbki.h"</span></span><br><span class="line"></span><br><span class="line">/* ----------------</span><br><span class="line"> *              pg_demo_lh definition.  cpp turns this into</span><br><span class="line"> *              typedef struct FormData_pg_demo_lh</span><br><span class="line"> * ----------------</span><br><span class="line"> */</span><br><span class="line"><span class="meta">#define DemoLhRelationId      7000</span></span><br><span class="line"></span><br><span class="line">CATALOG(pg_demo_lh,<span class="number">7000</span>)</span><br><span class="line">&#123;</span><br><span class="line">        int32 id;</span><br><span class="line">&#125; FormData_pg_demo_lh;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/* ----------------</span><br><span class="line"> *              Form_pg_demo_lh corresponds to a pointer to a tuple with</span><br><span class="line"> *              the format of pg_demo_lh relation.</span><br><span class="line"> * ----------------</span><br><span class="line"> */</span><br><span class="line">typedef FormData_pg_demo_lh *Form_pg_demo_lh;</span><br><span class="line"></span><br><span class="line">/* ----------------</span><br><span class="line"> *              compiler constants for pg_demo_lh</span><br><span class="line"> * ----------------</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"><span class="meta">#define Natts_pg_demo_lh                                1</span></span><br><span class="line"><span class="meta">#define Anum_pg_demo_lh_id                              1</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#endif   /* PG_DEMO_LH_H */</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/06/24/PostgreSQL/kernel/PG增加一个系统表/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/24/PostgreSQL/tools/codelines/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -955,7 +1116,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-count">35</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
